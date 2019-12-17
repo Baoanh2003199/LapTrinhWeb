@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 14px;
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.formLogin {
+  width: 30%;
+  height: 400px;
+  background: rgb(244, 239, 211, 0.3);
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  transition: 1s all;
+  box-shadow: 0.5px 0.5px 0px 1px slategrey;
+  border-radius: 2%;
+}
+.titleLogin {
+  width: 70%;
+  height: 20%;
+  margin: 1rem auto;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  letter-spacing: 0.2rem;
+  font-size: 150%;
+  font-weight: bold;
+  transition: 1s all;
+}
+.titleLogin:hover {
+  color: whitesmoke;
+}
+.formlg {
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+}
+.lbName {
+  float: left;
+  width: 32%;
+  margin-left: 3%;
+  font-size: 120%;
+  font-weight: 500;
+}
+input[type="text"] {
+  float: left;
+  margin-left: 5%;
+  width: 50%;
+  height: 50%;
+  text-indent: 2%;
+  margin-top: 1%;
+}
+.formlg i {
+  float: right;
+  margin-top: 3%;
+  margin-right: 5%;
+}
+.clearFloat {
+  clear: both;
+}
+.rowForm {
+  width: 100%;
+  height: 15%;
+  margin-top: 4%;
+}
+.fa-check {
+  color: green;
+}
+.fa-times {
+  color: red;
+}
+.rowBtn {
+  width: 80%;
+  height: 20%;
+  margin: 0 auto;
+}
+.rowBtn input[type="button"] {
+  display: inline;
+  margin: 5% 10%;
+}

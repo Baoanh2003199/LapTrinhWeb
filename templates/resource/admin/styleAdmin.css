@@ -1,0 +1,189 @@
+* {
+  padding: 0%;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 20rem;
+  font-size: 14px;
+}
+.bg-light {
+  background-color: rgba(72, 117, 146, 0.3) !important;
+}
+.dropdown-item {
+  background-color: rgba(72, 117, 146, 0) !important;
+}
+.lbForAdmin {
+  min-width: 9rem;
+  height: 100%;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+.main {
+  width: 99%;
+  min-height: 5rem;
+  display: block;
+  overflow: auto;
+  background: #f5f7f7 !important;
+  margin: 0rem auto;
+}
+.left {
+  width: 20%;
+  min-height: 90vh;
+  background: rgba(72, 117, 146, 0.3);
+  float: left;
+  margin-left: 1%;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+.right {
+  width: 78%;
+  min-height: 90vh;
+  float: left;
+  margin-left: 1%;
+  margin-top: 0.5em;
+}
+.footer {
+  top: 100%;
+  width: 100%;
+  min-height: 3rem;
+  background: silver;
+  margin-top: 1rem;
+}
+.menuTitle {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1%;
+  font-size: 150%;
+  text-transform: uppercase;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid rgb(163, 163, 163);
+  transition: 0.5s all;
+}
+.menuTitle:hover {
+  color: #f5f7f7;
+}
+.dropdown-menu {
+  padding: 0;
+}
+.listMenu {
+  width: 100%;
+  min-height: 900px;
+  font-size: 120%;
+  display: block;
+}
+li {
+  width: 100%;
+  list-style: none;
+}
+.left a {
+  text-indent: 1rem;
+  height: 110%;
+  line-height: 2rem;
+  display: block;
+  border-bottom: 0.5px solid rgb(163, 163, 163);
+  text-decoration: none;
+  font-weight: 120%;
+  transition: 0.5s all;
+  color: black;
+}
+.childUL {
+  display: none;
+  transition: 1s all;
+}
+.childUL a {
+  text-indent: 10%;
+}
+ul a:hover,
+ul a:hover .childUL {
+  background: cadetblue;
+  color: white;
+  font-weight: 600;
+}
+.iconMenu {
+  width: 2%;
+  height: 50px;
+  position: absolute;
+  top: 3%;
+  text-align: center;
+  font-size: 140%;
+  display: none;
+  cursor: pointer;
+}
+.listMenu i {
+  float: right;
+  margin-right: 2rem;
+}
+.rightAffterClick {
+  width: 97%;
+  margin-left: 2%;
+}
+.titleRight {
+  width: 100%;
+  min-height: 0.5rem;
+  /* background: blue; */
+}
+.path {
+  border-bottom: 1px solid gray;
+}
+.panel {
+  background: rgba(72, 117, 146, 0.4);
+  border-radius: 5px;
+  height: 3rem;
+  line-height: 3rem;
+}
+.titleName {
+  width: 56%;
+  height: 1rem;
+  /* background: green; */
+  display: inline-block;
+  font-size: 110%;
+  text-align: right;
+}
+.titleName a {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.titlePage {
+  width: 40%;
+  min-height: 1rem;
+  /* background: yellow; */
+  font-size: 140%;
+  text-transform: uppercase;
+  text-indent: 2rem;
+  font-weight: bold;
+  display: inline-block;
+}
+.titleForm {
+  width: 100%;
+  height: 15%;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1%;
+}
+form {
+  width: 80%;
+  margin: 2% auto;
+}
+.searchForm {
+  font-size: 120%;
+}
+.itemSearch {
+  font-size: 140%;
+  float: left;
+}
+.search {
+  width: 70%;
+  float: left;
+  margin-left: 2%;
+}
+.searchForm i {
+  margin-top: 1%;
+  font-size: 140%;
+  margin-left: 2%;
+}
