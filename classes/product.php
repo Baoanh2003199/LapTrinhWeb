@@ -68,8 +68,7 @@ class Product
   }
   public function show_newProduct()
   {
-    $sql = "SELECT * FROM Products order by ProductID desc LIMIT 6ear
-    ";
+    $sql = "SELECT * FROM Products order by ProductID desc LIMIT 6";
     $result = $this->db->select($sql);
     return $result;
   }

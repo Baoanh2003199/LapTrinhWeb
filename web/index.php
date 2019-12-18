@@ -70,9 +70,9 @@ $pro = new Product();
     <div class="carousel-inner">
       <div class="carousel-item active">
         <?php
-                                            $SHOW_NEW = $pro->show_newProduct();
-                                            if ($SHOW_NEW) {
-                                              while ($result = $SHOW_NEW->fetch_assoc()) {
+            $SHOW_NEW = $pro->show_newProduct();
+            if ($SHOW_NEW) {
+            while ($result = $SHOW_NEW->fetch_assoc()) {
         ?>
         <div class="col-sm-3 itemProduct">
           <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
@@ -104,5 +104,5 @@ $pro = new Product();
 </div>
 <!-- End Main -->
 <?php
-                                            include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
 ?>

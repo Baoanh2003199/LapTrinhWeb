@@ -1,10 +1,10 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/classes/product.php';
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/classes/Supplier.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/Supplier.php';
 
-$pro=new product();
-$supp=new supplier();
+$pro = new product();
+$supp = new supplier();
 if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
   echo "fail";
 } else {
@@ -24,15 +24,17 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
       <h4>Nhà sản xuất</h4>
       <ul>
         <?php
-          $show_supp=$supp->$show_supp();
-          if($show_supp){
-            while($result=$show_supp->fetch_assoc()){
-         ?>
-            <a href="supplier.php=<?php echo $result['SupplierID']; ?>"><li><?php echo $result['SupplierName']; ?></li></a>
+        $show_supp = $supp->$show_supp();
+        if ($show_supp) {
+          while ($result = $show_supp->fetch_assoc()) {
+        ?>
+        <a href="supplier.php=<?php echo $result['SupplierID']; ?>">
+          <li><?php echo $result['SupplierName']; ?></li>
+        </a>
         <?php
             }
           }
-         ?>
+        ?>
       </ul>
     </div>
     <div class="rightBlock">
@@ -40,12 +42,12 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
         <h4><?php echo $result['SupplierName']; ?></h4>
       </div>
       <?php
-          $showProSupp=$pro->show_pro_supp($idPro,$idSupp);
-          if($showProSupp){
-            while($result=$showProSupp->fetch_assoc()){
+        $showProSupp = $pro->show_pro_supp($idPro, $idSupp);
+        if ($showProSupp) {
+        while ($result = $showProSupp->fetch_assoc()) {
       ?>
       <div class="col-sm-3 itemProduct">
-          <a href="#">
+        <a href="#">
           <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
           <br>
           <span class="description"><?php echo $result['ProductID']; ?></span><br>
@@ -54,9 +56,9 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
         </a>
       </div>
       <?php
-          }
+            }
         }
-       ?>
+      ?>
     </div>
   </div>
   <div class="blockDiv">
@@ -73,43 +75,43 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
         <li data-target="#demo" data-slide-to="2"></li>
       </ul>
 
-        <div class="carousel-item">
-          <?php
-            $show_pro_supp_sell=$show_pro_supp_sell($idPro,$idSupp);
-            if($show_pro_supp_sell){
-              while($result=$show_pro_supp_sell->fetch_assoc()){
-          ?>
-          <div class="col-sm-3 itemProduct">
-            <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
-              <img src="../admin/uploads/<?php echo $result[Img]; ?>" class="img_produt" alt="">
-              <br>
-              <span class="description"><?php echo $result['ProductName']; ?></span><br>
-              <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-              <span class="views">Lượt xem:<?php echo $result['Views']; ?> </span><br>
-            </a>
-          </div>
-              <?php
-                  }
-                }
-              ?>
+      <div class="carousel-item">
+        <?php
+            $show_pro_supp_sell = $show_pro_supp_sell($idPro, $idSupp);
+            if ($show_pro_supp_sell) {
+            while ($result = $show_pro_supp_sell->fetch_assoc()) {
+        ?>
+        <div class="col-sm-3 itemProduct">
+          <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
+            <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+            <br>
+            <span class="description"><?php echo $result['ProductName']; ?></span><br>
+            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+            <span class="views">Lượt xem:<?php echo $result['Views']; ?> </span><br>
+          </a>
         </div>
+        <?php
+              }
+          }
+        ?>
       </div>
-
-      <!-- Left and right controls -->
-      <a class="carousel-control-prev" href="#newSlide" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#newSlide" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-
     </div>
 
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#newSlide" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#newSlide" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+
   </div>
+
+</div>
 </div>
 
 <!-- End Main -->
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
 ?>
