@@ -11,16 +11,22 @@ include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
             </div>
             <img src="../img/product/product1.jpg" alt="">
             <div class="details">
-                <span class="productName">Sản phảm bàn ủi</span><br>
+                <span class="productName">Bàn Ủi Khô Philips HD1172</span><br>
                 <span class="detailsViews"> 2 lượt xem</span>
-                <span class="detailsViews last"> 2 đã bán </span><br><br>
-                <span class="price"> 23232 VND</span><br>
+                <span class="detailsViews last"> 2 đã bán </span><br>
+                <div class="divPrice">
+                <span class="price"> 230.000 VND</span><br>
+                </div>
                 <span class="inforProduct">Mô tả: </span><br><br>
                 <span class="inforProduct">Nhà sản xuất: </span><br><br>
                 <span class="inforProduct">Xuất xứ: </span><br><br>
+  
                 <form action="#" method="GET">
-                    <input type="number" id="txtNum" name="txtNum">
-                    <input type="submit" class="btn btn-light" value="Thêm vào giỏ hàng">
+                <div class="form-group">
+                <span class="inforProduct">Số lượng: </span><br>
+                    <input type="number" id="txtNum" name="txtNum" min="1" value="1" class="inumber">
+                    <button type="submit" class="btn btn-primary" style="width: 200px"> <i class="fas fa-shopping-cart"></i> Chọn mua</button>
+                    </div>
                 </form>
             </div>
             <div class="clearFloat"></div>
