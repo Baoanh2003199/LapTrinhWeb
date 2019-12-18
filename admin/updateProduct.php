@@ -11,15 +11,8 @@ if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
 }
 $product = new Product();
 if ($_SERVER[' REQUEST_METHOD'] == 'POST') {
-  $ProductName = $_POST['ProductName'];
-  $Price = $_POST['Price'];
-  $Views = $_POST['Views'];
-  $SellNumber = $_POST['SellNumber'];
-  $Origin = $_POST['Origin'];
-  $Img = $_POST['Img'];
-  $Description = $_POST['Description'];
-  $Status = $_POST['Status'];
-  $updateProd = $product->update_category($ProductName, $Price, $Views, $SellNumber, $Originm, $Img, $Description, $Status, $id);
+
+  $updateProd = $product->update_product($_POST,$_FILES,$id);
 }
 ?>
 <div class="titleRight path">
@@ -36,7 +29,7 @@ $get_Name = $product->getProductID($id);
 if (isset($get_Name)) {
   while ($result = $get_Name->ferch_assoc()) {
     ?>
-    <form enctype="multipart/form-data">
+    <form enctype="multipart/form-data" method="POST">
       <div class="titleForm">Cập nhật sản phẩm</div>
       <div class="form-group">
         <div class="itemForm">Tên sản phẩm</div>
