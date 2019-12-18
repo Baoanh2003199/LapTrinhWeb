@@ -1,126 +1,455 @@
-.header1 {
-  background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
-  float: left;
-  width: 100%;
-  min-height: 15px;
-  color: white;
+*{
+    padding: 0;
+    margin: 0;
 }
-.hlinktext {
-  float: right;
-  margin-right: 3%;
-  color: white;
+body{
+    height: 100%;
+    font-size: 15px;
 }
-.regdivhead {
-  font-weight: bold;
-  color: dodgerblue;
+ul li{
+    list-style: none;
 }
-.categorydiv {
-  background-color: white;
-  width: 20%;
-  height: 71%;
-  float: left;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #636363;
-  border-radius: 5px;
-  padding: 20px;
+.header{
+    width: 100%;
+    min-height: 100px;
+    background: rgb(24, 158, 255);
+    transition: all 1s;
+}
+.main{
+    width: 98%;
+    min-height: 300px;
+   
+    margin: 0 auto;
+}
+.footer{
+    width: 100%;
+    height: 30px;
+    background: #f5f5f5;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.upHeader{
+    width: 100%;
+    height: 50px;
+    padding-top: 0.5rem;
+    color:cornsilk;
+}
+.leftUp{
+    width: 15%;
+    height: 100%;
+    font-size: 120%;
+    display:  inline-block;
+    float: left;
+}
+.leftUp a{
+    margin-left: 2rem;
+    margin-top: 0.3rem;
+    color:cornsilk;
+}
+.leftUp i{
+    transition: all 1s;
+}
+.leftUp a:hover i, .leftUp a:active{
+    color: black;
+    font-size: 150%;
+}
+.rightUp{
+    width: 30%;
+    height: 100%;
+    display:  inline-block;
+    float: left;
+}
+.middleHeader{
+    width: 45%;
+    height: 100%;
+    float: left;
+    font-size: 150%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+.middleHeader a{
+    color: cornsilk;
+    text-decoration: none;
+}
+.middleHeader a:hover{
+    color: black;
+}
+.slider{
+    width: 70%;
+    min-height: 300px;
+    margin: 1rem auto;
+}
+.slider img{
+    margin-left: 15%;
+}
+.btnHeader{
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    float: right;
+    margin-right: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+.btnHeader a{
+    color: cornsilk;
+    text-decoration:none;
+}
+.searchBar{
+    width: 50%;
+    height: 100%;
+    font-size: 90%;
+    float: left;
+    margin: 1rem;
+}
+.searchBar input{
+    height: 2rem;
+}
+.searchBar input[type=text]{
+    width:80% ;
+}
+.btnSearch{
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+#iconSearch{
+    font-size: 120%;
+    float: left;
+}
+.btnSearch a{
+    color: cornsilk;
+}
+.btnSearch a:hover{
+    color: black;
+}
+.cart{
+    width: 30%;
+    font-size: 130%;
+    float: left;
+    color: cornsilk;
+    margin-left: 4.5rem;
+    
+}
+.sCart{
+    width: 45%;
+    margin-top: 0.4rem;
 }
 
-.Fixed {
-  position: fixed;
-}
-
-.body1 {
-  background-color: #fcfcfc;
-}
-
-.itemdiv {
-  background-color: white;
-  float: right;
-  width: 77%;
-  margin-right: 1%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #8f8f8d;
-  border-radius: 5px;
-  border: 1px solid #8f8f8d;
-  padding: 20px;
-  min-height: 71%;
-}
-
-.custom-scrollbar {
-  overflow: auto;
-  top: 17%;
-  left: 1%;
-}
-.table-wrapper-scroll-y {
-  display: block;
-}
 .badge {
-  padding-left: 9px;
-  padding-right: 9px;
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 12px;
+      background: #ff0000;
+      color: #fff;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -10px; 
+  }
+  .clearFloat{
+      clear: both;
+  }
+  .menu{
+      width: 100%;
+      min-height: 45px;
+    background: rgb(24, 158, 255,0.7) !important ;
+  }
+  .menu a{
+      color:black;
+      text-decoration: none;
+      transition: all 1s;
+  }
+  .menu ul{
+      margin-left: 10%;
+  }
+  .menu ul li{
+      list-style: none;
+      display: inline-block;
+      width: 20%;
+      height: 45px;
+      text-align: center;
+      line-height: 45px;
+      margin-left: 0.5%;
+      font-weight: 700;
+  }
+  .menu ul li:hover{
+      background-color: rgb(60, 157, 208,0.7);
+      color: white;
+      font-size: 101%;
+  }
+  .carousel-control-prev, .carousel-control-next{
+      width: 3%;
+  }
+  .carousel-control-prev-icon{
+    background-image: url('/img/arrow/seta_prim.png');
+    font-size: 140%;
+ }
+ .carousel-control-next-icon{
+   background-image: url('/img/arrow/seta_ult.png');
+ }
+ .col-sm-3{
+     width: 22% !important;
+ }
+ .blockDiv{
+     margin-top: 2%;
+     min-height: 30px;
+     background: rgb(239, 239, 239);
+     border-radius: 1rem;
+     overflow: auto;
+ }
+ .itemProduct{
+     min-height: 250px;
+     background: rgb(255, 255, 255);
+     text-align: center;
+     font-size: 105%;
+     font-weight: 500;
+     margin-top: 1%;
+     margin-left: 3%;
+     display: inline-block;
+    border-radius: 2%;
+    transition: all 1s;
+    margin-bottom: 1rem;
+    padding-bottom: 2%;
+ }
+.itemProduct a{
+    text-decoration: none;
 }
-
-.label-warning[href],
-.badge-warning[href] {
-  background-color: #c67605;
+ .itemProduct:hover{
+    -webkit-box-shadow: 2px 6px 15px 1px rgba(0,0,0,0.53);
+    -moz-box-shadow: 2px 6px 15px 1px rgba(0,0,0,0.53);
+    box-shadow: 2px 6px 15px 1px rgba(0,0,0,0.53);
+ }
+ .img_produt{
+     width: 100%;
+     margin-left: 0%;
+     margin-top: 2%;
+ }
+.titleMain{
+    width: 40%;
+    height: 5%;
+    margin-left: 2%;
+    padding: 1rem 0;
 }
-#lblCartCount {
-  font-size: 12px;
-  background: #ff0000;
-  color: #fff;
-  padding: 0 5px;
-  margin-top: -2rem;
-  margin-left: -3.3rem;
-  transform: translate(0, -0.9rem);
+.leftBlock{
+    width: 25%;
+   height: 400px;
+    background: rgb(24, 158, 255,0.8);
+    float: left;
+    margin: 1rem;
 }
-.header1 i {
-  font-size: 240%;
+.rightBlock{
+    width: 70%;
+    min-height: 400px;
+    float: left;
+    margin: 1rem;
+}.leftBlock a{
+    color: black;
+    text-decoration: none;
 }
-.titleLogin {
-  width: 100%;
-  min-height: 3%;
-  float: right;
+.leftBlock li{
+    width: 100%;
+    height: 40px;
+    text-indent: 2rem;
+    line-height: 30px;
+    font-size: 120%;
+    border-top: 0.1px solid white;
 }
-.logo {
-  width: 25%;
-  min-height: 3%;
-  float: left;
+.leftBlock li:hover{
+    background-color: rgb(24, 158, 255);
 }
-.logo img {
-  margin-left: 5%;
-  margin-top: 2%;
-  float: left;
-  height: 100px;
-  width: 150px;
+.leftBlock h4{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    text-align: center; 
+    font-weight: 700;
 }
-.logo h3 {
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-top: 7%;
+.imgDetails{ 
+    width: 85%;
+    min-height: 300px;
+    background: rgb(255, 255, 255);
+    margin: 0.2% auto;
+    border-radius: 1%;
 }
-.searchBar {
-  width: 65%;
-  min-height: 3%;
-  float: left;
+.imgDetails img{
+    width: 350px;
+    height: 350px;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    float: left;
 }
-.searchBar .form-group {
-  margin: 3%;
+.details{
+    width: 50%;
+    height: 350px;
+    float: left;
+    margin-left: 5%;
+    border-left: 0.1px solid gray;
+    padding-left: 2rem;
 }
-.searchBar input[type="text"] {
-  float: left;
-  width: 85%;
+.productName{
+    font-size: 150%;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid gray;
+    border-width: 100%;
 }
-.cart {
-  width: 10%;
-  height: 75%;
-  float: left;
+.detailsViews{
+    width: 20%;
+    height: 6%;
+    display: inline-block; 
+    text-align: center;
+    font-size: 90%;
 }
-/* .cart i {
-  color: white;
-  margin: 20%;
-} */
+.last{
+    border-left: 0.5px solid gray;
+}
+.inforProduct{
+    font-size: 110%;
+}
+.price{
+    font-size: 120%;
+    color: cornflowerblue;
+}
+.btn-light{
+    border-color:dodgerblue;
+    width: 30%;
+    margin-left: 2rem;
+    margin-top: 0;
+}
+#txtNum{
+    width: 14%;
+    height: 2rem;
+    text-align: center;
+}
+.cartLeft{
+    width: 65%;
+    min-height: 320px;
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 3%;
+}
+.cartRight{
+    width: 30%;
+    min-height: 300px;
+    background: rgb(255, 255, 255);
+    float: left;
+    margin-left: 2%;
+}
+.itemCart{
+    width: 100%;
+    height: 175px;
+    display: block;
+    background: rgb(255, 255, 255);
+    margin-bottom: 2%;
+}
+.itemCart img{
+    width: 20%;
+    float: left;
+}
+.carDetails{
+    width: 45%;
+    height: 100%;
+    float: left;
+    margin-left: 2%;
+}
+.cartAction{
+    width: 30%;
+    height: 100%;
+    float: left;
+    margin-left: 2%;
+}
+.cartAction input[type=number]{
+    width: 25% !important;
+    margin-left:10%;
+}
+.cartAction input[type=submit]{
+    width: 35%
+}
+.uperRight{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid gray;
+}
+.subtotal{
+    width: 20%;
+    margin-left: 20%;
+    margin-top: 5%;
+    display: block;
+    float: left;
+}
+.subPrice{
+    width: 20%;
+    margin-left: 2%;
+    margin-top: 5%;
+    display: block;
+    float: left;
+    font-size: 90%;
+}
+.itemRight{
+    width: 100%;
+    height: 50px;
+    display: block;
+    margin-top: 10%;
+}
+.grandtotal{
+    width: 35%;
+    margin-left: 2%;
+    font-size: 150%;
+}
+.grandPrice{
+    font-size: 150%;
+    color: brown;
+}
+.cartRight .btn-danger{
+    width: 97% ;
+    margin-left: 1.5%;
+}
+.orderList{
+    width: 98%;
+    margin:0 auto;
+    background: rgb(255, 255, 255);
+    margin-bottom: 5%;
+    color: black;
+}
+.orderList tr:hover{
+    background: rgba(0,0,0,0.4);
+    color: white;
+}
+.orderList a{
+    color: white;
+    text-decoration: none;
+}
+#paymentDiv{
+    width: 60%;
+    height: 500px;
+    background: rgb(33, 162, 255);
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    display: block;
+    z-index: 20;
+    border-radius: 1%;
+}
+#paymentDiv .titleMain{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 200%;
+}
+.leftOrder{
+    width: 40%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
