@@ -38,7 +38,7 @@ class adminlogin
         Session::set("AdminUser", $value['AdminUser']);
         header("Location:index.php");
       } else {
-        $alert = "user and pass no match";
+        $alert = "user and pass not match";
         return $alert;
       }
     }

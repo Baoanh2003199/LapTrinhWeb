@@ -20,7 +20,7 @@ body {
 }
 .formLogin {
   width: 30%;
-  height: 400px;
+  height: 350px;
   background: rgb(244, 239, 211, 0.3);
   position: absolute;
   top: 15%;
@@ -28,6 +28,7 @@ body {
   transition: 1s all;
   box-shadow: 0.5px 0.5px 0px 1px slategrey;
   border-radius: 2%;
+  color: whitesmoke;
 }
 .titleLogin {
   width: 70%;
@@ -86,7 +87,7 @@ input[type="text"] {
 .rowBtn {
   width: 80%;
   height: 20%;
-  margin: 0 auto;
+  margin: 20px;
 }
 .rowBtn input[type="button"] {
   display: inline;

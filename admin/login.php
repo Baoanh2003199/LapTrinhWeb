@@ -48,12 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           <i class="fas fa-times"></i>
           <div class="clearFloat"></div>
         </div>
+        <center>
         <div class="rowBtn">
-          <input type="submit" class="btn btn-light" value="Đăng nhập" />
-          <input type="submit" class="btn btn-light" value="Trở về" />
+          <input type="submit" class="btn btn-primary" value="Đăng nhập" />
+          <input type="submit" class="btn btn-danger" value="Trở về" />
         </div>
+        </center>
         </form>
+        <center>
+        <p>Bạn chưa đăng ký tài khoản ?</p>
+        <a>Click vào đây để đăng ký</a>
+        </center>
+        
       </div>
+ 
     </div>
   </div>
   <script src="../templates//vendor/jquery/jquery-3.4.1.min.js"></script>
