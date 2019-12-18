@@ -74,13 +74,13 @@
       </ul>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../img/slide/clothes-on-sale-2292953.jpg" alt="Los Angeles">
+          <img src="../img/slide/clothes-on-sale-2292953.jpg" alt="Los Angeles">
         </div>
         <div class="carousel-item">
-          <img src="../../img/slide/man-wearing-pink-polo-shirt-with-text-overlay-1114376.jpg" alt="Chicago">
+          <img src="../img/slide/man-wearing-pink-polo-shirt-with-text-overlay-1114376.jpg" alt="Chicago">
         </div>
         <div class="carousel-item">
-          <img src="../../img/slide/silver-iphone-6-on-brown-board-821222.jpg" alt="New York">
+          <img src="../img/slide/silver-iphone-6-on-brown-board-821222.jpg" alt="New York">
         </div>
       </div>
 
