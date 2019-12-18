@@ -1,11 +1,9 @@
 <?php
-include_once "inc/header.php";
-?>
-<?php
-include_once "../classes/supplier.php";
-include_once "../helper/format.php";
-include_once "../lib/database.php";
-include_once "../lib/session.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/supplier.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/helper/format.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/database.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 ?>
 <?php
 $supp = new supplier();
@@ -53,5 +51,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>

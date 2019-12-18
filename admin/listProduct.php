@@ -1,20 +1,12 @@
 <?php
-include_once "inc/header.php";
-include_once "../classes/product.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/product.php';
 ?>
 <?php
-$pro = new Product();
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  $ProductName = $_POST['ProductName'];
-  $Price = $_POST['Price'];
-  $Views = $_POST['Views'];
-  $SellNumber = $_POST['SellNumber'];
-  $Origin = $_POST['Origin'];
-  $Img = $_POST['Img'];
-  $Description = $_POST['Description'];
-  $Status = $_POST['Status'];
-
-  $insert_Pro = $pro->insert_product($ProductName, $Price, $Views, $SellNumber, $Origin, $Img, $Description, $Status);
+$pro = new product();
+if (!isset($_GET['delID'])) {
+  $id = $_GET['delID'];
+  $delPro = $pro->del_product($id);
 }
 ?>
 <div class="titleRight path">
@@ -23,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </div>
 <div class="titleForm">Danh sách sản phẩm</div>
 <?php
-if (isset($insert_Pro)) {
-  echo $insert_Pro;
+if (isset($delPro)) {
+  echo $delPro;
 }
 ?>
 <form class="searchForm">
@@ -49,24 +41,36 @@ if (isset($insert_Pro)) {
     </tr>
   </thead>
   <tbody>
+    <?php
+        $show_pro=$pro->show_product();
+        if($show_pro){
+          $i=0;
+          while($resut=$show_pro->fetch_assoc()){
+            $i++;
+     ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $i; ?></th>
+      <td><?php echo $resut['ProductName']; ?></td>
+      <td><?php echo $resut['Price']; ?></td>
+      <td><?php echo $resut['Oirgin']; ?></td>
+      <td><img src="uploads/<?php echo $resut['Img']; ?>"/></td>
+      <td><?php echo $resut['CategoryID']; ?></td>
+      <td><?php echo $resut['SupplierID']; ?></td>
+      <td><?php echo $resut['Description']; ?></td>
       <td>
-        <a href="updateProduct.php" class="btn btn-info">Cập nhật</a>
-        <a href="updateCategory.php" class="btn btn-danger">Xóa</a>
+        <a href="updateProduct.php?ProductID=<?php echo $result['ProductID']; ?>" class="btn btn-info">Cập nhật</a>
+        <a onclick="return confirm('are you delete')" href="?delID=<?php $result["ProductID"] ?>" class="btn btn-danger">Xóa</a>
       </td>
     </tr>
+    </tr>
+    <?php
+        }
+      }
+     ?>
   </tbody>
 </table>
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
 ?>

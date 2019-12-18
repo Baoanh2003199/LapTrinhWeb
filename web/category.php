@@ -1,5 +1,10 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
+
+    $pro=new product();
+    $cat=new category();
 ?>
 
     <!-- Main -->
@@ -19,96 +24,24 @@
                 <div class="titleMain">
                     <h4>ghi tên loại</h4>
                 </div>
+                <?php
+                  $show_pro=$pro->show_product();
+                  if($show_pro){
+                    while($result=$show_pro->fetch_assoc()){
+                ?>
                 <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
+                    <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+                        <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
                         <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
+                        <span class="description"><?php echo $result['ProductName']; ?></span><br>
+                        <span class="price">Giá: <?php echo $result['ProductName']; ?> vnd</span><br>
+                        <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
                     </a>
                 </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
-                <div class="col-sm-3 itemProduct">
-                    <a href="#">
-                        <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                        <br>
-                        <span class="description">Sản phảm 1</span><br>
-                        <span class="price">Giá: 777 vnd</span><br>
-                        <span class="views">Lượt xem:</span><br>
-                    </a>
-                </div>
+                <?php
+                    }
+                  }
+                ?>
             </div>
         </div>
         <div class="blockDiv">
@@ -126,118 +59,45 @@
                 </ul>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
+                    <?php
+                      $show_sell=$pro->show_SellNumber();
+                      if($show_sell){
+                        while($result=$show_sell->fetch_assoc()){
+                     ?>
                     <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
+                        <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+                            <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
+                            <span class="description"><?php echo $result['ProductName']; ?></span><br>
+                            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+                            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
                         </a>
+
                     </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
+                    <?php
+                        }
+                      }
+                     ?>
                   </div>
                   <div class="carousel-item">
+                    <?php
+                        $show_sell=$pro->show_SellNumber();
+                        if($show_sell){
+                          while ($result=$show_sell->fetch_assoc()) {
+                     ?>
                     <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
+                        <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+                            <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
+                            <span class="description"><?php echo $result['ProductName']; ; ?></span><br>
+                            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+                            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
                         </a>
                     </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 itemProduct">
-                        <a href="#">
-                            <img src="../img/product/product1.jpg" class="img_produt" alt="">
-                            <br>
-                            <span class="description">Sản phảm 1</span><br>
-                            <span class="price">Giá: 777 vnd</span><br>
-                            <span class="views">Lượt xem:</span><br>
-                        </a>
-                    </div>
+                    <?php
+                        }
+                      }
+                     ?>
                   </div>
                 </div>
 

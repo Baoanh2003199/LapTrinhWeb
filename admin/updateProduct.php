@@ -1,6 +1,6 @@
 <?php
-include_once "inc/header.php";
-include_once "../classes/product.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/product.php';
 ?>
 
 <?php
@@ -87,5 +87,5 @@ if (isset($get_Name)) {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
 ?>

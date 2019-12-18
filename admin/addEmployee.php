@@ -1,6 +1,6 @@
 <?php
-include_once "inc/header.php";
-include_once "../classes/employee.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/employee.php';
 ?>
 
 <?php
@@ -63,5 +63,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
-include_once "inc/header.php";
-include_once "../classes/employee.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/employee.php';
 ?>
 <?php
 $emp = new supplier();
@@ -71,4 +71,5 @@ if (isset($delEmp)) {
 </div>
 <?php
 include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
 ?>

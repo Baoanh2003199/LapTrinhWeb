@@ -1,7 +1,6 @@
 <?php
-include_once "../lib/database.php";
-include_once "inc/header.php";
-include_once "../classes/employee.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/employee.php';
 ?>
 <?php
 if (!isset($_GET['EmployeeID']) || $_GET['EmployeeID'] == null) {
@@ -10,7 +9,7 @@ if (!isset($_GET['EmployeeID']) || $_GET['EmployeeID'] == null) {
   $id = $_GET['EmployeeID'];
 }
 $emp = new employee();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $empName = $_POST['Name'];
   $empAddress = $_POST['Address'];
   $empPhone = $_POST['Phone'];
@@ -86,5 +85,5 @@ if ($get_emp) {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
 ?>

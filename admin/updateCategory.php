@@ -1,5 +1,5 @@
 <?php
-include_once "../classes/category.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/category.php';
 ?>
 
 <?php
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <?php
-include_once "inc/header.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
 ?>
 <div class="titleRight path">
   <a href="index.html">home</a> >
@@ -70,5 +70,5 @@ if ($get_Name) {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
 ?>

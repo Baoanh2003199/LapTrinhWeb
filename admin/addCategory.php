@@ -1,5 +1,5 @@
 <?php
-include_once "../classes/category.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
 ?>
 
 <?php
@@ -48,4 +48,5 @@ include_once "inc/header.php";
 </div>
 <?php
 include_once "inc/footer.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>

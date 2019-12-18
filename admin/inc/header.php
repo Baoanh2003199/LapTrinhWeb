@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']."/QQA-LapTrinhWeb/lib/session.php";
-// Session::checkSession();
+Session::checkSession();
 ?>
 
 <!DOCTYPE html>

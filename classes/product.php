@@ -66,15 +66,37 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
-  public function show_newProduct($id)
+  public function show_newProduct()
   {
-    $sql = "SELECT * FROM Products WHERE ProductID='$id' order by ProductID desc";
+    $sql = "SELECT * FROM Products order by ProductID desc LIMIT 6ear
+    ";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
+  public function show_SellNumber()
+  {
+    $sql = "SELECT * FROM Products order by SellNumber asc LIMIT 6";
     $result = $this->db->select($sql);
     return $result;
   }
   public function getProductID($id)
   {
-    $sql = "SELECT * from Products p ,Categories c,Suppliers s where ProductID='$id' and p.CategoryID=c.CategoryID and p.SupplierID=s.SupplierID";
+    $sql = "SELECT * from Products p ,Categories c,Suppliers s where p.ProductID='$id' and p.CategoryID=c.CategoryID and p.SupplierID=s.SupplierID";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
+  public function show_pro_supp($idPro, $idSupp)
+  {
+    $sql = "SELECT  * from Products p,Supplier s WHERE p.ProductID='$idPro' and s.SupplierID='$idSupp' LIMIT 6";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
+  public function show_pro_supp_shell($idPro, $idSupp)
+  {
+    $sql = "SELECT  * from Products p,Supplier s WHERE p.ProductID='$idPro' and s.SupplierID='$idSupp' ORDER BY SellNumber asc LIMIT 6";
     $result = $this->db->select($sql);
     return $result;
   }
