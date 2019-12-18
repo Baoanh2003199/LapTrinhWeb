@@ -55,13 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </div>
         </center>
         </form>
-        <center>
-        <p>Bạn chưa đăng ký tài khoản ?</p>
-        <a>Click vào đây để đăng ký</a>
-        </center>
-        
       </div>
- 
     </div>
   </div>
   <script src="../templates//vendor/jquery/jquery-3.4.1.min.js"></script>
