@@ -24,7 +24,7 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
       <h4>Nhà sản xuất</h4>
       <ul>
         <?php
-          $show_supp = $supp->$show_supp();
+          $show_supp = $supp->show_supplier();
           if ($show_supp) {
           while ($result = $show_supp->fetch_assoc()) {
         ?>
