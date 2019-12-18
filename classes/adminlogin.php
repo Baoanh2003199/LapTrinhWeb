@@ -1,8 +1,7 @@
 <?php
-$filePath = realpath(dirname(__FILE__));
-include_once($filePath . '/../lib/database.php');
-include_once($filePath . '/../helper/format.php');
-include_once($filePath.'../lib/session.php');
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
 Session::checklogin();
 
 ?>
