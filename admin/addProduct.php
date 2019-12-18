@@ -7,15 +7,7 @@ include_once "../classes/supplier.php";
 <?php
 $pro = new Product();
 if ($_SERVER['REQUEST_METHOD']) {
-  $ProductName = $_POST['ProductName'];
-  $Price = $_POST['Price'];
-  $Views = $_POST['Views'];
-  $SellNumber = $_POST['SellNumber'];
-  $Origin = $_POST['Origin'];
-  $Img = $_POST['Img'];
-  $Description = $_POST['Description'];
-  $Status = $_POST['Status'];
-  $insert_pro = $pro->insert_product($ProductName, $Price, $Views, $SellNumber, $Origin, $Img, $Description, $Status);
+  $insert_pro = $pro->insert_product($_POST,$_FILES);
 }
 
 ?>
