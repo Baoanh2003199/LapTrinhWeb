@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $registerCuss;
       }
    ?>
-  <form>
+  <form method="POST">
     <div class="form-group">
       <label for="txtUserName">Tên tài khoản</label>
       <input type="text" class="form-control" id="txtUserName" aria-describedby="emailHelp" placeholder="Tên đăng nhập" name="Name">
