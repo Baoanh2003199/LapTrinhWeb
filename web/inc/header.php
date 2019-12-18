@@ -32,7 +32,7 @@
 
         </div>
         <div class="btnHeader">
-          <a href="order.html">
+          <a href="order.php">
             <i class="fas fa-shopping-bag"></i>
             Đơn hàng
           </a>
