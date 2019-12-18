@@ -1,6 +1,5 @@
 <?php
-$filePath = realpath(dirname(__FILE__));
-include($filePath . '/../config/config.php');
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/config/config.php';
 ?>
 <?php
 class Database

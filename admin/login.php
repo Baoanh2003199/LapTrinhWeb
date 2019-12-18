@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/adminlogin.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/adminlogin.php';
 ?>
 <?php
 $class = new adminlogin();

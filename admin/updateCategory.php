@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/classes/category.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
 ?>
 
 <?php
@@ -70,5 +70,5 @@ if ($get_Name) {
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>

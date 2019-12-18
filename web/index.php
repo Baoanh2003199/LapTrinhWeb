@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . 'LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
 $pro = new Product();
 ?>
 
@@ -26,18 +26,18 @@ $pro = new Product();
           if ($show_product) {
             while ($result = $show_product->fetch_assoc()) {
           ?>
-              <div class="col-sm-3 itemProduct">
-                <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
-                  <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-                  <br>
-                  <span class="description"><?php echo $result['ProductName']; ?></span><br>
-                  <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                  <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
-                </a>
-              </div>
+          <div class="col-sm-3 itemProduct">
+            <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
+              <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+              <br>
+              <span class="description"><?php echo $result['ProductName']; ?></span><br>
+              <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+              <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+            </a>
+          </div>
           <?php
-              }
-          }
+                                              }
+                                            }
           ?>
         </div>
       </div>
@@ -70,22 +70,22 @@ $pro = new Product();
     <div class="carousel-inner">
       <div class="carousel-item active">
         <?php
-          $SHOW_NEW = $pro->show_newProduct();
-          if ($SHOW_NEW) {
-          while ($result = $SHOW_NEW->fetch_assoc()) {
+            $SHOW_NEW = $pro->show_newProduct();
+            if ($SHOW_NEW) {
+            while ($result = $SHOW_NEW->fetch_assoc()) {
         ?>
-            <div class="col-sm-3 itemProduct">
-              <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
-                <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-                <br>
-                <span class="description"><?php echo $result['ProductName']; ?></span><br>
-                <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
-              </a>
-            </div>
+        <div class="col-sm-3 itemProduct">
+          <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
+            <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+            <br>
+            <span class="description"><?php echo $result['ProductName']; ?></span><br>
+            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+          </a>
+        </div>
         <?php
+            }
           }
-        }
         ?>
       </div>
     </div>
@@ -117,7 +117,8 @@ $pro = new Product();
   <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Tên tài khoản</label>
-      <input type="text" class="form-control" id="txtUsernamelg" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
+      <input type="text" class="form-control" id="txtUsernamelg" aria-describedby="emailHelp"
+        placeholder="Tên đăng nhập">
       <small id="emailHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group">
