@@ -296,7 +296,6 @@ ul li{
     height: 350px;
     float: left;
     margin-left: 5%;
-    border-left: 0.1px solid gray;
     padding-left: 2rem;
 }
 .productName{
@@ -320,8 +319,9 @@ ul li{
     font-size: 110%;
 }
 .price{
-    font-size: 120%;
+    font-size: 130%;
     color: cornflowerblue;
+    font-weight: bold;
 }
 .btn-light{
     border-color:dodgerblue;
@@ -507,3 +507,11 @@ ul li{
 .divLogin .btn-light{
     margin-top: 5%;
 } 
+.divPrice
+{
+    background-color:   whitesmoke;
+    padding: 5%
+}
+.inumber{
+    margin-right:50px;
+}
