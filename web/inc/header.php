@@ -48,7 +48,7 @@
     </div>
     <div class="cart">
       <div class="btnHeader sCart">
-        <a href="cart.html">
+        <a href="cart.php">
           <i class="fas fa-shopping-cart"></i>
           <span class='badge badge-warning' id='lblCartCount'> 5 </span>
           Giỏ hàng
@@ -59,9 +59,9 @@
   <div class="clearFloat"></div>
   <div class="menu">
     <ul>
-      <li> <a href="index.html">Trang chủ</a> </li>
-      <li> <a href="category.html">Danh mục sản phẩm</a> </li>
-      <li> <a href="supplier.html"> Nhà sản xuất</a></li>
+      <li> <a href="index.php">Trang chủ</a> </li>
+      <li> <a href="category.php">Danh mục sản phẩm</a> </li>
+      <li> <a href="supplier.php"> Nhà sản xuất</a></li>
       <li> <a href=""> Liên lạc</a></li>
     </ul>
   </div>
