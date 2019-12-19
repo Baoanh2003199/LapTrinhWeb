@@ -18,6 +18,7 @@ else
     $Origin = $result["Origin"];	
     $Img = $result["Img"];	
     $Desc = $result["Description"];
+    $Supplier = $result["SupplierID"];
 }
 ?>
 <!-- Main -->
@@ -39,7 +40,7 @@ else
                 <span class="price"> <?php echo $Price;?> VND</span><br>
                 </div>
                 <span class="inforProduct">Mô tả: <?php echo $Desc;?></span><br><br>
-                <span class="inforProduct">Nhà sản xuất: </span><br><br>
+                <span class="inforProduct">Nhà sản xuất: <?php echo $Supplier;?></span><br><br>
                 <span class="inforProduct">Xuất xứ: <?php echo $Origin;?></span><br><br>
   
                 <form action="#" method="GET">
