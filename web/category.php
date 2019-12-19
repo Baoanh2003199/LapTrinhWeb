@@ -13,21 +13,18 @@ $cat = new category();
     <div class="leftBlock">
       <h4>Phân loại</h4>
       <ul>
-        <a href="">
-          <li>Điện thoại</li>
-        </a>
-        <a href="">
-          <li>Laptop</li>
-        </a>
-        <a href="">
-          <li>Phụ kiện</li>
-        </a>
-        <a href="">
-          <li>Máy tính bảng</li>
-        </a>
-        <a href="">
-          <li>Xe</li>
-        </a>
+        <?php
+            $show_cat=$cat->show_cat_pro();
+            if($show_cat){
+              while ($resulut=$show_cat->fetch_assoc()) {
+         ?>
+          <a href="category.php=<?php echo $resulut['ProductID']; ?>">
+            <li><?php echo $resulut['CategoryName']; ?></li>
+          </a>
+        <?php
+            }
+          }
+         ?>
       </ul>
     </div>
     <div class="rightBlock">
@@ -41,7 +38,7 @@ $cat = new category();
       ?>
           <div class="col-sm-3 itemProduct">
             <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
-              <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+              <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
               <span class="price">Giá: <?php echo $result['ProductName']; ?> vnd</span><br>
@@ -76,7 +73,7 @@ $cat = new category();
           ?>
               <div class="col-sm-3 itemProduct">
                 <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
-                  <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+                  <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
                   <br>
                   <span class="description"><?php echo $result['ProductName']; ?></span><br>
                   <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>

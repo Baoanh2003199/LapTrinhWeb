@@ -36,8 +36,8 @@ $pro = new Product();
             </a>
           </div>
           <?php
-                                              }
-                                            }
+              }
+            }
           ?>
         </div>
       </div>

@@ -40,11 +40,11 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
          $showProSupp = $pro->showProductBySupID($idSupp);
         if ($showProSupp) {
         while ($result = $showProSupp->fetch_assoc()) {
-     
+
       ?>
           <div class="col-sm-3 itemProduct">
             <a href="#">
-              <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+              <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductID']; ?></span><br>
               <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
