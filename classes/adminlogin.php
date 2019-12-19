@@ -35,7 +35,7 @@ class adminlogin
         $value = $result->fetch_assoc();
         Session::set("adminlogin", true);
         Session::set("UserId", $value['UserID']);
-        Session::set("AdminUser", $value['AdminUser']);
+        Session::set("AdminUser", $value['UserName']);
         header("Location:index.php");
       } else {
         $alert = "user and pass not match";
