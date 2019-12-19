@@ -13,21 +13,18 @@ $cat = new category();
     <div class="leftBlock">
       <h4>Phân loại</h4>
       <ul>
-        <a href="">
-          <li>Điện thoại</li>
-        </a>
-        <a href="">
-          <li>Laptop</li>
-        </a>
-        <a href="">
-          <li>Phụ kiện</li>
-        </a>
-        <a href="">
-          <li>Máy tính bảng</li>
-        </a>
-        <a href="">
-          <li>Xe</li>
-        </a>
+        <?php
+            $show_cat=$cat->show_cat_pro();
+            if($show_cat){
+              while ($resulut=$show_cat->fetch_assoc()) {
+         ?>
+          <a href="category.php=<?php echo $resulut['ProductID']; ?>">
+            <li><?php echo $resulut['CategoryName']; ?></li>
+          </a>
+        <?php
+            }
+          }
+         ?>
       </ul>
     </div>
     <div class="rightBlock">

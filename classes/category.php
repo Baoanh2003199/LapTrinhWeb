@@ -46,7 +46,9 @@ class category
     $result = $this->db->select($sql);
     return $result;
   }
-
+  public function show_cat_pro(){
+    $sql="SELECT * FROM Categories s,Products p WHERE s.CategoryID=p.CategoryID";
+  }
   public function getCatID($id)
   {
     $sql = "SELECT * from Categories where CategoryID=$id";
