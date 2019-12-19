@@ -28,11 +28,7 @@ $pro = new Product();
           ?>
           <div class="col-sm-3 itemProduct">
             <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
-<<<<<<< HEAD
               <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
-=======
-              <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
->>>>>>> 971bcfc0a67a53733339cc63ff212ababbd8a629
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
               <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
