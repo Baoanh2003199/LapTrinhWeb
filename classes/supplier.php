@@ -52,7 +52,7 @@ class supplier
 
   public function getSupplierID($id)
   {
-    $sql = "SELECT * from Suppliers SupplierID='$id'";
+    $sql = "SELECT * from Suppliers where SupplierID='$id'";
     $result = $this->db->select($sql);
     return $result;
   }

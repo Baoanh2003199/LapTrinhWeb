@@ -1,3 +1,6 @@
+<?php 
+ob_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +64,7 @@
     <ul>
       <li> <a href="index.php">Trang chủ</a> </li>
       <li> <a href="category.php">Danh mục sản phẩm</a> </li>
-      <li> <a href="supplier.php"> Nhà sản xuất</a></li>
+      <li> <a href="supplier.php?SupplierID=1"> Nhà sản xuất</a></li>
       <li> <a href=""> Liên lạc</a></li>
     </ul>
   </div>
