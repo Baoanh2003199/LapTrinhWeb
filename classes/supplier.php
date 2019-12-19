@@ -88,7 +88,7 @@ class supplier
   public function del_supplier($id)
   {
     $sql = "DELETE FROM Suppliers  WHERE SupplierID='$id'";
-    $result = $this->db->delete();
+    $result = $this->db->delete($id);
     if ($result) {
       $alert = "<span> delete Suppliers successen</span>";
       return $alert;

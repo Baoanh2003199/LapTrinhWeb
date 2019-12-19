@@ -5,16 +5,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/Supplier.php';
 
 $pro = new product();
 $supp = new supplier();
-if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
-  echo "fail";
-} else {
-  $idPro = $_GET['ProductID'];
-}
-if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
-  echo "fail";
-} else {
-  $idSupp = $_GET['SupplierID'];
-}
 ?>
 
 <!-- Main -->
@@ -42,7 +32,7 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
         <h4><?php echo $result['SupplierName']; ?></h4>
       </div>
       <?php
-        $showProSupp = $pro->show_pro_supp($idPro, $idSupp);
+        $showProSupp = $pro->show_pro_supp();
         if ($showProSupp) {
         while ($result = $showProSupp->fetch_assoc()) {
       ?>
