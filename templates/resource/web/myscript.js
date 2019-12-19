@@ -29,15 +29,17 @@ function setReadyDocument(){
         }
     );
     $('#btnLogin').click(function (e) { 
-        setDisplay('#divLogin');
+        $("#loginModal").modal("show");
     });
     $('#btnDel').click(function (e) { 
-        closeDisplay('#divLogin');
+        $("#loginModal").modal("hide");
     });
     $('#btnRegister').click(function (e) { 
-        setDisplay('#divRegister');
+        //setDisplay('#divRegister');
+        $("#registerModal").modal("show");
     });
     $('#btnDelR').click(function (e) { 
-        closeDisplay('#divRegister');
+        //closeDisplay('#divRegister');
+        $("#registerModal").modal("hide");
     });
 }

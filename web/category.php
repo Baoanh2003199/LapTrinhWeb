@@ -37,7 +37,7 @@ $cat = new category();
         while ($result = $show_pro->fetch_assoc()) {
       ?>
           <div class="col-sm-3 itemProduct">
-            <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+            <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
               <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
@@ -72,7 +72,7 @@ $cat = new category();
               while ($result = $show_sell->fetch_assoc()) {
           ?>
               <div class="col-sm-3 itemProduct">
-                <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+                <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
                   <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
                   <br>
                   <span class="description"><?php echo $result['ProductName']; ?></span><br>
@@ -93,7 +93,7 @@ $cat = new category();
               while ($result = $show_sell->fetch_assoc()) {
           ?>
               <div class="col-sm-3 itemProduct">
-                <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
+                <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
                   <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
                   <br>
                   <span class="description"><?php echo $result['ProductName'];; ?></span><br>

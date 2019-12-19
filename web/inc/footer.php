@@ -43,17 +43,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ?>
     <li id="?action=logout"> Đăng xuất</li>
   </ul>
-</div>
-<div id="divLogin">
-  <span>Đăng nhập</span>
-  <?php
-  if(isset($login_check)){
-    echo $login_check;
-  }
-  ?>
+  </div>
+  <div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng nhập</h4>
+      </div>
+      <div class="modal-body">
+      <?php
+        if(isset($login_check)){
+        echo $login_check;
+        }
+      ?>
   <form method="POST">
     <div class="form-group">
-      <label for="exampleInputEmail1">Tên tài khoản</label>
+      <label for="exampleInputEmail1">Tên đăng nhập</label>
       <input type="text" class="form-control" id="txtUsernamelg" aria-describedby="emailHelp" name="User" placeholder="Tên đăng nhập">
       <small id="emailHelp" class="form-text text-muted"></small>
     </div>
@@ -61,50 +69,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="exampleInputPassword1">Mật khẩu</label>
       <input type="password" class="form-control" id="txtPasswordlg" placeholder="Mật khẩu" name="Pass">
     </div>
-    <button type="submit" class="btn btn-primary">Đăng nhập</button>
-    <button type="button" class="btn btn-light" id="btnDel">Hủy</button>
+    <button type="submit" class="btn btn-primary">Ðăng nhập</button>
+    <button type="button" class="btn btn-secondary" id="btnDelR">Đóng</button>
   </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+
+  </div>
 </div>
-<div id="divRegister" method="post">
-  <span>Đăng ký</span>
-  <?php
+
+<div id="registerModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng Ký</h4>
+        <?php
       if( isset($registerUser) && isset($registerCuss)){
         echo $registerUser;
         echo $registerCuss;
-      }
-   ?>
-  <form method="POST">
+        }
+      ?>
+      </div>
+      <div class="modal-body">
+      <form method="POST">
+      <h3 class="registerHeader">Thông tin tài khoản</h3>
     <div class="form-group">
-      <label for="txtUserName">Tên tài khoản</label>
-      <input type="text" class="form-control" id="txtUserName" aria-describedby="emailHelp" placeholder="Tên đăng nhập" name="Name">
+      <label for="txtUserName">Tên đăng nhập<label class="redStart">*</label></label>
+      <input type="text" class="form-control" id="txtUserName" aria-describedby="emailHelp" placeholder="Tên đăng nhập" name="User">
     </div>
     <div class="form-group">
-      <label for="texPassword">Mật khẩu</label>
-      <input type="password" class="form-control" id="texPassword" placeholder="Mật khẩu" name="Pass">
+      <label for="texPassword">Mật khẩu<label class="redStart">*</label></label>
+      <input type="password" class="form-control" id="txtPassword" placeholder="Mật khẩu" name="Pass">
     </div>
     <div class="form-group">
-      <label for="txtEmail">Email</label>
-      <input type="email" class="form-control" id="txtEmail" placeholder="Email" name="Email">
+      <label for="texPassword">Xác nhận mật khẩu<label class="redStart">*</label></label>
+      <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Xác nhận lại mật khẩu" name="ConfirmPass">
+    </div>
+    <h3 class="registerHeader">Thông tin cá nhân</h3>
+    <div class="form-group">
+      <label for="txtName">Họ Tên<label class="redStart">*</label></label>
+      <input type="email" class="form-control" id="txtName" placeholder="Họ tên của bạn" name="Name">
     </div>
     <div class="form-group">
-      <label for="txtPhone">Số điện thoại</label>
-      <input type="text" class="form-control" id="txtPhone" placeholder="Số điện thoại" name="Phone">
+      <label for="txtDOB">Ngày sinh<label class="redStart">*</label></label>
+      <input type="date" class="form-control" id="txtDOB" name="DOB">
     </div>
     <div class="form-group">
-      <label for="txtPhone">Địa chỉ</label>
-      <input type="text" class="form-control" id="txtAddress" placeholder="Địa chỉ" name="Address">
+      <label for="txtPhone">Số Điện thoại<label class="redStart">*</label></label>
+      <input type="text" class="form-control" id="txtPhone" placeholder="Số Điện thoại" name="Phone">
     </div>
     <div class="form-group">
-      <label for="txtPhone">city</label>
-      <input type="text" class="form-control" id="txtAddress" placeholder="city" name="city">
+      <label for="txtPhone">Ðịa chỉ<label class="redStart">*</label></label>
+      <input type="text" class="form-control" id="txtAddress" placeholder="Ðịa chỉ nơi bạn đang sinh sống" name="Address">
     </div>
-    <div class="form-group">
-      <label for="txtPhone">DoB</label>
-      <input type="text" class="form-control" id="txtAddress" placeholder="DoB" name="DoB">
-    </div>
-    <button type="submit" class="btn btn-primary">Đăng ký</button>
-    <button type="button" class="btn btn-light" id="btnDelR">Hủy</button>
+    <button type="submit" class="btn btn-primary">Ðăng ký</button>
+    <button type="button" class="btn btn-secondary" id="btnDelR">Đóng</button>
   </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>
 
  <div class="footer">

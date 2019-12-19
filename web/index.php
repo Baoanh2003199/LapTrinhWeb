@@ -11,7 +11,6 @@ $pro = new Product();
       <h4>Sản phẩm bán chạy</h4>
     </div>
     <div class="row">
-
     </div>
     <div id="productSlide" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
