@@ -6,7 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
 ?>
 <?php
 $pro = new Product();
-if ($_SERVER['REQUEST_METHOD']) {
+if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['submit'])) {
   $insert_pro = $pro->insert_product($_POST,$_FILES);
 }
 
@@ -100,6 +100,5 @@ if ($_SERVER['REQUEST_METHOD']) {
 </div>
 </div>
 <?php
-include_once "inc/footer.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>
