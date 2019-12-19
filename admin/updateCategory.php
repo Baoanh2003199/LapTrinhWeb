@@ -40,23 +40,28 @@ if ($get_Name) {
       </div>
       <div class="form-group">
         <div class="itemForm">Mô tả</div>
-        <textarea name="<?php echo $resulut['Status']; ?>" id="" cols="100" rows="5" class="form-control"></textarea>
+        <textarea name="Description" id="" cols="100" rows="5" class="form-control"><?php echo $resulut['Description']; ?>
+        </textarea>
       </div>
       <div class="form-group">
         <div class="itemForm">Trạng thái</div>
         <br />
         <select name="Status" id="" class="form-control">
-          <?php
-              $cat = new category();
-              $cat_list = $cat->show_category();
-              if ($cat_list) {
-                while ($result = $cat_list->fetch_assoc()) {
-                  ?>
-              <option value="<?php echo $result['CategoryID'] ?>"> <?php $result['Status'] ?></option>
-          <?php
-                }
-              }
-              ?>
+          <?php 
+
+            if ($resulut['Status'] == '1') {
+          
+           ?>
+           <option value="1" selected="true">Hoạt động</option>
+           <option value="2">Ngừng hoạt động</option>
+           <?php 
+            }else{
+            ?>
+             <option value="1" >Hoạt động</option>
+           <option value="2" selected="true">Ngừng hoạt động</option>
+            <?php 
+            }
+             ?>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Lưu</button>

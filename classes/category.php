@@ -28,7 +28,7 @@ class category
       $alert = "catgory must be not empty";
       return $alert;
     } else {
-      $sql = "INSERT into Categories(CategoryName,Description,Status) values('$catName',''$catDescription,'$catStatus')";
+      $sql = "INSERT into Categories(CategoryName,Description,Status) values('$catName','$catDescription','$catStatus')";
       $result = $this->db->insert($sql);
 
       if ($result) {

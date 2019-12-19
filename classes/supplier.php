@@ -28,7 +28,7 @@ class supplier
     $suppStatus = mysqli_real_escape_string($this->db->link, $suppStatus);
 
     if (empty($suppName) || empty($suppAddress) || empty($suppPhone) || empty($suppStatus)) {
-      $alert = "catgory must be not empty";
+      $alert = "supplier must be not empty";
       return $alert;
     } else {
       $sql = "INSERT INTO Suppliers(SupplierName,Address,Phone,Status) values('$suppName','$suppAddress','$suppPhone','$suppStatus')";
@@ -68,12 +68,11 @@ class supplier
     $suppAddress = mysqli_real_escape_string($this->db->link, $suppAddress);
     $suppPhone = mysqli_real_escape_string($this->db->link, $suppPhone);
     $suppStatus = mysqli_real_escape_string($this->db->link, $suppStatus);
-
-    if (empty($catName) || empty($suppAddress) || empty($suppPhone) || empty($suppStatus)) {
+    if (empty($suppName) || empty($suppAddress) || empty($suppPhone) || empty($suppStatus)) {
       $alert = "Suppliers must be not empty";
       return $alert;
     } else {
-      $sql = "UPDATE Suppliers set SupplierName='$suppName' and Address='$suppAddress' and Phone='$suppPhone' and Status='$suppStatus' where SupplierID='$id' ";
+      $sql = "UPDATE Suppliers set SupplierName='$suppName', Address='$suppAddress', Phone='$suppPhone', Status='$suppStatus' where SupplierID='$id' ";
       $result = $this->db->update($sql);
 
       if ($result) {

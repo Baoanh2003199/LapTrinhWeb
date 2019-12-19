@@ -4,6 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
 ?>
 <?php
 $pro = new product();
+$fm = new Format();
 if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delPro = $pro->del_product($id);
@@ -47,6 +48,7 @@ if (isset($delPro)) {
           $i=0;
           while($resut=$show_pro->fetch_assoc()){
             $i++;
+            $description =  $fm->textShorten($resut['Description']);
      ?>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
@@ -56,7 +58,7 @@ if (isset($delPro)) {
       <td><img src="uploads/<?php echo $resut['Img']; ?>"/></td>
       <td><?php echo $resut['CategoryID']; ?></td>
       <td><?php echo $resut['SupplierID']; ?></td>
-      <td><?php echo $resut['Description']; ?></td>
+      <td width="15%" ><?php echo $description; ?></td>
       <td>
         <a href="updateProduct.php?ProductID=<?php echo $result['ProductID']; ?>" class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('are you delete')" href="?delID=<?php $result["ProductID"] ?>" class="btn btn-danger">Xóa</a>
