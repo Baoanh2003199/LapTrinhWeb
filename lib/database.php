@@ -12,13 +12,13 @@ class Database
   public $link;
   public $error;
 
-  public function _construct()
+  public function __construct()
   {
     $this->connectDB();
   }
   private function connectDB()
   {
-    $this->link = new mysqli($this->user, $this->pass, $this->dbname);
+    $this->link = new mysqli($this->host,$this->user, $this->pass, $this->dbname);
     if (!$this->link) {
       $this->link->error_log;
       return false;

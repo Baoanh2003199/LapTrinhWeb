@@ -6,8 +6,12 @@ class Session
     if (version_compare(phpversion(), '5.5.0', '<')) {
       if (session_id() == '') {
         session_start();
+        }
+      }else{
+        if(session_status()==PHP_SESSION_NONE){
+          session_start();
+        }
       }
-    }
   }
 
   public static function set($key, $val)
