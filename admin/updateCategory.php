@@ -36,7 +36,7 @@ if ($get_Name) {
       <div class="titleForm">Cập nhật loại sản phẩm</div>
       <div class="form-group">
         <div class="itemForm">Loại sản phẩm</div>
-        <input type="text" value="<?php echo $resulut['CategoryName']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên loại" />
+        <input type="text" value="<?php echo $resulut['CategoryName']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên loại" name='CategoryName'/>
       </div>
       <div class="form-group">
         <div class="itemForm">Mô tả</div>
