@@ -49,7 +49,7 @@ class category
 
   public function getCatID($id)
   {
-    $sql = "SELECT * from Categories CategoryID='$id'";
+    $sql = "SELECT * from Categories where CategoryID=$id";
     $result = $this->db->select($sql);
     return $result;
   }

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'./LapTrinhWeb/admin/inc/header.php';
 ?>
 <div class="titleRight path">
   <a href="index.html">home</a> >

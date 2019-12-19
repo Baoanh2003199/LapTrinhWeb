@@ -38,7 +38,6 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
       <?php
       if(isset($idSupp)){
          $showProSupp = $pro->showProductBySupID($idSupp);
-         var_dump($showProSupp);
         if ($showProSupp) {
         while ($result = $showProSupp->fetch_assoc()) {
      
