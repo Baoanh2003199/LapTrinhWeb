@@ -85,7 +85,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 2</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -94,7 +94,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 3</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -103,7 +103,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 4</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -114,7 +114,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 5</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -123,7 +123,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 6</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -132,7 +132,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 7</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
@@ -141,7 +141,7 @@ else
                         <a href="#">
                             <img src="../img/product/product1.jpg" class="img_produt" alt="">
                             <br>
-                            <span class="description">Sản phảm 1</span><br>
+                            <span class="description">Sản phảm 8</span><br>
                             <span class="price">Giá: 777 vnd</span><br>
                             <span class="views">Lượt xem:</span><br>
                         </a>
