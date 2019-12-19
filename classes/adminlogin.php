@@ -26,7 +26,7 @@ class adminlogin
     $adminPass = mysqli_real_escape_string($this->db->link, $adminPass);
 
     if (empty($adminUser) || empty($adminPass)) {
-      $alert = "user and pass must be not empty";
+      $alert = "user and pass must not be empty";
       return $alert;
     } else {
       $sql = "SELECT * FROM User u,Roles r WHERE u.RoleId=r.RoleId AND u.UserName='$adminUser' AND u.Password='$adminPass' AND r.Rolecode='admin'";
