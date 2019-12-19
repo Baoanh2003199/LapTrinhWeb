@@ -7,11 +7,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
   {
     private $db;
     private $fm;
-<<<<<<< HEAD
-    function __construct()
-=======
+
     public function __construct()
->>>>>>> 9266dded918338884e697842e4cf288dea6f183c
     {
       $this->db = new Database();
       $this->fm = new Format();
@@ -34,10 +31,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
           return $alert;
         }else{
           $alert="<span>insert no successen</span>";
-<<<<<<< HEAD
           return $alert;
-=======
->>>>>>> 9266dded918338884e697842e4cf288dea6f183c
         }
       }
     }
