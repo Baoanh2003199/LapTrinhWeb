@@ -44,7 +44,7 @@ class order
   }
   public function show_order()
   {
-    $sql = "SELECT * from Order o ,OrderDetails os, Cart ca where o.OrderID=os.OrderID and ca.CartID=os.CartID";
+    $sql = "SELECT * FROM Order o ,OrderDetails os, Cart ca,Customers cs WHERE o.OrderID=os.OrderID AND ca.CartID=os.CartID and ca.CustomerID=cs.CustomerID";
     $result = $this->db->select($sql);
     return $result;
   }
