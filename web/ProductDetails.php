@@ -1,19 +1,31 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+/*$id = $_GET['id'];
+$sql = "SELECT * FROM Products where ProductID='$id'";
+$result = $this->db->select($sql);
+$Name = $result["ProductName"];
+$Price = $result["Price"];
+$View = $result["Views"];
+$SellNum = $result["SellNumber"];	
+$Origin = $result["Origin"];	
+$Img = $result["Img"];	
+$Desc = $result["Description"];*/
 ?>
 
 <!-- Main -->
 <div class="main">
+
     <div class="blockDiv">
         <div class="imgDetails">
             <div class="titleMain">
                 <h4>Thông tin sản phẩm</h4>
             </div>
-            <img src="../img/product/product1.jpg" alt="">
+            <!--<img src="../img/product/product1.jpg" alt="">-->
+            <img src="https://www.anphatpc.com.vn/media/product/29431_g531gd_07_1.jpg" alt="">
             <div class="details">
-                <span class="productName">Bàn Ủi Khô Philips HD1172</span><br>
-                <span class="detailsViews"> 2 lượt xem</span>
-                <span class="detailsViews last"> 2 đã bán </span><br>
+                <span class="productName">Bàn Ủi Khô Philips HD1172</span>
+                <span class="detailsViews">58 Lượt Xem</span>
+                <span class="detailsViews last"> 10 Đã Bán </span><br>
                 <div class="divPrice">
                 <span class="price"> 230.000 VND</span><br>
                 </div>
