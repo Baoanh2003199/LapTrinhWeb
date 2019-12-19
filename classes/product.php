@@ -65,6 +65,14 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
+
+  public function show_supplierName()
+  {
+    $sql = "SELECT s.SupplierName FROM Suppliers s, Products p where s.SupplierID = p.SupplierID";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
   public function show_newProduct()
   {
     $sql = "SELECT * FROM Products order by ProductID desc LIMIT 6";
