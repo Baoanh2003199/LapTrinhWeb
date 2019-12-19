@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'./LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
 ?>
 
