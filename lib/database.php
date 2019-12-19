@@ -19,6 +19,7 @@ class Database
   private function connectDB()
   {
     $this->link = new mysqli($this->host,$this->user, $this->pass, $this->dbname);
+    header('Content-Type: text/html; charset=utf-8');
     mysqli_set_charset($this->link, 'utf8');
     if (!$this->link) {
       $this->link->error_log;

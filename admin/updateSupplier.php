@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
 ?>
 <?php
 if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
-  echo "<script> window.loaction='updateSupplier.php'</script>";
+  header("Location:listSupplier.php");
 } else {
   $id = $_GET['SupplierID'];
 }

@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $SuppPhone = $_POST['Phone'];
   $suppStatus = $_POST['Status'];
   $insert_supp = $supp->insert_supplier($SupplierName, $SuppAddress, $SuppPhone, $suppStatus);
+  var_dump($_POST);
 }
 ?>
 <div class="titleRight path">
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   }
   ?>
 </div>
-<form>
+<form method="POST" action="addSupplier.php" >
   <div class="titleForm">Thêm nhà sản xuất</div>
   <div class="form-group">
     <div class="itemForm">Nhà sản xuất</div>
