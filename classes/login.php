@@ -25,7 +25,7 @@ class login
     $User = mysqli_real_escape_string($this->db->link, $User);
     $Pass = mysqli_real_escape_string($this->db->link, $Pass);
 
-    if (empty($adminUser) || empty($adminPass)) {
+    if (empty($User) || empty($Pass)) {
       $alert = "user and pass must be not empty";
       return $alert;
     } else {

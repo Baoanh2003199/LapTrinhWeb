@@ -70,9 +70,9 @@ $cat = new category();
       <div class="carousel-inner">
         <div class="carousel-item active">
           <?php
-                                        $show_sell = $pro->show_SellNumber();
-                                        if ($show_sell) {
-                                          while ($result = $show_sell->fetch_assoc()) {
+              $show_sell = $pro->show_SellNumber();
+              if ($show_sell) {
+              while ($result = $show_sell->fetch_assoc()) {
           ?>
               <div class="col-sm-3 itemProduct">
                 <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
@@ -85,15 +85,15 @@ $cat = new category();
 
               </div>
           <?php
-                                              }
-                                            }
+                }
+            }
           ?>
         </div>
         <div class="carousel-item">
           <?php
-                                            $show_sell = $pro->show_SellNumber();
-                                            if ($show_sell) {
-                                              while ($result = $show_sell->fetch_assoc()) {
+              $show_sell = $pro->show_SellNumber();
+              if ($show_sell) {
+              while ($result = $show_sell->fetch_assoc()) {
           ?>
               <div class="col-sm-3 itemProduct">
                 <a href="ProductDetails=<?php echo $result['ProductID']; ?>">
@@ -105,8 +105,8 @@ $cat = new category();
                 </a>
               </div>
           <?php
-                                              }
-                                            }
+              }
+            }
           ?>
         </div>
       </div>
@@ -125,5 +125,5 @@ $cat = new category();
 </div>
 <!-- End Main -->
 <?php
-                                            include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
 ?>
