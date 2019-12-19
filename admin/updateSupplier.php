@@ -9,7 +9,7 @@ if (!isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
   $id = $_GET['SupplierID'];
 }
 $supp = new supplier();
-if ($_SERVER['REQUEST_METHOD'] = 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $suppName = $_POST['SupplierName'];
   $updateSupp = $supp->update_supplier($suppName, $suppAddress, $suppPhone, $suppStatus, $id);
 }

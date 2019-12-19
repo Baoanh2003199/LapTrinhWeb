@@ -9,7 +9,7 @@ if (!isset($_GET['CategoryID']) || $_GET['CategoryID'] == null) {
   $id = $_GET['CategoryID'];
 }
 $cat = new category();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $catName = $_POST['CategoryName'];
   $catDescription = $_POST['Description'];
   $catStatus = $_POST['Status'];
