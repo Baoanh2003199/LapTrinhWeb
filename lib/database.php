@@ -19,7 +19,7 @@ class Database
   private function connectDB()
   {
     $this->link = new mysqli($this->host,$this->user, $this->pass, $this->dbname);
-    mysqli_query($this->link,"SET NAMES 'UTF8'");
+    mysqli_set_charset($this->link, 'utf8');
     if (!$this->link) {
       $this->link->error_log;
       return false;

@@ -71,5 +71,5 @@ if (isset($delCat)) {
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'.LapTrinhWeb/admin/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
 ?>

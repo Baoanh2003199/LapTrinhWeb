@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['submit'])) {
 }
 
 ?>
-</div>
+
 <div class="titleRight path">
-  <a href="index.html">home</a> >
-  <a href="addProduct.html">Thêm sản phẩm</a>>
+  <a href="index.php">home</a> >
+  <a href="addProduct.php">Thêm sản phẩm</a>>
   <?php
   if (isset($insert_pro)) {
     echo $insert_pro;
@@ -97,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['submit'])) {
   </div>
   <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
+</div>
 </div>
 </div>
 <?php
