@@ -56,7 +56,7 @@ class customer
 
   public function getCusID($id)
   {
-    $sql = "SELECT * from Customers CustomerID='$id'";
+    $sql = "SELECT * from Customers where  CustomerID='$id'";
     $result = $this->db->select($sql);
     return $result;
   }

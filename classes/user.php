@@ -7,13 +7,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
   {
     private $db;
     private $fm;
-    function __construct(argument)
+    function __construct()
     {
       $this->db = new Database();
       $this->fm = new Format();
     }
-    $user=new
-    public insert_User($Name,$pass){
+    public function insert_User($Name,$pass){
       $Name=$this->fm->valation($Name);
       $Pass=$this->fm->valation($Pass);
 
@@ -27,10 +26,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
         $sql="INSERT INTO user(UserName, Password, RoleID) VALUES($Name,$Pass,'user')";
         $result=$this->db->insert($sql);
         if($result){
-          $alert="<span>insert user successen </span>"
+          $alert="<span>insert user successen </span>";
           return $alert;
         }else{
-          $alert="<span>insert no successen</span>"
+          $alert="<span>insert no successen</span>";
+          return $alert;
         }
       }
     }

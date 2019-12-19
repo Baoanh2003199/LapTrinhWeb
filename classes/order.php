@@ -51,7 +51,7 @@ class order
 
   public function getOrderID($id)
   {
-    $sql = "SELECT * from Orders OrderID='$id'";
+    $sql = "SELECT * from Orders where OrderID='$id'";
     $result = $this->db->select($sql);
     return $result;
   }

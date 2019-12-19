@@ -55,7 +55,7 @@ class employee
 
   public function getEmpID($id)
   {
-    $sql = "SELECT * from Employees EmployeeID='$id'";
+    $sql = "SELECT * from Employees where  EmployeeID='$id'";
     $result = $this->db->select($sql);
     return $result;
   }

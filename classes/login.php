@@ -29,7 +29,7 @@ class login
       $alert = "user and pass must be not empty";
       return $alert;
     } else {
-      $sql = "select * from User u,Roles r where u.RoleId=r.RoleId and UserName=$User and Password=$Pass and r.Rolecode='user'";
+      $sql = "SELECT * from User u,Roles r where u.RoleId=r.RoleId and UserName=$User and Password=$Pass and r.Rolecode='user'";
       $result = $this->db->select($sql);
       if ($result != false) {
         $value = $result->fetch_assoc();
