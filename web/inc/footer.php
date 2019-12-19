@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/customer.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/user.php';
-include_once $_SERVER['DOCUMENT_ROOT']."/QQA-LapTrinhWeb/lib/session.php";
+include_once $_SERVER['DOCUMENT_ROOT'].'/QQA-LapTrinhWeb/lib/session.php';
 Session::checkSession();
 ?>
 <?php

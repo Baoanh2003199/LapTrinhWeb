@@ -7,7 +7,7 @@ create table Suppliers(
 	Address varchar(50),
 	Phone varchar(13),
 	Status int,
-	Primary key(SupplierID) 
+	Primary key(SupplierID)
 );
 create table Categories(
 	CategoryID int not null AUTO_INCREMENT,
@@ -44,8 +44,8 @@ create table User(
 	UserName varchar(20),
 	Password varchar(50),
 	RoleId int,
-    Status int,
-    
+  Status int,
+
     primary key(UserID)
 );
 create table Employees(
@@ -58,7 +58,7 @@ create table Employees(
 	RoleID int,
 	UserId int,
     Status int,
-	
+
 	Primary key(EmployeeID)
 );
 create table Customers(
@@ -72,7 +72,7 @@ create table Customers(
 	RoleID int,
 	UserId int,
     Status int,
-    
+
 	Primary key(CustomerID)
 );
 create table Cart(
@@ -93,15 +93,15 @@ create table Orders(
 	Note varchar(255),
     Address varchar(50),
     Status int,
-    
+
     primary key(OrderID)
-	
+
 );
 create table OrderDetails(
 	CartID int,
     OrderID int,
     Note varchar(255),
     Status int,
-    
+
     primary key(CartID, OrderID)
 );

@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/QQA-LapTrinhWeb/lib/session.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
 Session::checkSession();
 ?>
 
@@ -81,9 +81,9 @@ Session::checkSession();
         <div class="titleName">
           Hello, Admin
           <?php
-                                      if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-                                        Session::destroy();
-                                      }
+            if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+                Session::destroy();
+            }
           ?>
           <a href="?action=logout">Đăng xuất</a>
         </div>
