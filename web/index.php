@@ -27,7 +27,7 @@ $pro = new Product();
             while ($result = $show_product->fetch_assoc()) {
           ?>
           <div class="col-sm-3 itemProduct">
-            <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
+            <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
               <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
@@ -75,7 +75,7 @@ $pro = new Product();
             while ($result = $SHOW_NEW->fetch_assoc()) {
         ?>
         <div class="col-sm-3 itemProduct">
-          <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
+          <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
             <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
             <br>
             <span class="description"><?php echo $result['ProductName']; ?></span><br>
