@@ -1,37 +1,46 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
-/*$id = $_GET['id'];
-$sql = "SELECT * FROM Products where ProductID='$id'";
-$result = $this->db->select($sql);
-$Name = $result["ProductName"];
-$Price = $result["Price"];
-$View = $result["Views"];
-$SellNum = $result["SellNumber"];	
-$Origin = $result["Origin"];	
-$Img = $result["Img"];	
-$Desc = $result["Description"];*/
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
+$pro = new product();
+$id = $_GET['id'];
+if($id == 0 || !is_numeric($id))
+{
+    header("Location:index.php");
+}
+else
+{
+    $product = $pro->show_productID($id);
+    $result = $product->fetch_assoc();
+    $Name = $result["ProductName"];
+    $Price = $result["Price"];
+    $Views = $result["Views"];
+    $SellNum = $result["SellNumber"];	
+    $Origin = $result["Origin"];	
+    $Img = $result["Img"];	
+    $Desc = $result["Description"];
+}
 ?>
-
 <!-- Main -->
 <div class="main">
-
     <div class="blockDiv">
         <div class="imgDetails">
             <div class="titleMain">
+     
                 <h4>Thông tin sản phẩm</h4>
             </div>
-            <!--<img src="../img/product/product1.jpg" alt="">-->
-            <img src="https://www.anphatpc.com.vn/media/product/29431_g531gd_07_1.jpg" alt="">
+            <!--<img src="../img/product/product1.jpg" alt="">
+            https://www.anphatpc.com.vn/media/product/29431_g531gd_07_1.jpg-->
+            <img src="<?php echo $Img;?>" alt="">
             <div class="details">
-                <span class="productName">Bàn Ủi Khô Philips HD1172</span>
-                <span class="detailsViews">58 Lượt Xem</span>
-                <span class="detailsViews last"> 10 Đã Bán </span><br>
+                <span class="productName"><?php echo $Name;?></span>
+                <span class="detailsViews"><?php echo $Views;?> Lượt Xem</span>
+                <span class="detailsViews last"> <?php echo $SellNum;?> Đã Bán </span><br>
                 <div class="divPrice">
-                <span class="price"> 230.000 VND</span><br>
+                <span class="price"> <?php echo $Price;?> VND</span><br>
                 </div>
-                <span class="inforProduct">Mô tả: </span><br><br>
+                <span class="inforProduct">Mô tả: <?php echo $Desc;?></span><br><br>
                 <span class="inforProduct">Nhà sản xuất: </span><br><br>
-                <span class="inforProduct">Xuất xứ: </span><br><br>
+                <span class="inforProduct">Xuất xứ: <?php echo $Origin;?></span><br><br>
   
                 <form action="#" method="GET">
                 <div class="form-group">
