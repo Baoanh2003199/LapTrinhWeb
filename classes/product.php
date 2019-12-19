@@ -22,25 +22,27 @@ class Product
     $Origin = mysqli_real_escape_string($this->db->link, $data['Origin']);
     $Description = mysqli_real_escape_string($this->db->link, $data['Description']);
     $Status = mysqli_real_escape_string($this->db->link, $data['Status']);
-    $Category = mysqli_real_escape_string($this->db->link, $data['Category']);
-    $Supplier = mysqli_real_escape_string($this->db->link, $data['Supplier']);
+    $Category = mysqli_real_escape_string($this->db->link, $data['CategoryID']);
+    $Supplier = mysqli_real_escape_string($this->db->link, $data['SupplierID']);
 
     $permited = array('jpg', 'png', 'jpeg', 'gif');
-    $file_Name = $_FILES['Img']['name'];
-    $file_size = $_FILES['Img']['size'];
-    $file_temp = $_FILES['Img']['tmp_name'];
+    $file_Name = $files['Img']['name'];
+    $file_size = $files['Img']['size'];
+    $file_temp = $files['Img']['tmp_name'];
 
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = "uploads/" . $unique_img;
-
-    if (empty($ProductName) || empty($Price) || empty($Views) || empty($SellNumber) || empty($Origin) || empty($file_Name) || empty($Description) || empty($Status)) {
+    $upload_file = "C:\xampp\htdocs\LapTrinhWeb\img\product". $unique_img;
+    if (empty($ProductName) || empty($Price) || empty($Origin) || empty($file_Name) || empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;
     } else {
-      move_uploaded_file($file_Name, $upload_file);
-      $sql = "INSERT into Products values('$ProductName','$Price',null,null,'$upload_file','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
+      // var_dump($upload_file);
+      // var_dump($file_Name);
+      // var_dump( move_uploaded_file($file_Name, $upload_file));
+       
+      $sql = "INSERT into Products values('$ProductName','$Price','0','0','$upload_file','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
 
       $result = $this->db->insert($sql);
       if ($result) {
@@ -130,7 +132,7 @@ class Product
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = "uploads/" . $unique_img;
+    $upload_file = $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/img/product/'. $unique_img;
     if (empty($ProductName) || empty($Price) || empty($Views) || empty($SellNumber) || empty($Origin) || empty($Img) || empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;

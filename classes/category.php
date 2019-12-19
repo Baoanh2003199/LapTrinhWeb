@@ -72,7 +72,7 @@ class category
       $alert = "catgory must be not empty";
       return $alert;
     } else {
-      $sql = "UPDATE Categories set CategoryName='$catName'and Description='$catDescription' and Status='$catStatus' where CategoryID='$id' ";
+      $sql = "UPDATE Categories set CategoryName='$catName', Description ='$catDescription', Status='$catStatus' where CategoryID='$id' ";
       $result = $this->db->update($sql);
 
       if ($result) {
