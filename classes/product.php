@@ -93,16 +93,20 @@ class Product
     return $result;
   }
 
-  public function show_pro_supp()
+  public function show_pro_supp($idPro, $idSupp)
   {
-    $sql = "SELECT  * from Products p,Supplier s WHERE p.SupplierID=s.SupplierID LIMIT 6";
+    $sql = "SELECT  * from Products p,Supplier s WHERE p.ProductID='$idPro' and s.SupplierID='$idSupp' LIMIT 6";
     $result = $this->db->select($sql);
     return $result;
   }
-
-  public function show_pro_supp_shell()
+  public function showProductBySupID($idSupp){
+    $sql = "SELECT  * from Products p,Suppliers s WHERE  p.SupplierID='$idSupp'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+  public function show_pro_supp_shell($idPro, $idSupp)
   {
-    $sql = "SELECT  * from Products p,Supplier s WHERE p.SupplierID=s.SupplierID ORDER BY SellNumber asc LIMIT 6";
+    $sql = "SELECT  * from Products p,Supplier s WHERE p.ProductID='$idPro' and s.SupplierID='$idSupp' ORDER BY SellNumber asc LIMIT 6";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -152,7 +156,7 @@ class Product
   public function del_product($id)
   {
     $sql = "DELETE FROM Products  WHERE ProductID='$id'";
-    $result = $this->db->delete($id);
+    $result = $this->db->delete();
     if ($result) {
       $alert = "<span> delete Products successen</span>";
       return $alert;

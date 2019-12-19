@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div id="divRegister" method="post">
   <span>Đăng ký</span>
   <?php
-      if($registerUser && $registerCuss){
+      if( isset($registerUser) && isset($registerCuss)){
         echo $registerUser;
         echo $registerCuss;
       }

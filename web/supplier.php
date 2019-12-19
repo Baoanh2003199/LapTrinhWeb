@@ -5,6 +5,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/Supplier.php';
 
 $pro = new product();
 $supp = new supplier();
+
+if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
+   $idSupp = $_GET['SupplierID'];
+}
 ?>
 
 <!-- Main -->
@@ -18,7 +22,7 @@ $supp = new supplier();
           if ($show_supp) {
           while ($result = $show_supp->fetch_assoc()) {
         ?>
-        <a href="supplier.php=<?php echo $result['SupplierID']; ?>">
+        <a href="supplier.php?SupplierID=<?php echo $result['SupplierID']; ?>">
           <li><?php echo $result['SupplierName']; ?></li>
         </a>
         <?php
@@ -32,21 +36,24 @@ $supp = new supplier();
         <h4><?php echo $result['SupplierName']; ?></h4>
       </div>
       <?php
-        $showProSupp = $pro->show_pro_supp();
+      if(isset($idSupp)){
+         $showProSupp = $pro->showProductBySupID($idSupp);
         if ($showProSupp) {
         while ($result = $showProSupp->fetch_assoc()) {
+     
       ?>
-      <div class="col-sm-3 itemProduct">
-        <a href="#">
-          <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-          <br>
-          <span class="description"><?php echo $result['ProductID']; ?></span><br>
-          <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-          <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
-        </a>
-      </div>
+          <div class="col-sm-3 itemProduct">
+            <a href="#">
+              <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+              <br>
+              <span class="description"><?php echo $result['ProductID']; ?></span><br>
+              <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+              <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+            </a>
+          </div>
       <?php
             }
+          }
         }
       ?>
     </div>

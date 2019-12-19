@@ -104,5 +104,5 @@ $pro = new Product();
 </div>
 <!-- End Main -->
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .'/LapTrinhWeb/web/inc/footer.php';
 ?>
