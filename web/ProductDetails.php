@@ -39,7 +39,7 @@ else
                 <span class="detailsViews"><?php echo $Views;?> Lượt Xem</span>
                 <span class="detailsViews last"> <?php echo $SellNum;?> Đã Bán </span><br>
                 <div class="divPrice">
-                <span class="price"> <?php echo $Price;?> VND</span><br>
+                <span class="price"> <?php echo $Price;?> VNĐ</span><br>
                 </div>
                 <span class="inforProduct">Mô tả: <?php echo $Desc;?></span><br><br>
                 <span class="inforProduct">Nhà sản xuất: <?php echo $Supplier;?></span><br><br>

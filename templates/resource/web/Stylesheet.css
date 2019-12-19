@@ -323,7 +323,7 @@ ul li{
 .price{
     font-size: 130%;
     color: cornflowerblue;
-    font-weight: bold;
+    font-weight: bolder;
 }
 .btn-light{
     border-color:dodgerblue;

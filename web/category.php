@@ -41,8 +41,8 @@ $cat = new category();
               <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
-              <span class="price">Giá: <?php echo $result['ProductName']; ?> vnd</span><br>
-              <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+              <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+              <span class="views">Lượt xem: <?php echo $result['Views']; ?></span><br>
             </a>
           </div>
       <?php
@@ -77,7 +77,7 @@ $cat = new category();
                   <br>
                   <span class="description"><?php echo $result['ProductName']; ?></span><br>
                   <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                  <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+                  <span class="views">Lượt xem: <?php echo $result['Views']; ?></span><br>
                 </a>
 
               </div>
@@ -98,7 +98,7 @@ $cat = new category();
                   <br>
                   <span class="description"><?php echo $result['ProductName'];; ?></span><br>
                   <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                  <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+                  <span class="views">Lượt xem: <?php echo $result['Views']; ?></span><br>
                 </a>
               </div>
           <?php
