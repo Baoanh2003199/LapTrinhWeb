@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
 ?>
 <?php
 $pro = new product();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delPro = $pro->del_product($id);
 }
@@ -52,7 +52,7 @@ if (isset($delPro)) {
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $resut['ProductName']; ?></td>
       <td><?php echo $resut['Price']; ?></td>
-      <td><?php echo $resut['Oirgin']; ?></td>
+      <td><?php echo $resut['Origin']; ?></td>
       <td><img src="uploads/<?php echo $resut['Img']; ?>"/></td>
       <td><?php echo $resut['CategoryID']; ?></td>
       <td><?php echo $resut['SupplierID']; ?></td>

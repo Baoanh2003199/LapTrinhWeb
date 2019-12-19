@@ -4,10 +4,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
 ?>
 <?php
 $cat = new category();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delCat = $cat->del_category($id);
 }
+
 ?>
 <div class="titleRight path">
   <a href="index.php">home</a> >
@@ -52,7 +53,7 @@ if (isset($delCat)) {
           <td><?php echo $result['Status']; ?></td>
           <td>
             <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('are you delete')" href="?delID=<?php $result['CategoryID'] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('are you delete')" href="?delID=<?php $result['delID'] ?>" class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>

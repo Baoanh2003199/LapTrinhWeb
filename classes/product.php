@@ -17,7 +17,6 @@ class Product
 
   public function insert_product($data, $files)
   {
-
     $ProductName = mysqli_real_escape_string($this->db->link, $data['ProductName']);
     $Price = mysqli_real_escape_string($this->db->link, $data['Price']);
     $Origin = mysqli_real_escape_string($this->db->link, $data['Origin']);

@@ -3,8 +3,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/employee.php';
 ?>
 <?php
-$emp = new supplier();
-if (!isset($_GET['delID'])) {
+$emp = new employee();
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delEmp = $emp->del_supplier($id);
 }
@@ -40,7 +40,7 @@ if (isset($delEmp)) {
     </tr>
   </thead>
   <?php
-  $show_emp = $emp->show_supplier();
+  $show_emp = $emp->show_Employees();
   if ($show_emp) {
     $i = 0;
     while ($result = $show_emp->fetch_assoc()) {

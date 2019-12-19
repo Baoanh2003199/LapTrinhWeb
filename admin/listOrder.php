@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/order.php';
 ?>
 <?php
 $order = new order();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delOrder = $order->del_order($id);
 }

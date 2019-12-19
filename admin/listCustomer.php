@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/customer.php';
 ?>
 <?php
 $cus = new customer();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delCat = $cus->del_Customers($id);
 }
