@@ -99,7 +99,8 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
-  public function showProductBySupID($idSupp){
+  public function showProductBySupID($idSupp)
+  {
     $sql = "SELECT  * from Products p,Suppliers s WHERE  p.SupplierID='$idSupp'";
     $result = $this->db->select($sql);
     return $result;
@@ -156,7 +157,7 @@ class Product
   public function del_product($id)
   {
     $sql = "DELETE FROM Products  WHERE ProductID='$id'";
-    $result = $this->db->delete();
+    $result = $this->db->delete($sql);
     if ($result) {
       $alert = "<span> delete Products successen</span>";
       return $alert;
