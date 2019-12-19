@@ -9,7 +9,7 @@ if (!isset($_GET['CustomerID']) || $_GET['CustomerID'] == null) {
   $id = $_GET['CustomerID'];
 }
 $cus = new customer();
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
   $cusName = $_POST['Name'];
   $cusAddress = $_POST['Address'];
   $cusPhone = $_POST['Phone'];
