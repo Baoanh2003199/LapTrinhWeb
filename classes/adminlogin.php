@@ -11,7 +11,7 @@ class adminlogin
   private $db;
   private $fm;
 
-  public function _construct()
+  public function __construct()
   {
     $this->db = new Database();
     $this->fm = new Format();
@@ -19,8 +19,8 @@ class adminlogin
 
   public function login_admin($adminUser, $adminPass)
   {
-    $adminUser = $this->fm->valation($adminUser);
-    $adminPass = $this->fm->valation($adminPass);
+    $adminUser=$this->fm->valation($adminUser);
+    $adminPass=$this->fm->valation($adminPass);
     //
     $adminUser = mysqli_real_escape_string($this->db->link, $adminUser);
     $adminPass = mysqli_real_escape_string($this->db->link, $adminPass);
@@ -29,7 +29,7 @@ class adminlogin
       $alert = "user and pass must be not empty";
       return $alert;
     } else {
-      $sql = "select * from User u,Roles r where u.RoleId=r.RoleId and UserName=$adminUser and Password=$adminPass and r.Rolecode='admin'";
+      $sql = "SELECT * FROM User u,Roles r WHERE u.RoleId=r.RoleId AND u.UserName='$adminUser' AND u.Password='$adminPass' AND r.Rolecode='admin'";
       $result = $this->db->select($sql);
       if ($result != false) {
         $value = $result->fetch_assoc();
