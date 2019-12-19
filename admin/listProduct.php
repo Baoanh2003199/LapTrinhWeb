@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
 ?>
 <?php
 $pro = new product();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delPro = $pro->del_product($id);
 }

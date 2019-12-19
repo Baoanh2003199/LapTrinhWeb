@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
 ?>
 <?php
 $supplier = new supplier();
-if (!isset($_GET['delID'])) {
+if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
   $delSupp = $supplier->del_supplier($id);
 }
