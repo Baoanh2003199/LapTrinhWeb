@@ -10,6 +10,7 @@ if($id == 0 || !is_numeric($id))
 else
 {
     $product = $pro->show_productID($id);
+    $Getsupplier = $pro->show_supplierName();
     $result = $product->fetch_assoc();
     $Name = $result["ProductName"];
     $Price = $result["Price"];
@@ -18,7 +19,8 @@ else
     $Origin = $result["Origin"];	
     $Img = $result["Img"];	
     $Desc = $result["Description"];
-    $Supplier = $result["SupplierID"];
+    $result = $Getsupplier->fetch_assoc();
+    $Supplier = $result["SupplierName"];
 }
 ?>
 <!-- Main -->
