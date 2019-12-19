@@ -52,7 +52,7 @@ if (isset($delPro)) {
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $resut['ProductName']; ?></td>
       <td><?php echo $resut['Price']; ?></td>
-      <td><?php echo $resut['Oirgin']; ?></td>
+      <td><?php echo $resut['Origin']; ?></td>
       <td><img src="uploads/<?php echo $resut['Img']; ?>"/></td>
       <td><?php echo $resut['CategoryID']; ?></td>
       <td><?php echo $resut['SupplierID']; ?></td>
