@@ -8,6 +8,8 @@ $supp = new supplier();
 
 if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
    $idSupp = $_GET['SupplierID'];
+   $getSupName = $supp->getSupplierID($idSupp);
+   $supName = $getSupName->fetch_assoc();
 }
 ?>
 
@@ -33,20 +35,27 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
     </div>
     <div class="rightBlock">
       <div class="titleMain">
-        <h4><?php echo $result['SupplierName']; ?></h4>
+        <?php 
+            if(isset($idSupp) && isset($supName)){
+
+         ?>
+        <h4><?php echo $supName['SupplierName']; ?></h4>
+        <?php 
+          }
+         ?>
       </div>
-      <?php
+      <div class="myRow">
+        <?php
       if(isset($idSupp)){
          $showProSupp = $pro->showProductBySupID($idSupp);
         if ($showProSupp) {
         while ($result = $showProSupp->fetch_assoc()) {
-
       ?>
           <div class="col-sm-3 itemProduct">
             <a href="#">
-              <img src="<?php echo $result['Img']; ?>" class="img_produt" alt="">
+              <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
-              <span class="description"><?php echo $result['ProductID']; ?></span><br>
+              <span class="description"><?php echo $result['ProductName']; ?></span><br>
               <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
               <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
             </a>
@@ -56,53 +65,36 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
           }
         }
       ?>
+      </div>
+      
     </div>
   </div>
-  <div class="blockDiv">
-    <div class="titleMain">
-      <h4>Sản phẩm bán chạy</h4>
-    </div>
-    <div class="row">
-
-    </div>
-    <div id="newSlide" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-
-      <div class="carousel-item">
-        <?php
-            $show_pro_supp_sell = $show_pro_supp_sell($idPro, $idSupp);
-            if ($show_pro_supp_sell) {
-            while ($result = $show_pro_supp_sell->fetch_assoc()) {
+ <div class="blockDiv">
+  <div class="titleMain">
+    <h4>Sản phẩm mới</h4>
+  </div>
+  <div class="myRow">
+<?php
+            $SHOW_NEW = $pro->show_newProduct();
+            if ($SHOW_NEW) {
+            while ($result = $SHOW_NEW->fetch_assoc()) {
         ?>
         <div class="col-sm-3 itemProduct">
-          <a href="ProductDetails.php=<?php echo $result['ProductID']; ?>">
-            <img src="../admin/uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+            <img  src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
             <br>
             <span class="description"><?php echo $result['ProductName']; ?></span><br>
             <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-            <span class="views">Lượt xem:<?php echo $result['Views']; ?> </span><br>
+            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
           </a>
         </div>
         <?php
-              }
+            }
           }
         ?>
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#newSlide" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#newSlide" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </a>
-
   </div>
+
+</div>
 
 </div>
 </div>

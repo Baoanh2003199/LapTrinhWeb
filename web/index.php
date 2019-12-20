@@ -10,17 +10,8 @@ $pro = new Product();
     <div class="titleMain">
       <h4>Sản phẩm bán chạy</h4>
     </div>
-    <div class="row">
-    </div>
-    <div id="productSlide" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <?php
+    <div class="myRow">
+       <?php
           $show_product = $pro->show_SellNumber();
           if ($show_product) {
             while ($result = $show_product->fetch_assoc()) {
@@ -34,13 +25,12 @@ $pro = new Product();
               <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
             </a>
           </div>
-          <?php
+          <?php 
               }
             }
-          ?>
-        </div>
-      </div>
+           ?>
     </div>
+       
   </div>
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#productSlide" data-slide="prev">
@@ -57,18 +47,8 @@ $pro = new Product();
   <div class="titleMain">
     <h4>Sản phẩm mới</h4>
   </div>
-  <div class="row">
-
-  </div>
-  <div id="newSlide" class="carousel slide" data-ride="carousel">
-    <ul class="carousel-indicators">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1"></li>
-      <li data-target="#demo" data-slide-to="2"></li>
-    </ul>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <?php
+  <div class="myRow">
+<?php
             $SHOW_NEW = $pro->show_newProduct();
             if ($SHOW_NEW) {
             while ($result = $SHOW_NEW->fetch_assoc()) {
@@ -86,8 +66,7 @@ $pro = new Product();
             }
           }
         ?>
-      </div>
-    </div>
+  </div>
 
     <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#newSlide" data-slide="prev">

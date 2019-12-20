@@ -6,6 +6,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/category.php';
 $pro = new product();
 $cat = new category();
 ?>
+<?php 
+  if (isset($_GET['CateID']) || $_GET['CateID'] == null) {
+   $idCate = $_GET['CateID'];
+    $getCatName = $cat->getCatID($idCate);
+    $catName = $getCatName->fetch_assoc();
+}
+?>
 
 <!-- Main -->
 <div class="main">
@@ -14,12 +21,12 @@ $cat = new category();
       <h4>Phân loại</h4>
       <ul>
         <?php
-            $show_cat=$cat->show_cat_pro();
+            $show_cat=$cat->show_category();
             if($show_cat){
-              while ($resulut=$show_cat->fetch_assoc()) {
+              while ($result=$show_cat->fetch_assoc()) {
          ?>
-          <a href="category.php=<?php echo $resulut['ProductID']; ?>">
-            <li><?php echo $resulut['CategoryName']; ?></li>
+          <a href="category.php?CateID=<?php echo $result['CategoryID']; ?>">
+            <li><?php echo $result['CategoryName']; ?></li>
           </a>
         <?php
             }
@@ -29,10 +36,20 @@ $cat = new category();
     </div>
     <div class="rightBlock">
       <div class="titleMain">
-        <h4>ghi tên loại</h4>
+        <?php 
+          if (isset($catName)) {
+
+         ?>
+        <h4><?php echo $catName['CategoryName']; ?></h4>
+        <?php 
+          }
+         ?>
       </div>
-      <?php
-      $show_pro = $pro->show_product();
+      <div class="myRow">
+         <?php
+if(isset($idCate)){
+
+      $show_pro = $pro->showProductByCateID($idCate);
       if ($show_pro) {
         while ($result = $show_pro->fetch_assoc()) {
       ?>
@@ -46,79 +63,39 @@ $cat = new category();
             </a>
           </div>
       <?php
-                                          }
-                                        }
+         }
+       }
+       }
       ?>
-    </div>
-  </div>
-  <div class="blockDiv">
-    <div class="titleMain">
-      <h4>Sản phẩm bán chạy</h4>
-    </div>
-    <div class="row">
-
-    </div>
-    <div id="newSlide" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <?php
-              $show_sell = $pro->show_SellNumber();
-              if ($show_sell) {
-              while ($result = $show_sell->fetch_assoc()) {
-          ?>
-              <div class="col-sm-3 itemProduct">
-                <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
-                  <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-                  <br>
-                  <span class="description"><?php echo $result['ProductName']; ?></span><br>
-                  <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                  <span class="views">Lượt xem: <?php echo $result['Views']; ?></span><br>
-                </a>
-
-              </div>
-          <?php
-                }
-            }
-          ?>
-        </div>
-        <div class="carousel-item">
-          <?php
-              $show_sell = $pro->show_SellNumber();
-              if ($show_sell) {
-              while ($result = $show_sell->fetch_assoc()) {
-          ?>
-              <div class="col-sm-3 itemProduct">
-                <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
-                  <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-                  <br>
-                  <span class="description"><?php echo $result['ProductName'];; ?></span><br>
-                  <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
-                  <span class="views">Lượt xem: <?php echo $result['Views']; ?></span><br>
-                </a>
-              </div>
-          <?php
-              }
-            }
-          ?>
-        </div>
       </div>
-
-      <!-- Left and right controls -->
-      <a class="carousel-control-prev" href="#newSlide" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#newSlide" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-
+     
     </div>
-
   </div>
+<div class="blockDiv">
+  <div class="titleMain">
+    <h4>Sản phẩm mới</h4>
+  </div>
+  <div class="myRow">
+<?php
+            $SHOW_NEW = $pro->show_newProduct();
+            if ($SHOW_NEW) {
+            while ($result = $SHOW_NEW->fetch_assoc()) {
+        ?>
+        <div class="col-sm-3 itemProduct">
+          <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+            <img  src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+            <br>
+            <span class="description"><?php echo $result['ProductName']; ?></span><br>
+            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+          </a>
+        </div>
+        <?php
+            }
+          }
+        ?>
+  </div>
+
 </div>
 <!-- End Main -->
 <?php

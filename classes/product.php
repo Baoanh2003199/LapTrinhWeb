@@ -102,7 +102,13 @@ class Product
   }
   public function showProductBySupID($idSupp)
   {
-    $sql = "SELECT  * from Products p,Suppliers s WHERE  p.SupplierID='$idSupp'";
+    $sql = "SELECT  p.* from Products p WHERE  p.SupplierID='$idSupp'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+    public function showProductByCateID($cateID)
+  {
+    $sql = "SELECT  p.* from Products p WHERE  p.CategoryID='$cateID'";
     $result = $this->db->select($sql);
     return $result;
   }
