@@ -57,7 +57,7 @@ if (isset($delOrder)) {
           <td><?php echo $result['Status']; ?></td>
           <td>
             <a href="updateOrder.php?OrderID=<?php echo $result['OrderID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('are you delete')" href="?delID=<?php $result["OrderID"] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá đơn đặt hàng này ?')" href="?delID=<?php $result["OrderID"] ?>" class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 include_once "inc/header.php";
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="addCategory.php">Thêm loại sản phẩm</a>>
   <?php
   if (isset($insert_cat)) {

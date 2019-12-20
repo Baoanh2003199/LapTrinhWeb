@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="addSupplier.html">Thêm nhà sản xuất</a>>
   <?php
   if (isset($insert_supp)) {

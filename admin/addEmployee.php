@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="addEmployee.php">Thêm nhân viên</a>>
   <?php
   if (isset($insert_emp)) {

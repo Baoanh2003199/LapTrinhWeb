@@ -10,7 +10,7 @@ if (isset($_GET['delID'])) {
 }
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="listEmployee.php">Danh sách nhân viên</a>>
 </div>
 <div class="titleForm">Danh sách nhân viên</div>
@@ -58,7 +58,7 @@ if (isset($delEmp)) {
           <td>@mdo</td>
           <td>
             <a href="updateEmployee.php?EmployeeID=<?php $result['EmployeeID'] ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('are you delete')" href="?delID=<?php $result['EmployeeID'] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('Bạn có chắn muốn xoá nhân viên này ?')" href="?delID=<?php $result['EmployeeID'] ?>" class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>

@@ -11,7 +11,7 @@ if (isset($_GET['delID'])) {
 }
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="listProduct.php">Danh sách sản phẩm</a>>
 </div>
 <div class="titleForm">Danh sách sản phẩm</div>
@@ -61,7 +61,7 @@ if (isset($delPro)) {
       <td width="15%" ><?php echo $description; ?></td>
       <td>
         <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('are you delete')" href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
+        <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')" href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
       </td>
     </tr>
     </tr>

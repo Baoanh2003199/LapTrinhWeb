@@ -10,7 +10,7 @@ if (isset($_GET['delID'])) {
 }
 ?>
 <div class="titleRight path">
-  <a href="index.html">home</a> >
+  <a href="index.php">home</a> >
   <a href="listCustomer.php">Danh sách khách hàng</a>>
 </div>
 <div class="titleForm">Danh sách khách hàng</div>
@@ -30,7 +30,7 @@ if (isset($delCat)) {
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tên loại</th>
+      <th scope="col">Tên Khách hàng</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">Điện thoại</th>
       <th scope="col">Email</th>
@@ -44,7 +44,7 @@ if (isset($delCat)) {
   $show_customer = $cus->show_Customers();
   if ($show_customer) {
     $i = 0;
-    while ($result = $show_customer->fetch()) {
+    while ($result = $show_customer->fetch_assoc()) {
       $i++;
       ?>
       <tbody>
@@ -59,7 +59,7 @@ if (isset($delCat)) {
           <td><?php echo $result['Status']; ?></td>
           <td>
             <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('are you delete')" href="?delID=<?php $result['CustomerID'] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')" href="?delID=<?php $result['CustomerID'] ?>" class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>
