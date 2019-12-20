@@ -209,7 +209,7 @@ ul li{
      overflow: auto;
  }
  .itemProduct{
-     min-height: 250px;
+    min-height: 250px;
      background: rgb(255, 255, 255);
      text-align: center;
      font-size: 105%;
