@@ -89,7 +89,7 @@ class Product
   }
   public function getProductID($id)
   {
-    $sql = "SELECT * from Products p ,Categories c,Suppliers s where p.ProductID='$id' and p.CategoryID=c.CategoryID and p.SupplierID=s.SupplierID";
+    $sql = "SELECT p.*, c.CategoryID, s.SupplierID from Products p ,Categories c,Suppliers s where p.ProductID='$id' and p.CategoryID=c.CategoryID and p.SupplierID=s.SupplierID";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -120,28 +120,22 @@ class Product
     $Origin = mysqli_real_escape_string($this->db->link, $data['Origin']);
     $Description = mysqli_real_escape_string($this->db->link, $data['Description']);
     $Status = mysqli_real_escape_string($this->db->link, $data['Status']);
-    $Category = mysqli_real_escape_string($this->db->link, $data['Category']);
-    $Supplier = mysqli_real_escape_string($this->db->link, $data['Supplier']);
-
-    $permited = array('jpg', 'png', 'jpeg', 'gif');
-    $file_Name = $_FILES['Img']['name'];
-    $file_size = $_FILES['Img']['size'];
-    $file_temp = $_FILES['Img']['tmp_name'];
+    $Category = mysqli_real_escape_string($this->db->link, $data['CategoryID']);
+    $Supplier = mysqli_real_escape_string($this->db->link, $data['SupplierID']);
+    var_dump($data);
+    $file_Name = $file['Img']['name'];
+    $file_size = $file['Img']['size'];
+    $file_temp = $file['Img']['tmp_name'];
 
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/img/product/'. $unique_img;
-    if (empty($ProductName) || empty($Price) || empty($Views) || empty($SellNumber) || empty($Origin) || empty($Img) || empty($Description) || empty($Status)) {
+    $upload_file = $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/uploads/'. $unique_img;
+    if (empty($ProductName) || empty($Price) ||  empty($Origin) ||  empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;
     } else {
-      if ($file_size > 2048) {
-        return "<span>image error size big</span>";
-      } elseif (in_array($file_ext, $permited) == false) {
-        # code...
-        return "<span>you can upload" . implode(',', $permited) . "</span>";
-      }
+      move_uploaded_file($file_temp, $upload_file);
       $sql = "UPDATE Products set ProductName='$ProductName', Price='$Price', Origin='$Origin', Img='$unique_img', CategoryID='$Category', SupplierID='$Supplier', Description='$Description', Status='$Status' where ProductID='$id' ";
       $result = $this->db->update($sql);
 

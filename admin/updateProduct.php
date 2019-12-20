@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
 ?>
 
 <?php
@@ -10,7 +12,7 @@ if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
   $id = $_GET['ProductID'];
 }
 $product = new Product();
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ProductID'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $updateProd = $product->update_product($_POST,$_FILES,$id);
 }
@@ -29,9 +31,6 @@ $get_Name = $product->getProductID($id);
 if (isset($get_Name)) {
 
   while ($result = $get_Name->fetch_assoc()) {
-    var_dump($result);
-
-  while ($result = $get_Name->fetch_assoc()) {
     ?>
     <form enctype="multipart/form-data" method="POST">
       <div class="titleForm">Cập nhật sản phẩm</div>
@@ -45,42 +44,76 @@ if (isset($get_Name)) {
       </div>
       <div class="form-group">
         <div class="itemForm">Nguồn gốc</div>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="Nhập nguồn gốc" />
+        <input type="text" class="form-control" name="Origin" value="<?php echo $result['Origin']; ?> "  placeholder="Nhập nguồn gốc" />
       </div>
 
       <div class="form-group">
         <div class="itemForm">Hình ảnh</div>        
            <img width="200"  src="../uploads/<?php echo $result['Img']; ?>" alt="" id="img" >
            <br>
-        <input type="file" value="<?php echo $result['Img']; ?>" />
+        <input id="uploadImg" name="Img" type="file" value="<?php echo $result['Img']; ?>" />
       </div>
       <div class="form-group">
         <div class="itemForm">Phân loại</div>
         <br />
-        <select name="" id="" class="form-control">
-          <option value="1"> hoạt động</option>
-          <option value="2"> tạm ngưng</option>
+        <select name="CategoryID" id="" class="form-control">
+          <?php
+      $cat = new category();
+      $cat_list = $cat->show_category();
+      if ($cat_list) {
+        while ($resultCate = $cat_list->fetch_assoc()) {         
+          ?>
+          <option <?php if( $resultCate['CategoryID'] == $result['CategoryID'] ) echo "selected='true'"; ?>  value="<?php echo $resultCate['CategoryID']; ?>"> <?php echo $resultCate['CategoryName'];?>
+           </option>
+      <?php
+        }
+      }
+      ?>
         </select>
       </div>
       <div class="form-group">
         <div class="itemForm">Nhà sản xuất</div>
         <br />
-        <select name="" id="" class="form-control">
-          <option value="1"> hoạt động</option>
-          <option value="2"> tạm ngưng</option>
+        <select name="SupplierID" id="" class="form-control">
+          <?php
+      $supp = new supplier();
+      $supp_list = $supp->show_supplier();
+      if ($supp_list) {
+        while ($resultSup = $supp_list->fetch_assoc()) {
+          var_dump($resultSup);
+          ?>
+          <option  value="<?php echo $resultSup['SupplierID']; ?>"><?php echo $resultSup['SupplierName']; ?></option>
+      <?php
+        }
+      }
+      ?>
         </select>
       </div>
       <div class="form-group">
         <div class="itemForm">Mô tả</div>
-        <textarea name="<?php echo $result['Description']; ?>" id="" cols="100" rows="5" class="form-control"></textarea>
+        <textarea name="Description" id="" cols="100" rows="5" class="form-control"><?php echo $result['Description']; ?> 
+        </textarea>
       </div>
 
       <div class="form-group">
         <div class="itemForm">Trạng thái</div>
         <br />
-        <select name="" id="" class="form-control">
-          <option value="1"> hoạt động</option>
-          <option value="2"> tạm ngưng</option>
+        <select name="Status" id="" class="form-control">
+         <?php 
+            if($resulut['Status'] === '1' ){
+         
+           ?>
+              <option value="1" selected="true">Hoạt động</option>
+              <option value="2">Ngưng hoạt động</option>
+          <?php          
+            }else{
+
+          ?>
+              <option value="1" >Hoạt động</option>
+              <option value="2" selected="true">Ngưng hoạt động</option>
+          <?php 
+          }
+           ?>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Lưu</button>
@@ -91,6 +124,6 @@ if (isset($get_Name)) {
 ?>
 </div>
 </div>
-<?php
+<?php 
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
-?>
+ ?>
