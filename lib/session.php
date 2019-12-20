@@ -28,7 +28,12 @@ class Session
     }
   }
 
-  public static function destroy()
+  public static function destroyAdmin()
+  {
+    session_destroy();
+    header('location:login.php');
+  }
+   public static function destroy()
   {
     session_destroy();
   }
@@ -44,10 +49,8 @@ class Session
     self::init();
     if (self::get("userLogin") === false) {
       self::destroy();
-      header("location:index.php");
     }
   }
-
   public static function checkLogin()
   {
     self::init();

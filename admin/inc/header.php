@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
-Session::checkSession();
+Session::checkAdmin();
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ Session::checkSession();
           Hello, Admin
           <?php
             if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-                Session::destroy();
+                Session::destroyAdmin();
             }
           ?>
           <a href="?action=logout">Đăng xuất</a>

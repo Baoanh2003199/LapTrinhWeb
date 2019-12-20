@@ -20,7 +20,9 @@ else
     $Img = $result["Img"];	
     $Desc = $result["Description"];
     $result = $Getsupplier->fetch_assoc();
-    $Supplier = $result["SupplierName"];
+    $Supplier = $result["SupplierName"];    
+
+
 }
 ?>
 <!-- Main -->
@@ -33,7 +35,7 @@ else
             </div>
             <!--<img src="../img/product/product1.jpg" alt="">
             https://www.anphatpc.com.vn/media/product/29431_g531gd_07_1.jpg-->
-            <img src="<?php echo $Img;?>" alt="">
+            <img src="../uploads/<?php echo $Img;?>" alt="">
             <div class="details">
                 <span class="productName"><?php echo $Name;?></span>
                 <span class="detailsViews"><?php echo $Views;?> Lượt Xem</span>

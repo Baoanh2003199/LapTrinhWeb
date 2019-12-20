@@ -30,6 +30,8 @@ if (isset($get_Name)) {
 
   while ($result = $get_Name->fetch_assoc()) {
     var_dump($result);
+
+  while ($result = $get_Name->fetch_assoc()) {
     ?>
     <form enctype="multipart/form-data" method="POST">
       <div class="titleForm">Cập nhật sản phẩm</div>
