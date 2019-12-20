@@ -29,17 +29,17 @@ function setReadyDocument(){
         }
     );
     $('#btnLogin').click(function (e) { 
-        $("#loginModal").modal("show");
+        $("#loginModal").modal('show');
     });
     $('#btnDel').click(function (e) { 
-        $("#loginModal").modal("hide");
+        $("#loginModal").modal('hide');
     });
     $('#btnRegister').click(function (e) { 
         //setDisplay('#divRegister');
-        $("#registerModal").modal("show");
+        $("#registerModal").modal('show');
     });
     $('#btnDelR').click(function (e) { 
         //closeDisplay('#divRegister');
-        $("#registerModal").modal("hide");
+        $("#registerModal").modal('hide');
     });
 }

@@ -27,7 +27,7 @@ if ($_SERVER[' REQUEST_METHOD'] === 'POST' && isset($_POST['ProductID'])) {
 <?php
 $get_Name = $product->getProductID($id);
 if (isset($get_Name)) {
-  while ($result = $get_Name->ferch_assoc()) {
+  while ($result = $get_Name->fetch_assoc()) {
     ?>
     <form enctype="multipart/form-data" method="POST">
       <div class="titleForm">Cập nhật sản phẩm</div>
