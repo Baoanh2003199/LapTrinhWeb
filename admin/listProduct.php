@@ -60,8 +60,8 @@ if (isset($delPro)) {
       <td><?php echo $resut['SupplierID']; ?></td>
       <td width="15%" ><?php echo $description; ?></td>
       <td>
-        <a href="updateProduct.php?ProductID=<?php echo $result['ProductID']; ?>" class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('are you delete')" href="?delID=<?php $result["ProductID"] ?>" class="btn btn-danger">Xóa</a>
+        <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
+        <a onclick="return confirm('are you delete')" href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
       </td>
     </tr>
     </tr>

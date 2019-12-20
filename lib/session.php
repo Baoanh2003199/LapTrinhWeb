@@ -31,14 +31,20 @@ class Session
   public static function destroy()
   {
     session_destroy();
-    header("Location:login.php");
   }
-  public static function checkSession()
+  public static function checkAdmin()
   {
     self::init();
-    if (self::get("adminlogin") == false) {
+    if (self::get("adminlogin") === false) {
       self::destroy();
       header("location:login.php");
+    }
+  }
+  public static function checkUser(){
+    self::init();
+    if (self::get("userLogin") === false) {
+      self::destroy();
+      header("location:index.php");
     }
   }
 

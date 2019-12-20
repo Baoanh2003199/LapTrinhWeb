@@ -8,6 +8,19 @@
     expandChildUL();
     closeMenu();
     expandMenu();
+   	$('#uploadImg').change(function(event ) {
+   		var url = $('#uploadImg')[0].files[0].name;
+   		console.log(url);
+   		if (url != "") {
+   			var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL($('#uploadImg')[0].files[0]);
+   		}
+   		
+   	});
   });
 </script>
 </body>

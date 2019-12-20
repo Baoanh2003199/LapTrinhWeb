@@ -41,7 +41,7 @@ class Product
        
       move_uploaded_file($file_temp, $upload_file);
        
-      $sql = "INSERT into Products values('$ProductName','$Price','0','0','$upload_file','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
+      $sql = "INSERT into Products(ProductName, Price,Views, SellNumber, Origin, Img, Description, CategoryID, SupplierID, Status) values('$ProductName','$Price','0','0','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
 
       $result = $this->db->insert($sql);
       if ($result) {
@@ -137,12 +137,12 @@ class Product
       return $alert;
     } else {
       if ($file_size > 2048) {
-        echo "<span>image error size big</span>";
+        return "<span>image error size big</span>";
       } elseif (in_array($file_ext, $permited) == false) {
         # code...
-        echo "<span>you can upload" . implode(',', $permited) . "</span>";
+        return "<span>you can upload" . implode(',', $permited) . "</span>";
       }
-      $sql = "UPDATE Products set ProductName='$ProductName'and Price='$Price' and and Origin='$Origin' and Img='$unique_img' and CategoryID='$Category' and SupplierID='$Supplier' and Description='$Description' and Status='$Status' where ProductID='$id' ";
+      $sql = "UPDATE Products set ProductName='$ProductName', Price='$Price', Origin='$Origin', Img='$unique_img', CategoryID='$Category', SupplierID='$Supplier', Description='$Description', Status='$Status' where ProductID='$id' ";
       $result = $this->db->update($sql);
 
       if ($result) {

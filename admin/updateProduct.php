@@ -5,12 +5,12 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
 
 <?php
 if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
-  echo "<script>window.location='updateProduct.php'</script>";
+  // echo "<script>window.location='updateProduct.php'</script>";
 } else {
   $id = $_GET['ProductID'];
 }
 $product = new Product();
-if ($_SERVER[' REQUEST_METHOD'] === 'POST' && isset($_POST['ProductID'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ProductID'])) {
 
   $updateProd = $product->update_product($_POST,$_FILES,$id);
 }
@@ -27,17 +27,19 @@ if ($_SERVER[' REQUEST_METHOD'] === 'POST' && isset($_POST['ProductID'])) {
 <?php
 $get_Name = $product->getProductID($id);
 if (isset($get_Name)) {
-  while ($result = $get_Name->ferch_assoc()) {
+
+  while ($result = $get_Name->fetch_assoc()) {
+    var_dump($result);
     ?>
     <form enctype="multipart/form-data" method="POST">
       <div class="titleForm">Cập nhật sản phẩm</div>
       <div class="form-group">
         <div class="itemForm">Tên sản phẩm</div>
-        <input type="text" class="form-control" value="<?php echo $result['ProductName']; ?>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên loại" />
+        <input type="text" class="form-control" value="<?php echo $result['ProductName']; ?> " name="ProductName" placeholder="Nhập tên loại" />
       </div>
       <div class="form-group">
         <div class="itemForm">Giá</div>
-        <input type="text" value="<?php echo $result['Price']; ?>" class="form-control" id="" aria-describedby="" placeholder="Nhập giá" />
+        <input type="text" value="<?php echo $result['Price']; ?>" class="form-control" name="Price" placeholder="Nhập giá" />
       </div>
       <div class="form-group">
         <div class="itemForm">Nguồn gốc</div>
@@ -45,8 +47,9 @@ if (isset($get_Name)) {
       </div>
 
       <div class="form-group">
-        <div class="itemForm">Hình ảnh</div>
-
+        <div class="itemForm">Hình ảnh</div>        
+           <img width="200"  src="../uploads/<?php echo $result['Img']; ?>" alt="" id="img" >
+           <br>
         <input type="file" value="<?php echo $result['Img']; ?>" />
       </div>
       <div class="form-group">

@@ -37,7 +37,10 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
   </div>
   <div class="form-group">
     <div class="itemForm">Hình ảnh</div>
-    <input type="file" name="Img" />
+   
+    <img width="200"  src="" alt="" id="img" >
+    <br>
+    <input type="file" name="Img" id="uploadImg" />
   </div>
   <div class="form-group">
     <div class="itemForm">Phân loại</div>
