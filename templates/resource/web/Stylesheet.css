@@ -466,7 +466,7 @@ ul li{
 }
 #acountManager{
     width: 15%;
-    height: 90px;
+    min-height: 10px;
     background:rgb(239, 239, 239);
     position: absolute;
     top: 4.2%;
@@ -478,6 +478,10 @@ ul li{
     height: 30px;
     border-bottom: 1px solid gray;
     cursor: pointer;
+}
+#acountManager a{
+    color: black;
+    text-decoration: none;
 }
 #btnAcount:hover #acountManager{
     display: block !important;

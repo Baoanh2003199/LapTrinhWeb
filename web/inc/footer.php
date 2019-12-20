@@ -7,7 +7,7 @@ Session::checkUser();
 ?>
 <?php
 $class = new login();
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
   $User = $_POST['User'];
   $Pass = md5($_POST['Pass']);
 
@@ -17,31 +17,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php
   $register=new user();
   $cuss=new customer();
-  if($_SERVER['REQUEST_METHOD']==='POST'){
+  if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btnRegister'])){
+    $user = $_POST['User'];
       $Name=$_POST['Name'];
-      $Pass=$_POST['Pass'];
-      $Email=$_POST['Email'];
+      $Pass=md5($_POST['Pass']);
       $Phone=$_POST['Phone'];
       $Address=$_POST['Address'];
-      $City=$_POST['city'];
-      $DoB=$_POST['DoB'];
-      $Status=$_POST['null'];
+      $DoB=$_POST['DOB'];
 
-      $registerUser=$register->insert_User($Name,$Pass);
-      $registerCuss=$cuss->insert_category($Name,$Address,$Phone,$Email,$City,$DoB,$Status);
+      $registerUser=$register->insert_User($user,$Pass);
+      if($registerUser){
+        $getUserID = $register->findID($user);
+        if($getUserID){
+          $fetchUserID = $getUserID->fetch_assoc();
+        if($fetchUserID){
+            $userID = $fetchUserID['UserID'];
+          $registerCuss=$cuss->insert_customer($Name,$Address,$Phone,$DoB, $userID);
+          if ($registerCuss) {
+            echo "<script type='text/javascript'>alert('Đăng ký thành công');</script>";
+          }
+        }
+        }
+      }
+      else{
+         echo "<script type='text/javascript'>alert('Tên đăng nhập đã tồn tại');</script>";
+      }
   }
 ?>
 <!-- Footer -->
 <div id="acountManager">
   <ul>
+    <?php 
+      if (Session::get('userLogin') == false) {
+     ?>
     <li id="btnLogin"> Đăng nhập</li>
     <li id="btnRegister"> Đăng ký</li>
+    <?php 
+      }
+     ?>
     <?php
           if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             Session::destroy();
+            header('location:index.php');
           }
     ?>
-    <li id="?action=logout"> Đăng xuất</li>
+    <?php 
+      if (Session::get('userLogin') == true) {
+     ?>
+    <li id="btnlogOut"> <a href="index.php?action=logout">Đăng xuất</a> </li>
+    <?php 
+      }
+     ?>
   </ul>
   </div>
   <div id="loginModal" class="modal fade" role="dialog">
@@ -69,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="exampleInputPassword1">Mật khẩu</label>
       <input type="password" class="form-control" id="txtPasswordlg" placeholder="Mật khẩu" name="Pass">
     </div>
-    <button type="submit" class="btn btn-primary">Ðăng nhập</button>
+    <button type="submit" class="btn btn-primary" name="btnLogin" >Ðăng nhập</button>
     <button type="button" class="btn btn-secondary" id="btnDel">Đóng</button>
   </form>
       </div>
@@ -112,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h3 class="registerHeader">Thông tin cá nhân</h3>
     <div class="form-group">
       <label for="txtName">Họ Tên<label class="redStart">*</label></label>
-      <input type="email" class="form-control" id="txtName" placeholder="Họ tên của bạn" name="Name">
+      <input type="text" class="form-control" id="txtName" placeholder="Họ tên của bạn" name="Name">
     </div>
     <div class="form-group">
       <label for="txtDOB">Ngày sinh<label class="redStart">*</label></label>
@@ -126,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="txtPhone">Ðịa chỉ<label class="redStart">*</label></label>
       <input type="text" class="form-control" id="txtAddress" placeholder="Ðịa chỉ nơi bạn đang sinh sống" name="Address">
     </div>
-    <button type="submit" class="btn btn-primary">Ðăng ký</button>
+    <button type="submit" class="btn btn-primary"  name="btnRegister" >Ðăng ký</button>
     <button type="button" class="btn btn-secondary" id="btnDelR">Đóng</button>
   </form>
       </div>

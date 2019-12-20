@@ -14,28 +14,26 @@ class customer
     $this->fm = new Format();
   }
 
-  public function insert_category($Name, $Address, $Phone, $Email, $City, $DoB, $Status)
+  public function insert_customer($Name, $Address, $Phone, $DoB, $userID)
   {
     $Name = $this->fm->valation($Name);
     $Address = $this->fm->valation($Address);
     $Phone = $this->fm->valation($Phone);
-    $Email = $this->fm->valation($Email);
-    $City = $this->fm->valation($City);
     $DoB = $this->fm->valation($DoB);
-    $Status = $this->fm->valation($Status);
+    $userID = $this->fm->valation($userID);
     //
     $Name = mysqli_real_escape_string($this->db->link, $Name);
     $Address = mysqli_real_escape_string($this->db->link, $Address);
     $Phone = mysqli_real_escape_string($this->db->link, $Phone);
-    $Email = mysqli_real_escape_string($this->db->link, $Email);
-    $City = mysqli_real_escape_string($this->db->link, $City);
     $DoB = mysqli_real_escape_string($this->db->link, $DoB);
-    $Status = mysqli_real_escape_string($this->db->link, $Status);
-    if (empty($Name) || empty($Address) || empty($Phone) || empty($Email) || empty($City) || empty($DoB) || empty($Status)) {
+     $userID = mysqli_real_escape_string($this->db->link, $userID);
+    if (empty($Name) || empty($Address) || empty($Phone)  || empty($DoB) || empty($userID)) {
       $alert = "catgory must be not empty";
       return $alert;
     } else {
-      $sql = "INSERT into Customers(Name,Address,Phone,Email,City,DoB,Status) values('$Name',''$Address,'$Phone','$Email','$City','$DoB','$Status')";
+       $sql = "INSERT into Customers(Name,Address,Phone,DoB,Status, UserID) 
+       SELECT * From (select '$Name','$Address','$Phone','$DoB','1', '$userID') AS tmp
+      WHERE not exists (select * from Customers where UserId = '$userID')";
       $result = $this->db->insert($sql);
 
       if ($result) {
