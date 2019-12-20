@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="password" class="form-control" id="txtPasswordlg" placeholder="Mật khẩu" name="Pass">
     </div>
     <button type="submit" class="btn btn-primary">Ðăng nhập</button>
-    <button type="button" class="btn btn-secondary" id="btnDelR">Đóng</button>
+    <button type="button" class="btn btn-secondary" id="btnDel">Đóng</button>
   </form>
       </div>
       <div class="modal-footer">
