@@ -196,9 +196,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
  </script>
 <?php 
 }
-
+  if(isset($checkLogin) && $checkLogin == true){
  ?>
- 
+ <script>
+   $(document).ready(function() {
+     console.log('ok');
+     setReadyDocument();
+     });
+ </script>
+ <?php 
+ } ?>
  <!-- End Footer -->
  </body>
 
