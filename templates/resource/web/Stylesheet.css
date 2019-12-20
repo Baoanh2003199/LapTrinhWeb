@@ -199,7 +199,7 @@ ul li{
    background-image: url('/img/arrow/seta_ult.png');
  }
  .col-sm-3{
-     width: 22% !important;
+     width: 25% !important;
  }
  .blockDiv{
      margin-top: 2%;
@@ -208,8 +208,11 @@ ul li{
      border-radius: 1rem;
      overflow: auto;
  }
+ .myRow{
+    display: flex;
+ }
  .itemProduct{
-    min-height: 250px;
+    min-height: 45%;
      background: rgb(255, 255, 255);
      text-align: center;
      font-size: 105%;
@@ -231,7 +234,8 @@ ul li{
     box-shadow: 2px 6px 15px 1px rgba(0,0,0,0.53);
  }
  .img_produt{
-     width: 100%;
+     width: 80%;
+     height: 50%;
      margin-left: 0%;
      margin-top: 2%;
  }
@@ -242,17 +246,17 @@ ul li{
     padding: 1rem 0;
 }
 .leftBlock{
-    width: 25%;
+    width: 20%;
    height: 400px;
     background: rgb(24, 158, 255,0.8);
     float: left;
     margin: 1rem;
 }
 .rightBlock{
-    width: 70%;
+    width: 75%;
     min-height: 400px;
     float: left;
-    margin: 1rem;
+    margin: 1rem;   
 }.leftBlock a{
     color: black;
     text-decoration: none;
@@ -262,7 +266,6 @@ ul li{
     height: 40px;
     text-indent: 2rem;
     line-height: 30px;
-    font-size: 120%;
     border-top: 0.1px solid white;
 }
 .leftBlock li:hover{
@@ -321,7 +324,7 @@ ul li{
     font-size: 110%;
 }
 .price{
-    font-size: 130%;
+    font-size: 110%;
     color: cornflowerblue;
     font-weight: bolder;
 }
@@ -465,7 +468,7 @@ ul li{
 }
 #acountManager{
     width: 15%;
-    height: 90px;
+    min-height: 10px;
     background:rgb(239, 239, 239);
     position: absolute;
     top: 4.2%;
@@ -477,6 +480,10 @@ ul li{
     height: 30px;
     border-bottom: 1px solid gray;
     cursor: pointer;
+}
+#acountManager a{
+    color: black;
+    text-decoration: none;
 }
 #btnAcount:hover #acountManager{
     display: block !important;

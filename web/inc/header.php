@@ -63,7 +63,7 @@ ob_start();
   <div class="menu">
     <ul>
       <li> <a href="index.php">Trang chủ</a> </li>
-      <li> <a href="category.php">Danh mục sản phẩm</a> </li>
+      <li> <a href="category.php?CateID=1">Danh mục sản phẩm</a> </li>
       <li> <a href="supplier.php?SupplierID=1"> Nhà sản xuất</a></li>
       <li> <a href=""> Liên lạc</a></li>
     </ul>
