@@ -44,7 +44,7 @@ if (isset($delCat)) {
   $show_customer = $cus->show_Customers();
   if ($show_customer) {
     $i = 0;
-    while ($result = $show_customer->fetch()) {
+    while ($result = $show_customer->fetch_assoc()) {
       $i++;
       ?>
       <tbody>
