@@ -409,6 +409,10 @@ ul li{
     display: block;
     margin-top: 10%;
 }
+.itemRight a{
+    text-decoration: none;
+    color: white;
+}
 .grandtotal{
     width: 35%;
     margin-left: 2%;

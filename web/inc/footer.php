@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
   $Pass = md5($_POST['Pass']);
 
   $login_check = $class->login($User, $Pass);
+  header('location:cart.php');
 }
 ?>
 <?php
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
 <div id="acountManager">
   <ul>
     <?php 
-      if (Session::get('userLogin') == false) {
+      if (Session::checkUser() == false) {
      ?>
     <li id="btnLogin"> Đăng nhập</li>
     <li id="btnRegister"> Đăng ký</li>
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
           }
     ?>
     <?php 
-      if (Session::get('userLogin') == true) {
+      if (Session::checkUser() == true) {
      ?>
     <li id="btnlogOut"> <a href="index.php?action=logout">Đăng xuất</a> </li>
     <?php 
@@ -165,15 +166,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
  <div class="footer">
    Lập trình web - Shop bán hàng online
  </div>
+ 
  <script src="../templates//vendor/jquery/jquery-3.4.1.min.js"></script>
  <script src="../templates/vendor/js/bootstrap.min.js"></script>
  <script src="../templates/resource/web/myscript.js"></script>
+ <?php 
+  if(isset($checkLogin) && $checkLogin == true &&  isset($_GET['login'])  && $_GET['login'] == 'order'){
+
+  ?>
+    <script>
+     $(document).ready(function() {
+     setReadyDocument();
+      $("#loginModal").modal('show');
+   });
+    </script>
+  <?php 
+} if(isset($checkLogin) && $checkLogin == false){
+
+   ?>
  <script>
    $(document).ready(function() {
      setReadyDocument();
+     $('#btnPay').click(function(event) {
+       setDisplay('#paymentDiv');
+     });
    });
  </script>
+<?php 
+}
 
+ ?>
  <!-- End Footer -->
  </body>
 

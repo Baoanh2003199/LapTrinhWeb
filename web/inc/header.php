@@ -1,5 +1,12 @@
 <?php 
+  include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 ob_start();
+$checkLogin = true;
+  if(Session::checkUserLogin() != true){
+            $checkLogin = true;
+        }else{
+            $checkLogin = false;
+        }
  ?>
 <!DOCTYPE html>
 <html lang="en">

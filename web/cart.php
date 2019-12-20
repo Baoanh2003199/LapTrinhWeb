@@ -49,7 +49,7 @@
                     <span>(Đã tính vat)</span>
                 </div>
                 <div class="itemRight">
-                    <button type="button" class="btn btn-danger" id="btnOrder" >Thanh toán</button>
+                    <a href="cart.php?login=order"><button type="button" class="btn btn-danger" id="btnPay" >Thanh toán </button></a>
                 </div>
             </div>
         </div>

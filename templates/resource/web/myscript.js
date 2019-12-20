@@ -6,10 +6,6 @@ function closeDisplay(divName) {
     $(divName).css("display", 'none');
 }
 function setReadyDocument(){
-    $('#btnOrder').click(function (e) { 
-        setDisplay('#paymentDiv');
-        
-    });
     $('#closePayment').click(function (e) { 
         closeDisplay('#paymentDiv');
         

@@ -35,27 +35,38 @@ class Session
   }
    public static function destroy()
   {
+    var_dump('destroy');
     session_destroy();
   }
   public static function checkAdmin()
   {
     self::init();
-    if (self::get("adminlogin") === false) {
+    if (self::get("adminlogin") == false) {
       self::destroy();
       header("location:login.php");
     }
   }
   public static function checkUser(){
     self::init();
-    if (self::get("userLogin") === false) {
-      self::destroy();
+    if (self::get("userLogin") != 'true') {
+      // self::destroy();
+      return false;
+    }else{
+      return true;
     }
   }
-  public static function checkLogin()
-  {
+    public static function checkUserLogin(){
     self::init();
-    if (self::get("login") == true) {
-      header("Location:index.php");
+    if (self::get('userLogin') == 'true') {
+      return true;
+    }else{
+      return false;
+    }
+  }
+        public static function checkLogin(){
+    self::init();
+    if (self::get('Login') == true) {
+      header("location:index.php");
     }
   }
 }
