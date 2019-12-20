@@ -176,6 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
   ?>
     <script>
      $(document).ready(function() {
+      console.log('ok');
      setReadyDocument();
       $("#loginModal").modal('show');
    });
@@ -186,6 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
    ?>
  <script>
    $(document).ready(function() {
+     console.log('ok');
      setReadyDocument();
      $('#btnPay').click(function(event) {
        setDisplay('#paymentDiv');
@@ -196,6 +198,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
 }
 
  ?>
+  <script>
+   $(document).ready(function() {
+     console.log('ok');
+     setReadyDocument();
+     $('#btnPay').click(function(event) {
+       setDisplay('#paymentDiv');
+     });
+   });
+ </script>
  <!-- End Footer -->
  </body>
 
