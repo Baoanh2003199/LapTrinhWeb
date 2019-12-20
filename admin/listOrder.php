@@ -49,7 +49,7 @@ if (isset($delOrder)) {
       <tbody>
         <tr>
           <th scope="row"><?php echo $i; ?></th>
-          <td><?php $result['Total']; ?></td>
+          <td><?php echo $result['Total']; ?></td>
           <td><?php echo $result['Name']; ?></td>
           <td><?php echo $result['Address']; ?></td>
           <td><?php echo $result['Phone']; ?></td>
