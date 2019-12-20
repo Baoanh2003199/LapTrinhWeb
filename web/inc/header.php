@@ -31,7 +31,7 @@ $checkLogin = true;
         <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></span></a>
       </div>
       <div class="middleHeader">
-        <a href="#">Shop online</a>
+        <a href="index.php">Shop online</a>
       </div>
       <div class="rightUp">
         <div class="btnHeader" id="btnAcount">
