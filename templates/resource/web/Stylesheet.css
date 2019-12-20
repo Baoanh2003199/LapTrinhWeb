@@ -365,14 +365,14 @@ ul li{
     float: left;
 }
 .carDetails{
-    width: 45%;
-    height: 100%;
+    width: 250px;
+    max-height: 80px;
     float: left;
     margin-left: 2%;
 }
 .cartAction{
-    width: 30%;
-    height: 100%;
+    width: 430px;
+    max-height: 80px;
     float: left;
     margin-left: 2%;
 }
@@ -522,7 +522,7 @@ ul li{
     padding: 5%
 }
 .inumber{
-    margin-right:50px;
+    min-width:100px;
 }
 .registerHeader
 {

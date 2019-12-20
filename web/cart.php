@@ -9,57 +9,32 @@
             </div>
             <div class="cartLeft">
                 <div class="itemCart">
-                    <img src="../img/product/product1.jpg" alt="sản phẩm">
+                   <img style="max-height:80px; max-width:80px;"src="../img/product/product1.jpg" alt="sản phẩm">
                     <div class="carDetails">
-                        <span class="productName">Sản phảm bàn ủi</span>
-                        <span class="inforProduct">Nhà sản xuất: </span><br><br>
-                        <span class="inforProduct">Xuất xứ: </span><br><br>
+                    <br>
+                    <div class="row">
+                    <div class="col">
+                    <a>Sản phảm bàn ủi</a>
+                    </div>
+                    </div>
                     </div>
                     <div class="cartAction">
                         <br>
                         <form action="#" method="GET">
-                            <span class="price"> 23232 VND</span><br>
-                            <span>Số lượng</span>
-                            <input type="number" id="txtNum" name="txtNum" value="0"><br><br>
-                            <input type="submit" class="btn btn-light" value="Cập nhật">
-                            <input type="submit" class="btn btn-light" value="Xóa">
-                        </form>
-                    </div>
-                </div>
-                <div class="itemCart">
-                    <img src="../img/product/product1.jpg" alt="sản phẩm">
-                    <div class="carDetails">
-                        <span class="productName">Sản phảm bàn ủi</span>
-                        <span class="inforProduct">Nhà sản xuất: </span><br><br>
-                        <span class="inforProduct">Xuất xứ: </span><br><br>
-                    </div>
-                    <div class="cartAction">
-                        <br>
-                        <form action="#" method="GET">
-                            <span class="price"> 23232 VND</span><br>
-                            <span>Số lượng</span>
-                            <input type="number" id="txtNum" name="txtNum" value="0"><br><br>
-                            <input type="submit" class="btn btn-light" value="Cập nhật">
-                            <input type="submit" class="btn btn-light" value="Xóa">
-                        </form>
-                    </div>
-                </div>
-                <div class="itemCart">
-                    <img src="../img/product/product1.jpg" alt="sản phẩm">
-                    <div class="carDetails">
-                        <span class="productName">Sản phảm bàn ủi</span>
-                        <span class="inforProduct">Nhà sản xuất: </span><br><br>
-                        <span class="inforProduct">Xuất xứ: </span><br><br>
-                    </div>
-                    <div class="cartAction">
-                        <br>
-                        <form action="#" method="GET">
-                            <span class="price"> 23232 VND</span><br>
-                            <span>Số lượng</span>
-                            <input type="number" id="txtNum" name="txtNum" value="0"><br><br>
-                            <input type="submit" class="btn btn-light" value="Cập nhật">
-                            <input type="submit" class="btn btn-light" value="Xóa">
-                        </form>
+                        <div class="row">
+                        <div class="col-4">
+                            <a style="min-width:150px;">23232 VNĐ</a>
+                        </div>
+                        <div class="col-4">
+                        <div class="form-group">
+                        <input type="number" class= "form-control" id="txtNum" name="txtNum" value="1" min="1" style="min-width:150px;">
+                        </div>
+                        </div>
+                        <div class="col-3">
+                        <input type="submit" class="btn btn-light" value="Xóa" style="min-width:80px;">
+                        </div>
+                        </div>
+                        </form> 
                     </div>
                 </div>
             </div>

@@ -50,8 +50,12 @@ else
                 <form action="#" method="GET">
                 <div class="form-group">
                 <span class="inforProduct">Số lượng: </span><br>
-                    <input type="number" id="txtNum" name="txtNum" min="1" value="1" class="inumber">
-                    <button type="submit" class="btn btn-primary" style="width: 200px"> <i class="fas fa-shopping-cart"></i> Chọn mua</button>
+                <div class="row">
+                    <div class="col-3"> <input type="number" id="txtNum" name="txtNum" min="1" value="1" class="inumber form-control"></div>
+                    <div class="col"> <button type="submit" class="btn btn-primary" style="width: 200px"> <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng</button></div>
+                </div>
+                   
+                   
                     </div>
                 </form>
             </div>
