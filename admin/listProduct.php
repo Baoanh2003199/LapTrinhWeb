@@ -31,12 +31,12 @@ if (isset($delPro)) {
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tên</th>
+      <th scope="col" width="15%" >Tên</th>
       <th scope="col">Giá</th>
-      <th scope="col">Nguồn gốc</th>
+      <th scope="col" width="10%" >Nguồn gốc</th>
       <th scope="col">hình ảnh</th>
-      <th scope="col">Phân loại</th>
-      <th scope="col">Nhà sản xuất</th>
+      <th scope="col" width="10%">Phân loại</th>
+      <th scope="col" width="10%">Nhà sản xuất</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
     </tr>
@@ -55,7 +55,7 @@ if (isset($delPro)) {
       <td><?php echo $resut['ProductName']; ?></td>
       <td><?php echo $resut['Price']; ?></td>
       <td><?php echo $resut['Origin']; ?></td>
-      <td><img src="uploads/<?php echo $resut['Img']; ?>"/></td>
+      <td ><img  width="100px" src="../uploads/<?php echo $resut['Img']; ?> "/></td>
       <td><?php echo $resut['CategoryID']; ?></td>
       <td><?php echo $resut['SupplierID']; ?></td>
       <td width="15%" ><?php echo $description; ?></td>

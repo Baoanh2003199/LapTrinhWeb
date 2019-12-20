@@ -6,8 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
 ?>
 <?php
 $pro = new Product();
-if ($_SERVER['REQUEST_METHOD']==='POST') {
-  var_dump($_FILES);
+if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
   $insert_pro = $pro->insert_product($_POST,$_FILES);
 }
 
@@ -22,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
   }
   ?>
 </div>
-<form enctype="multipart/form-data" method="POST" action="addProduct.php">
+<form  action="addProduct.php" method="post" enctype="multipart/form-data">
   <div class="titleForm">Thêm sản phẩm</div>
   <div class="form-group">
     <div class="itemForm">Tên sản phẩm</div>

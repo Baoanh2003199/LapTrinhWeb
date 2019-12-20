@@ -33,14 +33,13 @@ class Product
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = "C:\xampp\htdocs\LapTrinhWeb\img\product". $unique_img;
+    $upload_file = $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/uploads/'.$unique_img;
     if (empty($ProductName) || empty($Price) || empty($Origin) || empty($file_Name) || empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;
     } else {
-      // var_dump($upload_file);
-      // var_dump($file_Name);
-      // var_dump( move_uploaded_file($file_Name, $upload_file));
+       
+      move_uploaded_file($file_temp, $upload_file);
        
       $sql = "INSERT into Products values('$ProductName','$Price','0','0','$upload_file','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
 
