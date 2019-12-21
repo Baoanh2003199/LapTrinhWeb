@@ -21,7 +21,7 @@ $pro = new Product();
               <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
               <br>
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
-              <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+              <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
               <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
             </a>
           </div>
@@ -58,7 +58,8 @@ $pro = new Product();
             <img  src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
             <br>
             <span class="description"><?php echo $result['ProductName']; ?></span><br>
-            <span class="price">Giá: <?php echo $result['Price']; ?> vnd</span><br>
+            <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
+            
             <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
           </a>
         </div>
