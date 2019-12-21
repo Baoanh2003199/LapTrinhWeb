@@ -30,7 +30,7 @@
                     $Image = $result['Image'];
             ?>
                 <div class="itemCart">
-                   <img  src="../uploads/<?php echo $Image?>" alt="sản phẩm">
+                   <img  style="max-width:120px; max-height:120px;"src="../uploads/<?php echo $Image?>" alt="sản phẩm">
                     <div class="carDetails">
                     <br>
                     <div class="row">
@@ -44,7 +44,7 @@
                         <form action="#" method="POST">
                         <div class="row">
                         <div class="col-4">
-                            <a><?php echo $Price?> VND</a>
+                            <a><?php echo number_format($Price).' đ'?> </a>
                         </div>
                         <div class="col-5">
                         <div class="form-group">
@@ -64,19 +64,15 @@
                 }    
             }
                 ?>
-
-
             </div>
             <div class="cartRight">
-                <div class="uperRight">
-                    <span class="subtotal">Tổng</span>
-                    <span class="subPrice"> <?php  echo $subTotal?></span>
-                </div>
                 <div class="itemRight">
-                    <span class="subtotal grandtotal">Thành tiền</span>
-                    <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10/100); echo $grandTotal ?></span><br><br>
-                    <span>(Đã tính vat)</span>
+                <span class="subtotal grandtotal">Tạm tính:</span>
+                    <span class="subPrice grandPrice"><?php echo number_format($subTotal).' đ'?></span><br><br>
+                    <span class="subtotal grandtotal">Tổng tiền:</span>
+                    <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?></span><br><br>
                 </div>
+                <br><span style="float:right; margin:5px;">(đã +10% VAT)</span><br>
                 <div class="itemRight">
                     <a href="cart.php?login=order"><button type="button" class="btn btn-danger" id="btnPay" >Thanh toán </button></a>
                 </div>
