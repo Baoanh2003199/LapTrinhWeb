@@ -44,7 +44,8 @@ class order
   }
   public function show_order()
   {
-    $sql = "SELECT o.*, cs.Name,cs.Phone, count(os.OrderID) as countQuantity FROM Orders o ,OrderDetails os, Cart ca,Customers cs WHERE o.OrderID=os.OrderID AND ca.CartID=os.CartID and ca.CustomerID=cs.CustomerID";
+    $sql = "SELECT o.*, cs.Name,cs.Phone, cs.Address,ur.UserName, count(os.OrderID) as countQuantity FROM Orders o ,OrderDetails os, Cart ca,Customers cs, User ur WHERE o.OrderID=os.OrderID AND 
+    ca.CartID=os.CartID and ur.UserID = ca.UserID ";
     $result = $this->db->select($sql);
     return $result;
   }

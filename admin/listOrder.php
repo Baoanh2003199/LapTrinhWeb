@@ -44,6 +44,7 @@ if (isset($delOrder)) {
   if ($show_order) {
     $i = 0;
     while ($result = $show_order->fetch_assoc()) {
+      var_dump($result);
       $i++;
       ?>
       <tbody>

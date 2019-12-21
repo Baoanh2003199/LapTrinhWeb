@@ -33,7 +33,7 @@ if (isset($delCat)) {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tên loại</th>
-      <th scope="col">Mô tả</th>
+      <th scope="col" width="20%" >Mô tả</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
     </tr>

@@ -40,8 +40,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
         if($getUserID) {
           return false;
         }
-        $sql="INSERT INTO User (UserName, Password, RoleId, Status)
-            SELECT * FROM (SELECT '$Name', '$Pass', '2', '1') AS tmp
+        $sql="INSERT INTO User (UserName, Password, RoleID, Status)
+            SELECT * FROM (SELECT '$Name', '$Pass', 2, 1) AS tmp
             WHERE NOT EXISTS (
             SELECT * FROM User WHERE UserName = '$Name'
               ) LIMIT 1;";

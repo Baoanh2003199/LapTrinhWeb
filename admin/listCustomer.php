@@ -33,9 +33,7 @@ if (isset($delCat)) {
       <th scope="col">Tên Khách hàng</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">Điện thoại</th>
-      <th scope="col">Email</th>
-      <th scope="col">Thành phố</th>
-      <th scope="col">Ngày sinh</th>
+       <th scope="col">Ngày sinh</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
     </tr>
@@ -53,8 +51,6 @@ if (isset($delCat)) {
           <td><?php echo $result['Name']; ?></td>
           <td><?php echo $result['Address']; ?></td>
           <td><?php echo $result['Phone']; ?></td>
-          <td><?php echo $result['Email']; ?></td>
-          <td><?php echo $result['City']; ?></td>
           <td><?php echo $result['DoB']; ?></td>
           <td><?php echo $result['Status']; ?></td>
           <td>
