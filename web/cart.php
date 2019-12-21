@@ -30,7 +30,7 @@
                     $Image = $result['Image'];
             ?>
                 <div class="itemCart">
-                   <img style="max-height:80px; max-width:80px;"src="../uploads/<?php echo $Image?>" alt="sản phẩm">
+                   <img  src="../uploads/<?php echo $Image?>" alt="sản phẩm">
                     <div class="carDetails">
                     <br>
                     <div class="row">
@@ -44,16 +44,16 @@
                         <form action="#" method="POST">
                         <div class="row">
                         <div class="col-4">
-                            <a style="min-width:150px;"><?php echo $Price?> VND</a>
+                            <a><?php echo $Price?> VND</a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-5">
                         <div class="form-group">
-                        <input type="number" class= "form-control" id="txtNum" name="quantity" value="<?php echo $Quantity?>" min="1" style="min-width:70px;">
-                        <input type="submit" class="btn btn-light" value="Cập nhật" style="min-width:20px;">
+                        <input type="number" class= "form-control" id="txtNum" name="quantity" value="<?php echo $Quantity?>" min="1">
+                        <input type="submit" class="btn btn-light" value="Cập nhật">
                         </div>
                         </div>
                         <div class="col-3">
-                        <input type="submit" class="btn btn-light" value="Xóa" style="min-width:60px;">
+                        <input type="submit" class="btn btn-light" value="Xóa">
                         </div>
                         </div>
                         </form>

@@ -335,19 +335,19 @@ ul li{
     margin-top: 0;
 }
 #txtNum{
-    width: 14%;
-    height: 2rem;
+    width: 20%;
+    height: 2.5rem;
     text-align: center;
 }
 .cartLeft{
-    width: 65%;
+    width: 70%;
     min-height: 320px;
     float: left;
     margin-left: 2%;
     margin-bottom: 3%;
 }
 .cartRight{
-    width: 30%;
+    width: 25%;
     min-height: 300px;
     background: rgb(255, 255, 255);
     float: left;
@@ -355,33 +355,43 @@ ul li{
 }
 .itemCart{
     width: 100%;
-    height: 80px;
+    height: 180px;
     display: block;
     background: rgb(255, 255, 255);
     margin-bottom: 2%;
 }
 .itemCart img{
-    width: 20%;
+    width: 170px;
     float: left;
 }
 .carDetails{
-    width: 250px;
-    max-height: 80px;
+    width: 15%;
+    height: 80px;
     float: left;
     margin-left: 2%;
 }
 .cartAction{
-    width: 430px;
-    max-height: 80px;
+    width: 60%;
+    height: 80px;
     float: left;
-    margin-left: 2%;
 }
 .cartAction input[type=number]{
-    width: 25% !important;
-    margin-left:10%;
+    width: 40% !important;
+    float: left;
+    margin-right: 15%;
 }
 .cartAction input[type=submit]{
-    width: 35%
+    width: 45%
+}
+.cartAction .btn-light{
+    margin-left: 0% !important;
+    display: inline-block;  
+}
+.cartAction .form-group{
+    margin: 0;
+}
+.cartAction .col-3{
+    padding: 0;
 }
 .uperRight{
     width: 100%;
