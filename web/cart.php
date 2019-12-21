@@ -1,5 +1,7 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+  $UserID = Session::Get('UserId');
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
   {
       $quantity = $_POST['quantity'];
@@ -17,10 +19,9 @@
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
-            $get_product_cart = $ct->get_product_cart();
+            $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  
-               
                 while($result = $get_product_cart->fetch_assoc())
                 {
                     

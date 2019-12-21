@@ -15,7 +15,7 @@ class Cart
     $this->fm = new Format();
   }
 
-  public function Add_to_cart($id,$quantity)
+  public function Add_to_cart($id,$quantity,$UserID)
   {
       $quantity = $this->fm->valation($quantity);
       $quantity = mysqli_real_escape_string($this->db->link,$quantity);
@@ -26,10 +26,10 @@ class Cart
       $productName = $result['ProductName'];
       $Price = $result['Price'];
       $Image = $result['Img'];
-      $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price) VALUES('$id','$productName','$quantity','$sID','$Image','$Price')";
+      $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price,UserID) VALUES('$id','$productName','$quantity','$sID','$Image','$Price','$UserID')";
       $query_check = "SELECT * FROM Cart where ProductID='$id' AND sID = '$sID'";
       $check_exists = $this->db->select($query_check);
-      if($check_exists)
+      if($check_exists || $UserID == '0')
       {
         $msg = "Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết ";
         return $msg;
@@ -49,10 +49,9 @@ class Cart
 
   }
 
-  public function get_product_cart()
+  public function get_product_cart($UserID)
   {
-    $sID = session_id();
-    $query = "SELECT * FROM Cart where sID = '$sID'";
+    $query = "SELECT * FROM Cart where UserID = '$UserID'";
     $result = $this->db->select($query);
     return $result;
   }

@@ -39,7 +39,17 @@ $checkLogin = true;
         <div class="btnHeader" id="btnAcount">
           <a href="">
             <i class="fas fa-user-circle"></i>
-            Tài khoản
+            <?php 
+            $username = Session::get('User');
+            if($username == '')
+            {
+              echo 'Đăng nhập';
+            }
+            else
+            {
+              echo $username;
+            }
+            ?>
           </a>
 
         </div>

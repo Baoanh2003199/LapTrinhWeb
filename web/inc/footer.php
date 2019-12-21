@@ -47,12 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
 ?>
 <!-- Footer -->
 <div id="acountManager">
-  <ul>
-    <?php 
+<table class="table table-hover"">
+  <?php 
       if (Session::checkUser() == false) {
      ?>
-    <li id="btnLogin"> Đăng nhập</li>
-    <li id="btnRegister"> Đăng ký</li>
+     <tr>
+    <td id="btnLogin" class="headerTD"> Đăng nhập</td>
+    </tr>
+    <tr>
+    <td id="btnRegister" class="headerTD"> Đăng ký</td>
+    </tr>
     <?php 
       }
      ?>
@@ -65,11 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
     <?php 
       if (Session::checkUser() == true) {
      ?>
-    <li id="btnlogOut"> <a href="index.php?action=logout">Đăng xuất</a> </li>
+     <tr>
+    <td id="btnlogOut" class="headerTD"> <a href="index.php?action=logout">Đăng xuất</a> </td>
+    </tr>
     <?php 
       }
      ?>
-  </ul>
+
+  </table>
   </div>
   <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

@@ -1,7 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
-
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+$UserID = Session::Get('UserId');
 $pro = new product();
 $id = $_GET['id'];
 if($id == 0 || !is_numeric($id))
@@ -25,7 +26,7 @@ else
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
     {
         $quantity = $_POST['quantity'];
-        $AddtoCart = $ct->Add_to_cart($id,$quantity);
+        $AddtoCart = $ct->Add_to_cart($id,$quantity,$UserID);
     }   
 }
 ?>
@@ -63,7 +64,14 @@ else
                 <?php 
                     if(isset($AddtoCart))
                     {
-                        echo '<span style="color:red;font-size:18px;">Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết</span>';
+                        if($UserID == '0')
+                        {
+                            echo '<span style="color:red;font-size:18px;">Vui lòng đăng nhập để mua hàng</span>';
+                        }
+                        else
+                        {
+                            echo '<span style="color:red;font-size:18px;">Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết</span>';
+                        }     
                     }
                 ?>
             </div>
