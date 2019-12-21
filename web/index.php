@@ -30,7 +30,6 @@ $pro = new Product();
             }
            ?>
     </div>
-       
   </div>
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#productSlide" data-slide="prev">
@@ -39,7 +38,6 @@ $pro = new Product();
   <a class="carousel-control-next" href="#productSlide" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
-
 </div>
 </div>
 

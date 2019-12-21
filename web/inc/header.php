@@ -9,6 +9,18 @@ $checkLogin = true;
         }else{
             $checkLogin = false;
         }
+        $Product_Cart = 0;
+        $count = 0;
+        $cursor = $ct->get_product_cart(Session::get('UserId'));
+        if($cursor)
+        {
+          while($cursor->fetch_assoc())
+          {
+            $count +=1;
+          }
+        }
+
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +74,7 @@ $checkLogin = true;
       </div>
     </div>
     <div class="searchBar">
-      <input type="text" name="txtSearch">
+      <input type="text" name="txtSearch" class="form-group">
       <div class="btnSearch">
         <a href="#"> <i class="fas fa-search" id="iconSearch"></i></a>
 
@@ -72,7 +84,12 @@ $checkLogin = true;
       <div class="btnHeader sCart">
         <a href="cart.php">
           <i class="fas fa-shopping-cart"></i>
-          <span class='badge badge-warning' id='lblCartCount'> 5 </span>
+          <?php 
+          if($count != 0)
+          {
+            echo "<span class='badge badge-warning' id='lblCartCount'> $count </span>";
+          }
+          ?>
           Giỏ hàng
         </a>
       </div>

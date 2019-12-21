@@ -36,7 +36,7 @@
                     <br>
                     <div class="row">
                     <div class="col">
-                    <a style="font-weight:bold;"><?php echo $productName?></a>
+                    <a style="font-weight:bold;" href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>"><?php echo $productName?></a>
                     </div>
                     </div>
                     </div>

@@ -112,6 +112,14 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
+
+  public function showNewProductByCateID($cateID,$ProductID)
+  {
+    $sql = "SELECT  p.* from Products p WHERE  p.CategoryID='$cateID' and p.ProductID <> '$ProductID' Order by ProductID DESC LIMIT 4";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
   public function show_pro_supp_shell($idPro, $idSupp)
   {
     $sql = "SELECT  * from Products p,Supplier s WHERE p.ProductID='$idPro' and s.SupplierID='$idSupp' ORDER BY SellNumber asc LIMIT 6";
