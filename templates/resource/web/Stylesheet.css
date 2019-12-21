@@ -381,7 +381,7 @@ ul li{
     float: left;
     margin-right: 15%;
 }
-.cartAction input[type=submit]{
+.cartAction input[type=button], .cartAction input[type=submit]{
     width: 45%
 }
 .cartAction .btn-light{

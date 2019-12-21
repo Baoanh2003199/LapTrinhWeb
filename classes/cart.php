@@ -55,4 +55,16 @@ class Cart
     $result = $this->db->select($query);
     return $result;
   }
+   public function deleteCart($cartID)
+  {
+    $query = "DELETE from Cart where cartID = '$cartID'";
+    $result = $this->db->delete($query);
+    return $result;
+  }
+  public function updateCart($cartID, $sl)
+  {
+    $query = "UPDATE Cart set Quantity = '$sl' where CartID = '$cartID'";
+    $result = $this->db->update($query);
+    return $result;
+  }
 }

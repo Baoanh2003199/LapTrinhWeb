@@ -2,10 +2,34 @@
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
   $UserID = Session::Get('UserId');
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
-  {
-      $quantity = $_POST['quantity'];
-      $AddtoCart = $ct->Add_to_cart($id,$quantity);
+  // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+  // {
+  //     $quantity = $_POST['quantity'];
+  //     $AddtoCart = $ct->Add_to_cart($id,$quantity);
+  // }
+  if($_SERVER['REQUEST_METHOD'] == 'GET' ){
+    if(isset($_GET['delCartID']) && $_GET['delCartID'] != null){
+        $cartID = $_GET['delCartID'];
+        $deleteCart = $ct->deleteCart($cartID);
+        if($deleteCart){
+            echo "<script> alert('Xóa sản phẩm khỏi giỏ hàng thành công') </script> ";
+        }
+        else{
+            echo "<script> alert('Vui lòng thử lại') </script> ";
+        }
+    }
+    if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null &&
+isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0){
+         $cartID = $_GET['updateCarID'];
+        $quantity = $_GET['Quantity'];
+        $deleteCart = $ct->updateCart($cartID, $quantity);
+        if($deleteCart){
+            echo "<script> alert('Cập nhật sản số lượng thành công') </script> ";
+        }
+        else{
+            echo "<script> alert('Vui lòng thử lại') </script> ";
+        }
+    }
   }   
  ?>
 
@@ -49,12 +73,13 @@
                         </div>
                         <div class="col-5">
                         <div class="form-group">
-                        <input type="number" class= "form-control" id="txtNum" name="quantity" value="<?php echo $Quantity?>" min="1">
-                        <input type="submit" class="btn btn-light" value="Cập nhật">
+                        <input type="number" class= "form-control" class="txtNum" name="quantity" value="<?php echo $Quantity?>" min="1">
+                        <input type="hidden" class= "form-control" class="cartID" name="cartID" value="<?php echo $result['CartID']; ?>" min="1">
+                        <input type="button" class="btn btn-light btnUpdateCart" value="Cập nhật">
                         </div>
                         </div>
                         <div class="col-3">
-                        <input type="submit" class="btn btn-light" value="Xóa">
+                        <input type="button" class="btn btn-light" onclick="onclickDeleteCart(<?php echo $result['CartID']; ?> )"  value="Xóa">
                         </div>
                         </div>
                         </form>

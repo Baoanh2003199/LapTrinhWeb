@@ -40,12 +40,29 @@ function setReadyDocument(){
         //closeDisplay('#divRegister');
         $("#registerModal").modal('hide');
     });
+    $('.btnUpdateCart').click(function(event) {
+         
+         parent = $(this).parent();
+         txtNum = $(parent).children();
+         Quantity = $(txtNum[0]).val();
+         CartID = $(txtNum[1]).val();
 
-    $('#txtNum').onkeyup(function(){
-        alert("Hi there!");
-    });
+         window.location.href = 'cart.php?updateCarID='+CartID+'&Quantity='+Quantity+'';
+     });     
+    // $('#txtNum').onkeyup(function(){
+    //     alert("Hi there!");
+    // });
 
-    $('#txtNum').oninput(function(){
-        alert("Hi there!");
-    });
+    // $('#txtNum').oninput(function(){
+    //     alert("Hi there!");
+    // });
+}
+function onclickDeleteCart(cartID) {
+    if(confirm('Bạn có muốn xóa')){
+        window.location.href = 'cart.php?delCartID='+cartID+'';
+        return true;
+    }
+}
+function onClickUpdate(cartID){    
+
 }
