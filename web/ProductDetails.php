@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
+
 $pro = new product();
 $id = $_GET['id'];
 if($id == 0 || !is_numeric($id))
@@ -20,9 +21,12 @@ else
     $Img = $result["Img"];	
     $Desc = $result["Description"];
     $result = $Getsupplier->fetch_assoc();
-    $Supplier = $result["SupplierName"];    
-
-
+    $Supplier = $result["SupplierName"]; 
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+    {
+        $quantity = $_POST['quantity'];
+        $AddtoCart = $ct->Add_to_cart($id,$quantity);
+    }   
 }
 ?>
 <!-- Main -->
@@ -47,17 +51,21 @@ else
                 <span class="inforProduct">Nhà sản xuất: <?php echo $Supplier;?></span><br><br>
                 <span class="inforProduct">Xuất xứ: <?php echo $Origin;?></span><br><br>
   
-                <form action="#" method="GET">
+                <form action="" method="POST">
                 <div class="form-group">
                 <span class="inforProduct">Số lượng: </span><br>
                 <div class="row">
-                    <div class="col-3"> <input type="number" id="txtNum" name="txtNum" min="1" value="1" class="inumber form-control"></div>
-                    <div class="col"> <button type="submit" class="btn btn-primary" style="width: 200px"> <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng</button></div>
+                    <div class="col-3"> <input type="number" id="txtNum" name="quantity" min="1" value="1" class="inumber form-control"></div>
+                    <div class="col"> <button type="submit" name="submit" class="btn btn-primary" style="width: 200px"> <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng</button></div>
                 </div>
-                   
-                   
-                    </div>
+                </div>
                 </form>
+                <?php 
+                    if(isset($AddtoCart))
+                    {
+                        echo '<span style="color:red;font-size:18px;">Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết</span>';
+                    }
+                ?>
             </div>
             <div class="clearFloat"></div>
         </div>

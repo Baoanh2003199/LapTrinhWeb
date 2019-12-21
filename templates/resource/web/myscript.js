@@ -5,7 +5,9 @@ function setDisplay(divName) {
 function closeDisplay(divName) {
     $(divName).css("display", 'none');
 }
+
 function setReadyDocument(){
+   
     $('#closePayment').click(function (e) { 
         closeDisplay('#paymentDiv');
         
@@ -37,5 +39,13 @@ function setReadyDocument(){
     $('#btnDelR').click(function (e) { 
         //closeDisplay('#divRegister');
         $("#registerModal").modal('hide');
+    });
+
+    $('#txtNum').onkeyup(function(){
+        alert("Hi there!");
+    });
+
+    $('#txtNum').oninput(function(){
+        alert("Hi there!");
     });
 }

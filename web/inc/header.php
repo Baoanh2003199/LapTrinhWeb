@@ -1,5 +1,7 @@
 <?php 
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
+  $ct = new cart();
 ob_start();
 $checkLogin = true;
   if(Session::checkUserLogin() != true){

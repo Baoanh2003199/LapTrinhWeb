@@ -1,6 +1,12 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+  {
+      $quantity = $_POST['quantity'];
+      $AddtoCart = $ct->Add_to_cart($id,$quantity);
+  }   
  ?>
+
     <!-- Main -->
     <div class="main">
         <div class="blockDiv">
@@ -8,44 +14,67 @@
                 <h4>Giỏ hàng</h4>
             </div>
             <div class="cartLeft">
+            <?php 
+             $grandTotal = 0;
+             $subTotal = 0;
+            $get_product_cart = $ct->get_product_cart();
+            if($get_product_cart)
+            {  
+               
+                while($result = $get_product_cart->fetch_assoc())
+                {
+                    
+                    $productName = $result['ProductName'];
+                    $Price = $result['Price'];
+                    $Quantity = $result['Quantity'];
+                    $Image = $result['Image'];
+            ?>
                 <div class="itemCart">
-                   <img style="max-height:80px; max-width:80px;"src="../img/product/product1.jpg" alt="sản phẩm">
+                   <img style="max-height:80px; max-width:80px;"src="../uploads/<?php echo $Image?>" alt="sản phẩm">
                     <div class="carDetails">
                     <br>
                     <div class="row">
                     <div class="col">
-                    <a>Sản phảm bàn ủi</a>
+                    <a style="font-weight:bold;"><?php echo $productName?></a>
                     </div>
                     </div>
                     </div>
                     <div class="cartAction">
                         <br>
-                        <form action="#" method="GET">
+                        <form action="#" method="POST">
                         <div class="row">
                         <div class="col-4">
-                            <a style="min-width:150px;">23232 VNĐ</a>
+                            <a style="min-width:150px;"><?php echo $Price?> VND</a>
                         </div>
                         <div class="col-4">
                         <div class="form-group">
-                        <input type="number" class= "form-control" id="txtNum" name="txtNum" value="1" min="1" style="min-width:150px;">
+                        <input type="number" class= "form-control" id="txtNum" name="quantity" value="<?php echo $Quantity?>" min="1" style="min-width:70px;">
+                        <input type="submit" class="btn btn-light" value="Cập nhật" style="min-width:20px;">
                         </div>
                         </div>
                         <div class="col-3">
-                        <input type="submit" class="btn btn-light" value="Xóa" style="min-width:80px;">
+                        <input type="submit" class="btn btn-light" value="Xóa" style="min-width:60px;">
                         </div>
                         </div>
-                        </form> 
+                        </form>
                     </div>
+                    <?php $total = $result['Price'] * $result['Quantity']; $subTotal += $total; ?>
                 </div>
+                <?php 
+                }    
+            }
+                ?>
+
+
             </div>
             <div class="cartRight">
                 <div class="uperRight">
                     <span class="subtotal">Tổng</span>
-                    <span class="subPrice">343434VND</span>
+                    <span class="subPrice"> <?php  echo $subTotal?></span>
                 </div>
                 <div class="itemRight">
                     <span class="subtotal grandtotal">Thành tiền</span>
-                    <span class="subPrice grandPrice">343434VND</span><br><br>
+                    <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10/100); echo $grandTotal ?></span><br><br>
                     <span>(Đã tính vat)</span>
                 </div>
                 <div class="itemRight">
