@@ -32,7 +32,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
-            $get_product_cart = $ct->get_product_cart('14');
+            $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  
                 while($result = $get_product_cart->fetch_assoc())
