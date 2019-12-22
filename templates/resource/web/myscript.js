@@ -5,8 +5,7 @@ function setDisplay(divName) {
 function closeDisplay(divName) {
     $(divName).css("display", 'none');
 }
-function onClickBtnPayment(){    
-   
+
 function setReadyDocument(){
    
     $('#closePayment').click(function (e) { 
@@ -49,9 +48,7 @@ function setReadyDocument(){
 
          window.location.href = 'cart.php?updateCarID='+CartID+'&Quantity='+Quantity+'';
      }); 
-    $('#btnPay').click(function(event) {
-        console.log('ok1');
-    });
+    
     // $('#txtNum').onkeyup(function(){
     //     alert("Hi there!");
     // });

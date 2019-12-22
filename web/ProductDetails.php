@@ -25,7 +25,7 @@ else
     $CateID = $result["CategoryID"];
     $result = $Getsupplier->fetch_assoc();
     $Supplier = $result["SupplierName"]; 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) && $UserID)
     {
         $quantity = $_POST['quantity'];
         $AddtoCart = $ct->Add_to_cart($id,$quantity,$UserID);
@@ -64,17 +64,15 @@ else
                 </div>
                 </form>
                 <?php 
+                if($UserID == false){
+                    echo '<span style="color:red;font-size:18px;">Vui lòng đăng nhập để mua hàng</span>';
+                }else{
                     if(isset($AddtoCart))
                     {
-                        if($UserID != '0')
-                        {
-                            echo '<span style="color:red;font-size:18px;">Vui lòng đăng nhập để mua hàng</span>';
-                        }
-                        else
-                        {
-                            echo '<span style="color:red;font-size:18px;">Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết</span>';
-                        }     
-                    }
+                        echo $AddtoCart;
+                    }     
+                }
+                   
                 ?>
             </div>
             <div class="clearFloat"></div>
