@@ -2,7 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
-
 ?>
 <!-- Main -->
 <div class="main">
@@ -31,7 +30,7 @@ $UserID = Session::Get('UserId');
               $i++;
         ?>
           <tr>
-            <th scope="row"><?php echo $i ?></th>
+            <th scope="row">1</th>
             <td><?php echo $result['OrderID']; ?></td>
             <td><?php echo $result['QuantityProducts']; ?></td>
             <td><?php echo $result['Status']; ?></td>

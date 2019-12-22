@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
         $Addr = $_POST['txtShippingAddr'];
         $Name = $_POST['txtGuestName'];
         $Phone = $_POST['txtGuestPhone'];
-        $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity, $Note,$cusAddress,'1',$UserID,$cusName,$cusPhone);
+        $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
     }   
 
  ?>
