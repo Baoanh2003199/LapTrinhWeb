@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
 Session::checkAdmin();
+ob_start();
 ?>
 
 <!DOCTYPE html>

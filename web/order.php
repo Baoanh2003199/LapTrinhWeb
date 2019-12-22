@@ -4,7 +4,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
 
 ?>
-
+<?php 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
+  var_dump($_POST);
+}
+ ?>
 <!-- Main -->
 <div class="main">
   <div class="blockDiv">
@@ -23,6 +27,18 @@ $UserID = Session::Get('UserId');
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
+<<<<<<< HEAD
+        <tbody>        
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>Otto</td>
+            <td>
+              <button type="button" class="btn btn-primary"><a href="orderDetails.php">Chi tiết</a> </button>
+              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
+=======
         <tbody>
         <?php
             $SHOW_ORDER = $ord->show_order();
@@ -39,6 +55,7 @@ $UserID = Session::Get('UserId');
             <td><?php echo $result['Total']; ?></td>
             <td>
               <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php $result['OrderID'];?>">Xem chi tiết đơn hàng</a> </button>
+>>>>>>> refs/remotes/origin/master
             </td>
           </tr>
           <?php

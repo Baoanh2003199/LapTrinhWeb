@@ -1,7 +1,11 @@
 <?php 
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
+<<<<<<< HEAD
   include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
+=======
+  ob_start();
+>>>>>>> 58fce46ec8b3a1e60ea38f68b012322e34b2ee44
   $ct = new cart();
   $ord = new order();
    if($_SERVER['REQUEST_METHOD'] == 'GET' ){

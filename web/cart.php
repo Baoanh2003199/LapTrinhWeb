@@ -114,36 +114,41 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
         <h4 class="modal-title">Xác Nhận Thanh Toán</h4>
       </div>
       <div class="modal-body">
-      <form action="#" method="POST">
+      <form action="order.php" method="POST">
         <span style="font-size:18px; font-weight:bold; color:#5aa4e8;">Thông Tin Nhận Hàng </span><br><br>
         <div class="form-group">
         <label>Họ Tên Người Nhận Hàng: </label>
-        <input id="txtGuestName" type="text" class="form-control" value="<?php echo $cusName ?>">
+        <input id="txtGuestName" type="text" class="form-control" name="Name" value="<?php echo $cusName ?>">
         </div>
         <div class="form-group">
         <label> Số điện thoại: </label>
-        <input id="txtGuestPhone" type="text" class="form-control" value="<?php echo $cusPhone ?>">
+        <input id="txtGuestPhone" type="text" class="form-control" name="Phone" value="<?php echo $cusPhone ?>">
         </div>
         <div class="form-group">
         <label> Địa chỉ nhận hàng: </label>
-        <input id="txtShippingAddr" type="text" class="form-control" value="<?php echo $cusAddress ?>">
+        <input id="txtShippingAddr" type="text" class="form-control" name="Address" value="<?php echo $cusAddress ?>">
         </div>
         <div class="form-group">
         <label> Lời nhắn tới người bán: </label>
         <textarea id="txtareaNote" class="form-control rounded-0" row="3"></textarea>
         </div>
 
-      </form>
- 
-        <br>
+         <br>
         <br>
         <span style="font-size:15px; font-weight:bold; color: #5aa4e8; float:right;"> <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?></span>
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
+<<<<<<< HEAD
           <button type="button" class="btn btn-primary" id="btnPayConfirm" name="PaymentConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+=======
+          <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+>>>>>>> 58fce46ec8b3a1e60ea38f68b012322e34b2ee44
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
+      </form>
+ 
+       
     </div>
 
   </div>

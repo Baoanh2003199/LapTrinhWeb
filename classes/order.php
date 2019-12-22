@@ -27,25 +27,30 @@ class order
     $Status = mysqli_real_escape_string($this->db->link, $Status);
 
     if (empty($Total) || empty($QuantityProducts) || empty($Note) || empty($Status)) {
-      $alert = "catgory must be not empty";
-      return $alert;
+      return false;
     } else {
-      $sql = "INSERT into Orders(Total,QuantityProducts,Note,Status) values('$Total',''$QuantityProducts,'$Note','$Status')";
+      $showOrder = $this->show_order();
+     
+      $count = 1;
+      if($showOrder){
+         $resultShowOrder = $show_order->fetch_assoc();
+         $count = $resultShowOrder.count() + 1;
+      }
+      $orderId = generateCode('HD', $count);
+      $sql = "INSERT into Orders( OrderID,Total,QuantityProducts,Note,Status) values('$orderId','$Total',''$QuantityProducts,'$Note','$Status')";
       $result = $this->db->insert($sql);
 
       if ($result) {
         $alert = "<span> insert Orders successen</span>";
         return $alert;
       } else {
-        $alert = "<span> insert Orders no successen</span>";
-        return $alert;
+        return false;
       }
     }
   }
   public function show_order()
   {
-    $sql = "SELECT o.*, cs.Name,cs.Phone, cs.Address,ur.UserName, count(os.OrderID) as countQuantity FROM Orders o ,OrderDetails os, Cart ca,Customers cs, User ur WHERE o.OrderID=os.OrderID AND 
-    ca.CartID=os.CartID and ur.UserID = ca.UserID ";
+    $sql = "SELECT o.*,  count(os.OrderID) as countQuantity FROM Orders o ,OrderDetails os WHERE o.OrderID=os.OrderID";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -98,5 +103,41 @@ class order
       return $alert;
     }
   }
+  public function updateStatus($OrderID, $status){
+    $OrderID = $this->fm->valation($OrderID);
+    $status = $this->fm->valation($status);
+
+
+    $OrderID = mysqli_real_escape_string($this->db->link, $OrderID);
+    $status = mysqli_real_escape_string($this->db->link, $status);
+    if(empty($OderId) || empty($status)){
+      return false;
+    }else{
+      $status+=1;
+      $sql = "UPDATE orders set Status = '$status' where  OrderID ='$OrderID' ";
+      $result = $this->db->insert($sql);
+
+      return $result;
+    }
+  }
+  function generateCode($origin, $num){
+    $result = $origin;
+    $i = 1;
+    $n = $num;
+    while((int)$n / 10 != 0)
+    {
+        $i++;
+        $n  = (int)$n/10;
+    }
+    $j = 5 - $i;
+    while ($j != 0)
+    {
+        $result .= '0';
+        $j--;
+    }
+    $result .= $num;
+    echo "$result";
+    return $result;
+}
 }
 ?>
