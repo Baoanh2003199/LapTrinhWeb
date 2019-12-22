@@ -193,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
         if(check == 1){
           $("#loginModal").modal('show');
         }else{
-          setDisplay('#paymentDiv');
+          $("#paymentModal").modal('show');
         }
     });
      });

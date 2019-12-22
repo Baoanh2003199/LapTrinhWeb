@@ -101,24 +101,34 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
  <?php 
     if(isset($cusName)){
     ?>
-    <div id="paymentDiv">
-    <div class="titleMain">
-        <h4>Thanh toán</h4>
-    </div>
-    <br><br>
-        <span class="orderInfor"> Tổng tiền: <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?> (đã tính VAT)</span><br>
+    <div id="paymentModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thanh toán</h4>
+      </div>
+      <div class="modal-body">
+      <span class="orderInfor"> Tổng tiền: <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?> (đã tính VAT)</span><br>
         <span>Khách hàng: <?php echo $cusName; ?> </span> <br>
         <span>Địa chỉ giao hàng: <?php echo $cusAddress; ?></span> <br>
           <br>
-          <button type="button" class="btn btn-light"><a href="">Xác nhận</a> </button>
-          <button type="button" class="btn btn-light" id="closePayment"> Hủy</button>
+          <button type="button" class="btn btn-primary" id="btnPayConfirm">Xác nhận</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"> Hủy</button>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
 
-          <button type="button" class="btn btn-warning"><a href=""> Cập nhật thông tin khách hàng</a></button>
+  </div>
 </div>
  <?php 
     }
 ?>
 <!-- End Main -->
+
+
 
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/footer.php';
