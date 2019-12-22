@@ -19,8 +19,10 @@
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $UserID != null)
     {
-        $quantity = $_POST['quantity'];
-        $AddtoOrder = $ord->insert_order($id,$quantity,$UserID);
+        $Addr = $_POST['txtShippingAddr'];
+        $Name = $_POST['txtGuestName'];
+        $Phone = $_POST['txtGuestPhone'];
+        $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity, $Note,$cusAddress,'1',$UserID,$cusName,$cusPhone);
     }   
 
  ?>
@@ -35,6 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
+             $totalQuantity = 0;
             $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  
@@ -43,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
                     $productName = $result['ProductName'];
                     $Price = $result['Price'];
                     $Quantity = $result['Quantity'];
+                    $totalQuantity += $Quantity;
                     $Image = $result['Image'];
                     $cusName = $result['Name'];
                     $cusAddress = $result['Address'];
