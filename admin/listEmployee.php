@@ -30,10 +30,10 @@ if (isset($delEmp)) {
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tên loại</th>
+      <th scope="col">Họ tên</th>
+      <th scope="col">Tên tài khoản</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">Điện thoại</th>
-      <th scope="col">Email</th>
       <th scope="col">Ngày sinh</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
@@ -50,11 +50,11 @@ if (isset($delEmp)) {
         <tr>
           <th scope="row"><?php echo $i; ?></th>
           <td><?php echo $result['Name']; ?></td>
-          <td><?php $result['Address']; ?></td>
-          <td><?php $result['Phone']; ?></td>
-          <td><?php $result['Email']; ?></td>
-          <td><?php $result['DoB']; ?></td>
-          <td><?php $result['Status']; ?></td>
+          <td><?php echo $result['Name']; ?></td>
+          <td><?php echo $result['Address']; ?></td>
+          <td><?php echo $result['Phone']; ?></td>
+          <td><?php echo $result['DoB']; ?></td>
+          <td><?php echo $result['Status']; ?></td>
           <td>@mdo</td>
           <td>
             <a href="updateEmployee.php?EmployeeID=<?php $result['EmployeeID'] ?>" class="btn btn-info">Cập nhật</a>

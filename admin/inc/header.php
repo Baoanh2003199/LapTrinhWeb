@@ -65,13 +65,6 @@ Session::checkAdmin();
               <li><a href="listCustomer.php">Danh sách khách hàng</a></li>
             </ul>
           </li>
-          <li class="parentUL">
-            <a href="#">Nhân viên <i class="fas fa-caret-down"></i></a>
-            <ul class="childUL">
-              <li><a href="listEmployee.php">Danh sách nhân viên</a></li>
-              <li><a href="addEmployee.php">Thêm nhân viên</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </div>

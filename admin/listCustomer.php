@@ -33,7 +33,7 @@ if (isset($delCat)) {
       <th scope="col">#</th>
       <th scope="col">Tên Khách hàng</th>
        <th scope="col">Tên đăng nhập</th>
-      <th scope="col">Địa chỉ</th>
+      <th scope="col" width="15%" >Địa chỉ</th>
       <th scope="col">Điện thoại</th>
        <th scope="col">Ngày sinh</th>
       <th scope="col">Trạng thái</th>
