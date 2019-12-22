@@ -55,6 +55,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
         }
       }
     }
+    
    public function deleteUser($userID){
     $sql = "DELETE From User WHERE UserID='$userID'";
     $result = $this->db->delete($sql);
