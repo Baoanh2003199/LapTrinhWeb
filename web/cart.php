@@ -8,6 +8,17 @@
   //     $quantity = $_POST['quantity'];
   //     $AddtoCart = $ct->Add_to_cart($id,$quantity);
   // }
+  $grandTotal = 0;
+  $subTotal = 0;
+  $totalQuantity = 0;
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PayConfirm']) && $UserID != null)
+  {
+      $Addr = $_POST['Address'];
+      $Name = $_POST['Name'];
+      $Phone = $_POST['Phone'];
+      $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
+  }  
+
  if($_SERVER['REQUEST_METHOD'] == 'GET' ){
     if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null && isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
     {
@@ -16,14 +27,6 @@
         $deleteCart = $ct->updateCart($cartID, $quantity);
     }
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $UserID != null)
-    {
-        $Addr = $_POST['txtShippingAddr'];
-        $Name = $_POST['txtGuestName'];
-        $Phone = $_POST['txtGuestPhone'];
-        $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
-    }   
-
  ?>
 
     <!-- Main -->
@@ -34,9 +37,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $Us
             </div>
             <div class="cartLeft">
             <?php 
-             $grandTotal = 0;
-             $subTotal = 0;
-             $totalQuantity = 0;
             $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  
@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $Us
                     </div>
                     <div class="cartAction">
                         <br>
-                        <form action="#" method="POST">
+                        <form action="#" method="GET">
                         <div class="row">
                         <div class="col-4">
                             <a><?php echo number_format($Price).' đ'?> </a>
@@ -117,7 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $Us
         <h4 class="modal-title">Xác Nhận Thanh Toán</h4>
       </div>
       <div class="modal-body">
-      <form action="order.php" method="POST">
+      <form action="#" method="POST">
         <span style="font-size:18px; font-weight:bold; color:#5aa4e8;">Thông Tin Nhận Hàng </span><br><br>
         <div class="form-group">
         <label>Họ Tên Người Nhận Hàng: </label>
@@ -142,7 +142,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $Us
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" id="btnPayConfirmID" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+          <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="PayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
       </form>
@@ -152,6 +152,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $Us
 </div>
  <?php 
     }
+ 
 ?>
 <!-- End Main -->
 

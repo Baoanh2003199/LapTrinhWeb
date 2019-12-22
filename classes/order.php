@@ -17,11 +17,11 @@ class order
   public function insert_order($Total, $QuantityProducts,$name, $phone, $address, $userID)
   {
     $Total = $this->fm->valation($Total);
-    $QuantityProducts = $this->valation($QuantityProducts);
-    $name =  $this->valation($name);
-    $phone = $this->valation($phone);
-    $address =  $this->valation($address);
-    $userID =  $this->valation($userID);
+    $QuantityProducts = $this->fm->valation($QuantityProducts);
+    $name =  $this->fm->valation($name);
+    $phone = $this->fm->valation($phone);
+    $address =  $this->fm->valation($address);
+    $userID =  $this->fm->valation($userID);
     //
     $Total = mysqli_real_escape_string($this->db->link, $Total);
     $QuantityProducts = mysqli_real_escape_string($this->db->link, $QuantityProducts);
@@ -33,16 +33,16 @@ class order
     if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
       return false;
     } else {
-      
       $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
-      $result = $this->db->insert($sql);
-
-      if ($result) {
-        $alert = "<span> insert Orders successen</span>";
-        return $alert;
-      } else {
-        return false;
-      }
+      $insert_order = $this->db->insert($sql);
+        if($insert_order)
+        {
+          header("Location:order.php");
+        }
+        else
+        {
+          header("Location:index.php");
+        }
     }
   }
   public function show_order()
