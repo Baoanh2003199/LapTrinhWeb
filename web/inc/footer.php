@@ -68,8 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
      ?>
     <?php
           if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-            $sID = session_id();
-            $ct->deleteCarBySessionID($sID);
             Session::destroy();
             header('location:index.php');
           }

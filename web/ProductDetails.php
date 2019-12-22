@@ -25,7 +25,7 @@ else
     $CateID = $result["CategoryID"];
     $result = $Getsupplier->fetch_assoc();
     $Supplier = $result["SupplierName"]; 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) && $UserID)
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) && $UserID != null)
     {
         $quantity = $_POST['quantity'];
         $AddtoCart = $ct->Add_to_cart($id,$quantity,$UserID);
@@ -64,7 +64,7 @@ else
                 </div>
                 </form>
                 <?php 
-                if($UserID == false){
+                if($UserID == null){
                     echo '<span style="color:red;font-size:18px;">Vui lòng đăng nhập để mua hàng</span>';
                 }else{
                     if(isset($AddtoCart))
