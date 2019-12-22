@@ -14,19 +14,23 @@ class order
     $this->fm = new Format();
   }
 
-  public function insert_order($Total, $QuantityProducts, $Note, $Status)
+  public function insert_order($Total, $QuantityProducts,$name, $phone, $address, $userID)
   {
     $Total = $this->fm->valation($Total);
-    $QuantityProducts = $this->fm->valation($QuantityProducts);
-    $Note = $this->fm->valation($Note);
-    $Status = $this->fm->valation($Status);
+    $QuantityProducts = $this->valation($QuantityProducts);
+    $name =  $this->valation($name);
+    $phone = $this->valation($phone);
+    $address =  $this->valation($address);
+    $userID =  $this->valation($userID);
     //
     $Total = mysqli_real_escape_string($this->db->link, $Total);
     $QuantityProducts = mysqli_real_escape_string($this->db->link, $QuantityProducts);
-    $Note = mysqli_real_escape_string($this->db->link, $Note);
-    $Status = mysqli_real_escape_string($this->db->link, $Status);
+    $name =  mysqli_real_escape_string($this->db->link, $name);
+    $phone = mysqli_real_escape_string($this->db->link, $phone);
+    $address =  mysqli_real_escape_string($this->db->link, $address);
+    $userID =  mysqli_real_escape_string($this->db->link, $userID); 
 
-    if (empty($Total) || empty($QuantityProducts) || empty($Note) || empty($Status)) {
+    if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
       return false;
     } else {
       $showOrder = $this->show_order();
@@ -37,7 +41,8 @@ class order
          $count = $resultShowOrder.count() + 1;
       }
       $orderId = generateCode('HD', $count);
-      $sql = "INSERT into Orders( OrderID,Total,QuantityProducts,Note,Status) values('$orderId','$Total',''$QuantityProducts,'$Note','$Status')";
+      
+      $sql = "INSERT into Orders( OrderID,Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$orderId','$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $result = $this->db->insert($sql);
 
       if ($result) {
@@ -50,7 +55,7 @@ class order
   }
   public function show_order()
   {
-    $sql = "SELECT o.*,  count(os.OrderID) as countQuantity FROM Orders o ,OrderDetails os WHERE o.OrderID=os.OrderID";
+    $sql = "SELECT o.* FROM Orders o,";
     $result = $this->db->select($sql);
     return $result;
   }

@@ -14,7 +14,7 @@ class employee
     $this->fm = new Format();
   }
 
-  public function insert_Employees($empName, $empAddress, $empPhone, $empEmail, $empDoB, $empStatus)
+  public function insert_Employees($empName, $empAddress, $empPhone, $empDoB, $empStatus)
   {
     $empName = $this->fm->valation($empName);
     $empAddress = $this->fm->valation($empAddress);

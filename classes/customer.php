@@ -113,7 +113,9 @@ class customer
     }else{
       return false;
     }
-   
+  }
+  public function updateCustomerStatus($customerID, $status){
+    $sql = "UPDATE Customers set Status = "
   }
 }
 ?>
