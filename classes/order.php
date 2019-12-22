@@ -33,16 +33,8 @@ class order
     if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
       return false;
     } else {
-      $showOrder = $this->show_order();
-     
-      $count = 1;
-      if($showOrder){
-         $resultShowOrder = $show_order->fetch_assoc();
-         $count = $resultShowOrder.count() + 1;
-      }
-      $orderId = generateCode('HD', $count);
       
-      $sql = "INSERT into Orders( OrderID,Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$orderId','$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
+      $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $result = $this->db->insert($sql);
 
       if ($result) {
