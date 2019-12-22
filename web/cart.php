@@ -8,18 +8,15 @@
   //     $quantity = $_POST['quantity'];
   //     $AddtoCart = $ct->Add_to_cart($id,$quantity);
   // }
-  if($_SERVER['REQUEST_METHOD'] == 'GET' ){
-    if(isset($_GET['delCartID']) && $_GET['delCartID'] != null){
-        $cartID = $_GET['delCartID'];
-        $deleteCart = $ct->deleteCart($cartID);
-    }
+ if($_SERVER['REQUEST_METHOD'] == 'GET' ){
     if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null &&
 isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0){
          $cartID = $_GET['updateCarID'];
         $quantity = $_GET['Quantity'];
         $deleteCart = $ct->updateCart($cartID, $quantity);
     }
-  }   
+}
+
  ?>
 
     <!-- Main -->

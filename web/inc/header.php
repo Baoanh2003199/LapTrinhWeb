@@ -2,7 +2,12 @@
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
   $ct = new cart();
-ob_start();
+   if($_SERVER['REQUEST_METHOD'] == 'GET' ){
+    if(isset($_GET['delCartID']) && $_GET['delCartID'] != null){
+        $cartID = $_GET['delCartID'];
+        $deleteCart = $ct->deleteCart($cartID);
+    }
+  }
 $checkLogin = '1';
   if(Session::checkUserLogin() != true){
             $checkLogin = '1';
@@ -16,6 +21,7 @@ $checkLogin = '1';
         {
           while($cursor->fetch_assoc())
           {
+
             $count +=1;
           }
         }
