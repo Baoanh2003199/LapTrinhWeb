@@ -40,6 +40,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
                     $Image = $result['Image'];
                     $cusName = $result['Name'];
                     $cusAddress = $result['Address'];
+                    $cusPhone = $result['Phone'];
             ?>
                 <div class="itemCart">
                    <img  style="max-width:120px; max-height:120px;"src="../uploads/<?php echo $Image?>" alt="sản phẩm">
@@ -96,25 +97,42 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
 
     </div>
  <?php 
-    if(isset($cusName)){
+    if(isset($cusName) && $count != 0){
     ?>
     <div id="paymentModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog mw-100 w-50">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Thanh toán</h4>
+        <h4 class="modal-title">Xác Nhận Thanh Toán</h4>
       </div>
       <div class="modal-body">
-      <span class="orderInfor"> Tổng tiền: <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?> (đã tính VAT)</span><br>
-        <span>Khách hàng: <?php echo $cusName; ?> </span> <br>
-        <span>Địa chỉ giao hàng: <?php echo $cusAddress; ?></span> <br>
-          <br>
-          <button type="button" class="btn btn-primary" id="btnPayConfirm">Xác nhận</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal"> Hủy</button>
+      <form action="#" method="POST">
+        <span style="font-size:18px; font-weight:bold; color:#5aa4e8;">Thông Tin Nhận Hàng </span><br><br>
+        <div class="form-group">
+        <label>Họ Tên Người Nhận Hàng: </label>
+        <input id="txtGuestName" type="text" class="form-control" value="<?php echo $cusName ?>">
+        </div>
+        <div class="form-group">
+        <label> Số điện thoại: </label>
+        <input id="txtGuestPhone" type="text" class="form-control" value="<?php echo $cusPhone ?>">
+        </div>
+        <div class="form-group">
+        <label> Địa chỉ nhận hàng: </label>
+        <input id="txtShippingAddr" type="text" class="form-control" value="<?php echo $cusAddress ?>">
+        </div>
+
+      </form>
+ 
+        <br>
+        <br>
+        <span style="font-size:15px; font-weight:bold; color: #5aa4e8; float:right;"> <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?></span>
+        <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
     </div>
 

@@ -21,7 +21,6 @@ $checkLogin = '1';
         {
           while($cursor->fetch_assoc())
           {
-
             $count +=1;
           }
         }
