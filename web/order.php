@@ -23,7 +23,7 @@ $UserID = Session::Get('UserId');
         </thead>
         <tbody>
         <?php
-            $SHOW_ORDER = $ord->show_order();
+            $SHOW_ORDER = $ord->getOrderID($UserID);
             if ($SHOW_ORDER) {
               $i=0;
             while ($result = $SHOW_ORDER->fetch_assoc()) {

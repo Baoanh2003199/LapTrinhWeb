@@ -48,9 +48,9 @@ function setReadyDocument(){
 
          window.location.href = 'cart.php?updateCarID='+CartID+'&Quantity='+Quantity+'';
      }); 
-     $('#btnPayConfirm').click(function () { 
+     //$('#btnPayConfirm').click(function () { 
         // window.location.href = 'order.php';
-    });
+    //});
     
     // $('#txtNum').onkeyup(function(){
     //     alert("Hi there!");

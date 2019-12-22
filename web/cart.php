@@ -1,7 +1,6 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
   $UserID = Session::Get('UserId');
   $sID = session_id();
   // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
@@ -17,7 +16,7 @@
         $deleteCart = $ct->updateCart($cartID, $quantity);
     }
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $UserID != null)
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm']) && $UserID != null)
     {
         $Addr = $_POST['txtShippingAddr'];
         $Name = $_POST['txtGuestName'];
@@ -143,12 +142,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+          <button type="submit" class="btn btn-primary" id="btnPayConfirmID" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
       </form>
- 
-       
     </div>
 
   </div>
