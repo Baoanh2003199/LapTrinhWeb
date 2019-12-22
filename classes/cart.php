@@ -29,9 +29,9 @@ class Cart
       $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price,UserID) VALUES('$id','$productName','$quantity','$sID','$Image','$Price','$UserID')";
       $query_check = "SELECT * FROM Cart where ProductID='$id' AND sID = '$sID'";
       $check_exists = $this->db->select($query_check);
-      if($check_exists || $UserID == '0')
+      if($check_exists)
       {
-        $msg = "Sản phẩm đã nằm trong giỏ hàng vui lòng thay đổi số lượng nếu cần thiết ";
+        $msg = "<span style='color:red;font-size:18px;'>Sản phẩm đã nằm trong giỏ hàng</span>";
         return $msg;
       }
       else
@@ -57,7 +57,8 @@ class Cart
   }
     public function getProductCartBySID($sessionID)
   {
-    $query = "SELECT * FROM Cart where sID = '$sessionID'";
+    $query = "SELECT c.*, cus.Name, cus.Address, cus.Phone FROM Cart c, Customers cus where c.sID = '$sessionID' 
+    and cus.UserID = c.UserID";
     $result = $this->db->select($query);
     return $result;
   }

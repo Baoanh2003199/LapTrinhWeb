@@ -54,6 +54,8 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
                     $Price = $result['Price'];
                     $Quantity = $result['Quantity'];
                     $Image = $result['Image'];
+                    $cusName = $result['Name'];
+                    $cusAddress = $result['Address'];
             ?>
                 <div class="itemCart">
                    <img  style="max-width:120px; max-height:120px;"src="../uploads/<?php echo $Image?>" alt="sản phẩm">
@@ -105,34 +107,30 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
                    <input type="button" class="btn btn-danger" id="btnPay" value="Thanh toán" />
                 </div>
             </div>
+
         </div>
 
     </div>
+ <?php 
+    if(isset($cusName)){
+    ?>
     <div id="paymentDiv">
     <div class="titleMain">
         <h4>Thanh toán</h4>
     </div>
     <br><br>
-        <span class="orderInfor"> Tổng tiền: 43434 (đã tính VAT)</span><br>
-        <span>Tên khách hàng</span> <br>
-        <span>Địa chỉ giao hàng: </span> <br>
-        <span>Phương thức thanh toán</span>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="paymentMethod" id="offline" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-             Onine
-            </label> <br>
-            <input class="form-check-input" type="radio" name="paymentMethod" id="online" value="option1" >
-            <label class="form-check-label" for="exampleRadios1">
-              Offline
-            </label>
-          </div>
+        <span class="orderInfor"> Tổng tiền: <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?> (đã tính VAT)</span><br>
+        <span>Khách hàng: <?php echo $cusName; ?> </span> <br>
+        <span>Địa chỉ giao hàng: <?php echo $cusAddress; ?></span> <br>
           <br>
           <button type="button" class="btn btn-light"><a href="">Xác nhận</a> </button>
           <button type="button" class="btn btn-light" id="closePayment"> Hủy</button>
 
           <button type="button" class="btn btn-warning"><a href=""> Cập nhật thông tin khách hàng</a></button>
 </div>
+ <?php 
+    }
+?>
 <!-- End Main -->
 
 <?php
