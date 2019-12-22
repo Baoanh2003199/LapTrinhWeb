@@ -37,9 +37,10 @@ class login
         Session::set("userLogin", 'true');
         Session::set("UserId", $value['UserID']);
         Session::set("User", $value['UserName']);
+        return true;
       } else {
         $alert = "user and pass not match";
-        return $alert;
+        return false;
       }
     }
   }

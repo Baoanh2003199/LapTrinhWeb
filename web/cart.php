@@ -101,7 +101,8 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
                 </div>
                 <br><span style="float:right; margin:5px;">(đã +10% VAT)</span><br>
                 <div class="itemRight">
-                    <a href="cart.php?login=order"><button type="button" class="btn btn-danger" id="btnPay" >Thanh toán </button></a>
+                    <input type="hidden" value="<?php echo $checkLogin; ?>" id='checkLogin'>
+                   <input type="button" class="btn btn-danger" id="btnPay" value="Thanh toán" />
                 </div>
             </div>
         </div>

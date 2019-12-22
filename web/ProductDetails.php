@@ -11,7 +11,8 @@ if($id == 0 || !is_numeric($id))
 }
 else
 {
-    $product = $pro->show_productID($id);
+    $pro->updateViews($id);
+    $product = $pro->showproductByID($id);
     $Getsupplier = $pro->show_supplierName();
     $result = $product->fetch_assoc();
     $Name = $result["ProductName"];
@@ -65,7 +66,7 @@ else
                 <?php 
                     if(isset($AddtoCart))
                     {
-                        if($UserID == '0')
+                        if($UserID != '0')
                         {
                             echo '<span style="color:red;font-size:18px;">Vui lòng đăng nhập để mua hàng</span>';
                         }

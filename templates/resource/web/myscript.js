@@ -5,7 +5,8 @@ function setDisplay(divName) {
 function closeDisplay(divName) {
     $(divName).css("display", 'none');
 }
-
+function onClickBtnPayment(){    
+   
 function setReadyDocument(){
    
     $('#closePayment').click(function (e) { 
@@ -21,18 +22,17 @@ function setReadyDocument(){
     );
     $('#acountManager').hover(function () {
         setDisplay('#acountManager');
-            
         }, function () {
             closeDisplay('#acountManager');
         }
     );
-    $('#btnLogin').click(function (e) { 
+    $('#btnLogin').click(function () { 
         $("#loginModal").modal('show');
     });
-    $('#btnDel').click(function (e) { 
+    $('#btnDel').click(function () { 
         $("#loginModal").modal('hide');
     });
-    $('#btnRegister').click(function (e) { 
+    $('#btnRegister').click(function () { 
         //setDisplay('#divRegister');
         $("#registerModal").modal('show');
     });
@@ -40,7 +40,7 @@ function setReadyDocument(){
         //closeDisplay('#divRegister');
         $("#registerModal").modal('hide');
     });
-    $('.btnUpdateCart').click(function(event) {
+    $('.btnUpdateCart').click(function() {
          
          parent = $(this).parent();
          txtNum = $(parent).children();
@@ -48,7 +48,10 @@ function setReadyDocument(){
          CartID = $(txtNum[1]).val();
 
          window.location.href = 'cart.php?updateCarID='+CartID+'&Quantity='+Quantity+'';
-     });     
+     }); 
+    $('#btnPay').click(function(event) {
+        console.log('ok1');
+    });
     // $('#txtNum').onkeyup(function(){
     //     alert("Hi there!");
     // });
@@ -62,7 +65,4 @@ function onclickDeleteCart(cartID) {
         window.location.href = 'cart.php?delCartID='+cartID+'';
         return true;
     }
-}
-function onClickUpdate(cartID){    
-
 }

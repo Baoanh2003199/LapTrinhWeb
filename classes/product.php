@@ -60,7 +60,7 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
-  public function show_productID($id)
+  public function showproductByID($id)
   {
     $sql = "SELECT * FROM Products where ProductID='$id'";
     $result = $this->db->select($sql);
@@ -174,6 +174,17 @@ class Product
       $alert = "<span> delete Products no successen</span>";
       return $alert;
     }
+  }
+  public function updateViews($id){
+    $resultViews = $this->showproductByID($id);
+    if($resultViews){
+      $fetchViews = $resultViews->fetch_assoc();
+      $views = $fetchViews['Views'] +1;
+
+      $sqlUpdate = "UPDATE Products set Views = '$views' where ProductID = '$id'";
+      $resultUpdate = $this->db->update($sqlUpdate);
+      return $resultUpdate;
+   }
   }
 }
 ?>

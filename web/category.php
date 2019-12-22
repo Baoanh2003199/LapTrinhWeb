@@ -10,6 +10,7 @@ $cat = new category();
   if (isset($_GET['CateID']) || $_GET['CateID'] == null) {
    $idCate = $_GET['CateID'];
     $getCatName = $cat->getCatID($idCate);
+    if($getCatName)
     $catName = $getCatName->fetch_assoc();
 }
 ?>

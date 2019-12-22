@@ -3,11 +3,11 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
   $ct = new cart();
 ob_start();
-$checkLogin = true;
+$checkLogin = '1';
   if(Session::checkUserLogin() != true){
-            $checkLogin = true;
+            $checkLogin = '1';
         }else{
-            $checkLogin = false;
+            $checkLogin = '2';
         }
         $Product_Cart = 0;
         $count = 0;

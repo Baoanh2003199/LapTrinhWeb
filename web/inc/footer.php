@@ -12,7 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
   $Pass = md5($_POST['Pass']);
 
   $login_check = $class->login($User, $Pass);
-  header('location:cart.php');
+  if($login_check){
+    echo "<script> confirm('Đăng nhập thành công')</script>";
+    // header('location:cart.php');
+  }else{
+    echo "<script> alert('Đăng nhập thất bại')</script>";
+  }
+
 }
 ?>
 <?php
@@ -62,6 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
      ?>
     <?php
           if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+            $sID = session_id();
+            $ct->deleteCarBySessionID($sID);
             Session::destroy();
             header('location:index.php');
           }
@@ -177,43 +185,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
  <script src="../templates//vendor/jquery/jquery-3.4.1.min.js"></script>
  <script src="../templates/vendor/js/bootstrap.min.js"></script>
  <script src="../templates/resource/web/myscript.js"></script>
- <?php 
-  if(isset($checkLogin) && $checkLogin == true &&  isset($_GET['login'])  && $_GET['login'] == 'order'){
-
-  ?>
-    <script>
-     $(document).ready(function() {
-      console.log('ok');
-     setReadyDocument();
-      $("#loginModal").modal('show');
-   });
-    </script>
-  <?php 
-} if(isset($checkLogin) && $checkLogin == false){
-
-   ?>
- <script>
+<script>
    $(document).ready(function() {
      console.log('ok');
      setReadyDocument();
      $('#btnPay').click(function(event) {
-       setDisplay('#paymentDiv');
+        check  =$('#checkLogin').val();
+        console.log(check);
+        if(check == 1){
+          $("#loginModal").modal('show');
+        }else{
+          setDisplay('#paymentDiv');
+        }
+    });
      });
-   });
- </script>
-<?php 
-}
-  if(isset($checkLogin) && $checkLogin == true){
- ?>
- <script>
-   $(document).ready(function() {
-     console.log('ok');
-     setReadyDocument();
-     });
- </script>
- <?php 
- } ?>
- <!-- End Footer -->
+</script>
  </body>
 
  </html>
