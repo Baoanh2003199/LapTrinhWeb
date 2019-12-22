@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
 ?>
 <?php
 
-public class OderDetails{
+public class OrderDetails{
   private $db;
   private $fm;
 

@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/orderDetails.php';
+$ordDetail = new OrderDetail();
 ?>
 <!-- Main -->
 <div class="main">

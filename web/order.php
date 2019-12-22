@@ -4,11 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
 
 ?>
-<?php 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
-  var_dump($_POST);
-}
- ?>
 <!-- Main -->
 <div class="main">
   <div class="blockDiv">

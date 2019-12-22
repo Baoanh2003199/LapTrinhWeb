@@ -20,7 +20,7 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $UserID != null)
     {
         $quantity = $_POST['quantity'];
-        $AddtoOrder = $ord->Add_to_cart($id,$quantity,$UserID);
+        $AddtoOrder = $ord->insert_order($id,$quantity,$UserID);
     }   
 
  ?>
@@ -139,11 +139,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $U
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
-<<<<<<< HEAD
-          <button type="button" class="btn btn-primary" id="btnPayConfirm" name="PaymentConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
-=======
           <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
->>>>>>> 58fce46ec8b3a1e60ea38f68b012322e34b2ee44
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
       </form>
