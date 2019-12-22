@@ -1,7 +1,11 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 ?>
-
+<?php 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
+  var_dump($_POST);
+}
+ ?>
 <!-- Main -->
 <div class="main">
   <div class="blockDiv">
@@ -20,29 +24,7 @@ include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
-            <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
-              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Otto</td>
-            <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
-              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
-            </td>
-          </tr>
+        <tbody>        
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
@@ -50,7 +32,7 @@ include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
             <td>@twitter</td>
             <td>Otto</td>
             <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
+              <button type="button" class="btn btn-primary"><a href="orderDetails.php">Chi tiết</a> </button>
               <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
             </td>
           </tr>
