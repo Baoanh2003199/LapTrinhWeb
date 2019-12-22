@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
 ?>
 <!-- Footer -->
 <div id="acountManager">
-<table class="table table-hover"">
+<table class="table table-hover">
   <?php 
       if (Session::checkUser() == false) {
      ?>
