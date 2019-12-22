@@ -58,7 +58,7 @@ function setReadyDocument(){
     // });
 }
 function onclickDeleteCart(cartID) {
-    if(confirm('Bạn có muốn xóa')){
+    if(confirm('Bạn có muốn xóa sản phẩm này khỏi giỏ hàng ?')){
         window.location.href = 'cart.php?delCartID='+cartID+'';
         return true;
     }

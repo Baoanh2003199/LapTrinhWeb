@@ -12,24 +12,12 @@
     if(isset($_GET['delCartID']) && $_GET['delCartID'] != null){
         $cartID = $_GET['delCartID'];
         $deleteCart = $ct->deleteCart($cartID);
-        if($deleteCart){
-            echo "<script> alert('Xóa sản phẩm khỏi giỏ hàng thành công') </script> ";
-        }
-        else{
-            echo "<script> alert('Vui lòng thử lại') </script> ";
-        }
     }
     if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null &&
 isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0){
          $cartID = $_GET['updateCarID'];
         $quantity = $_GET['Quantity'];
         $deleteCart = $ct->updateCart($cartID, $quantity);
-        if($deleteCart){
-            echo "<script> alert('Cập nhật sản số lượng thành công') </script> ";
-        }
-        else{
-            echo "<script> alert('Vui lòng thử lại') </script> ";
-        }
     }
   }   
  ?>
@@ -44,12 +32,11 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
-            $get_product_cart = $ct->getProductCartBySID($sID);
+            $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  
                 while($result = $get_product_cart->fetch_assoc())
                 {
-                    
                     $productName = $result['ProductName'];
                     $Price = $result['Price'];
                     $Quantity = $result['Quantity'];
