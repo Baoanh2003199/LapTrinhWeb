@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
+$ord = new order();
 ?>
 
 <!-- Main -->
@@ -14,46 +16,34 @@ include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
           <tr>
             <th scope="col">#</th>
             <th scope="col">Mã đơn hàng</th>
-            <th scope="col">Ngày mua</th>
-            <th scope="col">Tổng tiền</th>
+            <th scope="col">Số lượng sản phẩm</th>
             <th scope="col">Trạng thái</th>
+            <th scope="col">Tổng tiền</th>
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
         <tbody>
+        <?php
+            $SHOW_ORDER = $ord->show_order();
+            if ($SHOW_ORDER) {
+              $i=0;
+            while ($result = $SHOW_ORDER->fetch_assoc()) {
+              $i++;
+        ?>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
+            <th scope="row"><?php echo $i ?></th>
+            <td><?php echo $result['OrderID']; ?></td>
+            <td><?php echo $result['QuantityProducts']; ?></td>
+            <td><?php echo $result['Status']; ?></td>
+            <td><?php echo $result['Total']; ?></td>
             <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
-              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
+              <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php $result['OrderID'];?>">Xem chi tiết đơn hàng</a> </button>
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Otto</td>
-            <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
-              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Otto</td>
-            <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.html">Chi tiết</a> </button>
-              <button type="button" class="btn btn-danger" disabled="false">Xóa</button>
-            </td>
-          </tr>
+          <?php
+            }
+          }
+        ?>
         </tbody>
       </table>
     </div>
