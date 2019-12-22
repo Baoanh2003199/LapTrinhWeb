@@ -34,7 +34,7 @@ class adminlogin
       if ($result != false) {
         $value = $result->fetch_assoc();
         Session::set("adminlogin", true);
-        Session::set("UserId", $value['UserID']);
+        Session::set("AdminId", $value['UserID']);
         Session::set("AdminUser", $value['UserName']);
         header("Location:index.php");
       } else {
