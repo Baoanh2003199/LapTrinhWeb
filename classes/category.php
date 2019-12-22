@@ -87,7 +87,7 @@ class category
   public function del_category($id)
   {
     $sql = "DELETE FROM Categories  WHERE CategoryID='$id'";
-    $result = $this->db->delete();
+    $result = $this->db->delete($sql);
     if ($result) {
       $alert = "<span> delete category successen</span>";
       return $alert;

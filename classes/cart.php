@@ -55,6 +55,12 @@ class Cart
     $result = $this->db->select($query);
     return $result;
   }
+    public function getProductCartBySID($sessionID)
+  {
+    $query = "SELECT * FROM Cart where sID = '$sessionID'";
+    $result = $this->db->select($query);
+    return $result;
+  }
    public function deleteCart($cartID)
   {
     $query = "DELETE from Cart where cartID = '$cartID'";

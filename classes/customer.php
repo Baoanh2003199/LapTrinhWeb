@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/user.php';
 ?>
 <?php
 class customer
@@ -47,14 +48,15 @@ class customer
   }
   public function show_Customers()
   {
-    $sql = "SELECT * from Customers order by CustomerID";
+    $sql = "SELECT c.*, u.UserName, u.UserID from Customers c, User u where u.UserID = c.UserID order by CustomerID";
     $result = $this->db->select($sql);
     return $result;
   }
 
   public function getCusID($id)
   {
-    $sql = "SELECT * from Customers where  CustomerID='$id'";
+    $sql = "SELECT * from Customers c, User u where  CustomerID='$id' 
+    and c.UserID = u.UserID";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -94,17 +96,24 @@ class customer
       }
     }
   }
-  public function del_Customers($id)
+  public function del_Customers($id, $userID)
   {
     $sql = "DELETE FROM Customers  WHERE CustomerID='$id'";
-    $result = $this->db->delete();
-    if ($result) {
-      $alert = "<span> delete Customers successen</span>";
-      return $alert;
-    } else {
-      $alert = "<span> delete Customers no successen</span>";
-      return $alert;
+    $user = new User();
+    $deleteUser = $user->deleteUser($userID);
+    if($user){
+         $result = $this->db->delete($sql);
+      if ($result) {
+        $alert = "<span> delete Customers successen</span>";
+        return $alert;
+      } else {
+        $alert = "<span> delete Customers no successen</span>";
+        return $alert;
+      }
+    }else{
+      return false;
     }
+   
   }
 }
 ?>

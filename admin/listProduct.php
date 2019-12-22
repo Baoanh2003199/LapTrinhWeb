@@ -17,7 +17,7 @@ if (isset($_GET['delID'])) {
 <div class="titleForm">Danh sách sản phẩm</div>
 <?php
 if (isset($delPro)) {
-  echo $delPro;
+  echo "<script> alert('Xóa sản phẩm thành công');</script>";
 }
 ?>
 <form class="searchForm">

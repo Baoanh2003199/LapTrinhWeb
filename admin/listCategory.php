@@ -16,7 +16,7 @@ if (isset($_GET['delID'])) {
 </div>
 <?php
 if (isset($delCat)) {
-  echo $delCat;
+  echo "<script> alert('Xóa loại sản phẩm thành công');</script>";
 }
 ?>
 
@@ -53,7 +53,7 @@ if (isset($delCat)) {
           <td><?php echo $result['Status']; ?></td>
           <td>
             <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('Bạn có chắc muốn xoá Danh mục này ?')" href="?delID=<?php $result['delID'] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')" href="?delID=<?php echo $result['CategoryID']; ?>" class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>

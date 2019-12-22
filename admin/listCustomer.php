@@ -6,7 +6,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/customer.php';
 $cus = new customer();
 if (isset($_GET['delID'])) {
   $id = $_GET['delID'];
-  $delCat = $cus->del_Customers($id);
+  $userId = $_GET['userID'];
+  $delCat = $cus->del_Customers($id, $userId);
 }
 ?>
 <div class="titleRight path">
@@ -16,7 +17,7 @@ if (isset($_GET['delID'])) {
 <div class="titleForm">Danh sách khách hàng</div>
 <?php
 if (isset($delCat)) {
-  echo $delCat;
+  echo "<script> alert('Xóa khách hàng thành công');</script>";
 }
 ?>
 <form class="searchForm">
@@ -31,6 +32,7 @@ if (isset($delCat)) {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tên Khách hàng</th>
+       <th scope="col">Tên đăng nhập</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">Điện thoại</th>
        <th scope="col">Ngày sinh</th>
@@ -49,13 +51,20 @@ if (isset($delCat)) {
         <tr>
           <th scope="row"><?php echo $i; ?></th>
           <td><?php echo $result['Name']; ?></td>
+          <td><?php echo $result['UserName']; ?></td>
           <td><?php echo $result['Address']; ?></td>
           <td><?php echo $result['Phone']; ?></td>
           <td><?php echo $result['DoB']; ?></td>
-          <td><?php echo $result['Status']; ?></td>
+          <td><?php 
+            if($result['Status'] == '1'){
+              echo "Hoạt động";
+            }else{
+              echo "Ngưng hoạt động";
+            }
+           ?></td>
           <td>
             <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')" href="?delID=<?php $result['CustomerID'] ?>" class="btn btn-danger">Xóa</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')" href="?delID=<?php echo $result['CustomerID']; ?>&userID=<?php echo $result['UserID']; ?> " class="btn btn-danger">Xóa</a>
           </td>
         </tr>
       </tbody>

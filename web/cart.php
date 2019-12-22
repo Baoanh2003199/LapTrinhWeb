@@ -2,6 +2,7 @@
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
   $UserID = Session::Get('UserId');
+  $sID = session_id();
   // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
   // {
   //     $quantity = $_POST['quantity'];
@@ -43,7 +44,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
-            $get_product_cart = $ct->get_product_cart($UserID);
+            $get_product_cart = $ct->getProductCartBySID($sID);
             if($get_product_cart)
             {  
                 while($result = $get_product_cart->fetch_assoc())

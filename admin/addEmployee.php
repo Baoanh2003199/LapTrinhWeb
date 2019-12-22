@@ -39,14 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <input type="text" class="form-control" id="" aria-describedby="" placeholder="Tên" />
   </div>
   <div class="form-group">
-    <div class="itemForm">Email</div>
-    <input type="email" class="form-control" id="" aria-describedby="" placeholder="Tên" />
-  </div>
-  <div class="form-group">
-    <div class="itemForm">City</div>
-    <input type="text" class="form-control" id="" aria-describedby="" placeholder="Tên" />
-  </div>
-  <div class="form-group">
     <div class="itemForm">Ngày sinh</div>
     <input type="text" class="form-control" id="" aria-describedby="" placeholder="Tên" />
   </div>

@@ -26,3 +26,9 @@ function expandMenu(params) {
     $(".right").removeClass("rightAffterClick");
   });
 }
+function onlickDelete(Id, className){
+  if(confirm('Bạn có muốn xóa '+className)){
+      window.location.href = 'listProduct.php?delID='+Id+'';
+  }
+  return true;
+}
