@@ -27,7 +27,7 @@ class Cart
       $Price = $result['Price'];
       $Image = $result['Img'];
       $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price,UserID) VALUES('$id','$productName','$quantity','$sID','$Image','$Price','$UserID')";
-      $query_check = "SELECT * FROM Cart where ProductID='$id' AND sID = '$sID'";
+      $query_check = "SELECT * FROM Cart where ProductID='$id' AND UserID = '$UserID'";
       $check_exists = $this->db->select($query_check);
       if($check_exists)
       {

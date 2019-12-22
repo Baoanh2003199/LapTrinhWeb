@@ -49,7 +49,7 @@ $checkLogin = '1';
       </div>
       <div class="rightUp">
         <div class="btnHeader" id="btnAcount">
-          <a href="">
+          <a>
             <i class="fas fa-user-circle"></i>
             <?php 
             $username = Session::get('User');

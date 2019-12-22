@@ -32,7 +32,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
             <?php 
              $grandTotal = 0;
              $subTotal = 0;
-            $get_product_cart = $ct->get_product_cart($UserID);
+            $get_product_cart = $ct->get_product_cart('14');
             if($get_product_cart)
             {  
                 while($result = $get_product_cart->fetch_assoc())
@@ -69,7 +69,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
                         </div>
                         </div>
                         <div class="col-3">
-                        <input type="button" class="btn btn-light" onclick="onclickDeleteCart(<?php echo $result['CartID']; ?> )"  value="Xóa">
+                        <input type="button" class="btn btn-light" onclick="onclickDeleteCart(<?php echo $result['CartID'];?> )"  value="Xóa">
                         </div>
                         </div>
                         </form>

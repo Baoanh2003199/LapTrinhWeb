@@ -13,10 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
 
   $login_check = $class->login($User, $Pass);
   if($login_check){
-    echo "<script> confirm('Đăng nhập thành công')</script>";
-    // header('location:cart.php');
+    //echo "<script> confirm('Đăng nhập thành công')</script>";
+    header('location:index.php');
   }else{
-    echo "<script> alert('Đăng nhập thất bại')</script>";
+    echo "<script> alert('Sai tên đăng nhập hoặc mật khẩu')</script>";
   }
 
 }
@@ -68,8 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
      ?>
     <?php
           if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-            $sID = session_id();
-            $ct->deleteCarBySessionID($sID);
             Session::destroy();
             header('location:index.php');
           }
