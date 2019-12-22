@@ -1,7 +1,9 @@
 <?php 
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
   $ct = new cart();
+  $ord = new order();
    if($_SERVER['REQUEST_METHOD'] == 'GET' ){
     if(isset($_GET['delCartID']) && $_GET['delCartID'] != null){
         $cartID = $_GET['delCartID'];

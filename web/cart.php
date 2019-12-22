@@ -1,6 +1,7 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
   $UserID = Session::Get('UserId');
   $sID = session_id();
   // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
@@ -9,13 +10,18 @@
   //     $AddtoCart = $ct->Add_to_cart($id,$quantity);
   // }
  if($_SERVER['REQUEST_METHOD'] == 'GET' ){
-    if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null &&
-isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0){
-         $cartID = $_GET['updateCarID'];
+    if(isset($_GET['updateCarID']) && $_GET['updateCarID'] != null && isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
+    {
+        $cartID = $_GET['updateCarID'];
         $quantity = $_GET['Quantity'];
         $deleteCart = $ct->updateCart($cartID, $quantity);
     }
 }
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PaymentConfirm']) && $UserID != null)
+    {
+        $quantity = $_POST['quantity'];
+        $AddtoOrder = $ord->Add_to_cart($id,$quantity,$UserID);
+    }   
 
  ?>
 
@@ -122,6 +128,10 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
         <label> Địa chỉ nhận hàng: </label>
         <input id="txtShippingAddr" type="text" class="form-control" value="<?php echo $cusAddress ?>">
         </div>
+        <div class="form-group">
+        <label> Lời nhắn tới người bán: </label>
+        <textarea id="txtareaNote" class="form-control rounded-0" row="3"></textarea>
+        </div>
 
       </form>
  
@@ -131,7 +141,7 @@ isset($_GET['Quantity']) && $_GET['Quantity'] != null && $_GET['Quantity'] != 0)
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+          <button type="button" class="btn btn-primary" id="btnPayConfirm" name="PaymentConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
     </div>

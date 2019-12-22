@@ -1,7 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
-$ord = new order();
+include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+$UserID = Session::Get('UserId');
+
 ?>
 
 <!-- Main -->
