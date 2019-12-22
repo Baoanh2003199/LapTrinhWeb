@@ -49,19 +49,19 @@ function setReadyDocument(){
          window.location.href = 'cart.php?updateCarID='+CartID+'&Quantity='+Quantity+'';
      }); 
 
-     $(function(){
-        $('#paymentModal').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                url: '#', //this is the submit URL
-                type: 'POST', //or POST
-                data: $('#paymentModal').serialize(),
-                success: function(data){
-                     alert('successfully submitted');
-                }
-            });
-        });
-    });
+    //  $(function(){
+    //     $('#paymentModal').on('submit', function(e){
+    //         e.preventDefault();
+    //         $.ajax({
+    //             url: '#', //this is the submit URL
+    //             type: 'POST', //or POST
+    //             data: $('#paymentModal').serialize(),
+    //             success: function(data){
+    //                  alert('successfully submitted');
+    //             }
+    //         });
+    //     });
+    // });
      //$('#btnPayConfirm').click(function () { 
         // window.location.href = 'order.php';
     //});

@@ -2,6 +2,21 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
+  var_dump($_POST);
+       $Addr = $_POST['Address'];
+      $Name = $_POST['Name'];
+      $Phone = $_POST['Phone'];
+      $grandTotal = $_POST['grandTotal'];
+      $totalQuantity = $_POST['totalQuantity'];
+      $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
+      if($AddtoOrder){
+        var_dump("ok");
+        var_dump("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum libero earum doloribus. Omnis aut, architecto velit rerum soluta, ratione unde, consectetur vero recusandae ea asperiores, consequuntur corrupti aperiam ipsa fugiat.");
+      }else{
+        var_dump('not');
+      }
+}
 ?>
 <!-- Main -->
 <div class="main">

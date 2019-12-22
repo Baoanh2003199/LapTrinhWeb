@@ -13,10 +13,7 @@
   $totalQuantity = 0;
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['PayConfirm']) && $UserID != null)
   {
-      $Addr = $_POST['Address'];
-      $Name = $_POST['Name'];
-      $Phone = $_POST['Phone'];
-      $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
+ 
   }  
 
  if($_SERVER['REQUEST_METHOD'] == 'GET' ){
@@ -117,7 +114,7 @@
         <h4 class="modal-title">Xác Nhận Thanh Toán</h4>
       </div>
       <div class="modal-body">
-      <form action="#" method="POST">
+      <form action="order.php" method="POST">
         <span style="font-size:18px; font-weight:bold; color:#5aa4e8;">Thông Tin Nhận Hàng </span><br><br>
         <div class="form-group">
         <label>Họ Tên Người Nhận Hàng: </label>
@@ -138,11 +135,13 @@
 
          <br>
         <br>
-        <span style="font-size:15px; font-weight:bold; color: #5aa4e8; float:right;"> <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ'?></span>
+        <span style="font-size:15px; font-weight:bold; color: #5aa4e8; float:right;"> <?php $grandTotal = $subTotal + ($subTotal * 10/100); echo number_format($grandTotal).' đ';?></span>
+        <input type="hidden" value="<?php echo number_format($grandTotal).' đ'; ?> " name="grandTotal" >
+        <input type="hidden" value="<?php echo $totalQuantity; ?>" name="totalQuantity" >
         <span class="orderInfor" style="float:right; margin-right:20px"> Tổng tiền (đã +10% VAT): </span> <br>    
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="PayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
+          <button type="submit" class="btn btn-primary" id="btnPayConfirm" name="btnPayConfirm" style="float:right; margin-right:15px;">Đặt hàng</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"> Hủy</button>
       </div>
       </form>

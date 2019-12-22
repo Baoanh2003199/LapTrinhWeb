@@ -35,14 +35,7 @@ class order
     } else {
       $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $insert_order = $this->db->insert($sql);
-        if($insert_order)
-        {
-          header("Location:order.php");
-        }
-        else
-        {
-          header("Location:index.php");
-        }
+        return true;
     }
   }
   public function show_order()
