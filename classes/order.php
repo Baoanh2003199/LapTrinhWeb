@@ -58,6 +58,14 @@ class order
     $result = $this->db->select($sql);
     return $result;
   }
+
+  public function getOrderByUserID($Userid)
+  {
+    $sql = "SELECT * from Orders where UserID='$Userid'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
   public function update_order($Total, $QuantityProducts, $Note, $Status, $id)
   {
     $id = $this->fm->valation($id);

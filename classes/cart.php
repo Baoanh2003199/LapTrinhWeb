@@ -26,8 +26,8 @@ class Cart
       $productName = $result['ProductName'];
       $Price = $result['Price'];
       $Image = $result['Img'];
-      $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price,UserID) VALUES('$id','$productName','$quantity','$sID','$Image','$Price','$UserID')";
-      $query_check = "SELECT * FROM Cart where ProductID='$id' AND UserID = '$UserID'";
+      $query_insert = "INSERT INTO Cart(ProductID,ProductName,Quantity,sID,Image,Price,UserID,Status) VALUES('$id','$productName','$quantity','$sID','$Image','$Price','$UserID','1')";
+      $query_check = "SELECT * FROM Cart where ProductID='$id' AND UserID = '$UserID' AND Status='1'";
       $check_exists = $this->db->select($query_check);
       if($check_exists)
       {
@@ -52,7 +52,7 @@ class Cart
   public function get_product_cart($UserID)
   {
     $query = "SELECT c.*, cus.Name, cus.Address, cus.Phone FROM Cart c, Customers cus where c.UserID = '$UserID' 
-    and cus.UserID = c.UserID";
+    and cus.UserID = c.UserID and c.Status = '1'";
     $result = $this->db->select($query);
     return $result;
   }
@@ -85,6 +85,13 @@ class Cart
   public function updateCart($cartID, $sl)
   {
     $query = "UPDATE Cart set Quantity = '$sl' where CartID = '$cartID'";
+    $result = $this->db->update($query);
+    return $result;
+  }
+
+  public function updateStatusCart($cartID, $status)
+  {
+    $query = "UPDATE Cart set Status = '$status' where CartID = '$cartID'";
     $result = $this->db->update($query);
     return $result;
   }

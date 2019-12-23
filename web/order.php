@@ -2,7 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
-var_dump($UserID);
 ?>
 <!-- Main -->
 <div class="main">
@@ -24,7 +23,7 @@ var_dump($UserID);
         </thead>
         <tbody>
         <?php
-          $SHOW_ORDER = $ord->getOrderID($UserID);
+          $SHOW_ORDER = $ord->getOrderByUserID($UserID);
           if ($SHOW_ORDER) 
           {
             $i=0;
@@ -40,10 +39,42 @@ var_dump($UserID);
             <th scope="row"><?php echo $i ?></th>
             <td><?php echo $orderID; ?></td>
             <td><?php echo $QuantityPro; ?></td>
-            <td><?php echo $Status; ?></td>
-            <td><?php echo $Total; ?></td>
+            <td style="<?php
+            switch($Status){
+              case '1':
+                echo 'color:red;';
+                break;
+              case '2':
+                echo 'color:yellow;';
+                break;
+              case '3':
+                echo 'color:blue;';
+                break;
+              case '4':
+                echo 'color:green;';
+                break;
+              }
+            ?>">
+            <?php 
+            switch($Status){
+              case '1':
+                echo 'Đang chờ xử lí';
+                break;
+              case '2':
+                echo 'Đang xử lí';
+                break;
+              case '3':
+                echo 'Đang giao hàng';
+                break;
+              case '4':
+                echo 'Đã giao hàng';
+                break;
+            }
+            
+            ?></td>
+            <td style="color: green;"><?php echo $Total; ?></td>
             <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php $result['OrderID'];?>">Xem chi tiết đơn hàng</a> </button>
+              <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php echo $orderID;?>">Xem chi tiết đơn hàng</a> </button>
             </td>
           </tr>
           <?php

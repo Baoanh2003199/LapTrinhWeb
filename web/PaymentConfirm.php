@@ -19,6 +19,7 @@
       $Phone = $_POST['Phone'];
       $grandTotal = $_POST['grandTotal'];
       $totalQuantity = $_POST['totalQuantity'];
+      
     }
     if(isset($_POST['Confirm']))
     {
@@ -29,7 +30,14 @@
       $quantity = $_POST['quantity'];
       $total = $_POST['total'];
       $AddtoOrder = $ord->insert_order($total, $quantity,$Name,$Phone,$Addr,$UserID);
-      $deltoCart = $ct->deleteCartByUserID($UserID);
+      $get_product_cart = $ct->get_product_cart($UserID);
+      if($get_product_cart)
+        {  
+          while($result = $get_product_cart->fetch_assoc())
+            {
+              $ct->updateStatusCart($result['CartID'],'2');
+            }
+        }
     }
   }
 
