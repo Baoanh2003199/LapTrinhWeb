@@ -69,6 +69,13 @@ class Cart
     $result = $this->db->delete($query);
     return $result;
   }
+  public function deleteCartByUserID($UserID)
+  {
+    $query = "DELETE from Cart where UserID = '$UserID'";
+    $result = $this->db->delete($query);
+    return $result;
+  }
+
      public function deleteCarBySessionID($sesionId)
   {
     $query = "DELETE from Cart where sID = '$sesionId'";

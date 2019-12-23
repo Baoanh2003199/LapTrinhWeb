@@ -72,7 +72,6 @@ else
                         echo $AddtoCart;
                     }     
                 }
-                   
                 ?>
             </div>
             <div class="clearFloat"></div>

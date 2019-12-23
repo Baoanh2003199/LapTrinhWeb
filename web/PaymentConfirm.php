@@ -10,14 +10,27 @@
   // }
   $grandTotal = 0;
   $totalQuantity = 0;
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['paymentConf']) && $UserID != null)
+  if($_SERVER['REQUEST_METHOD'] == 'POST'  && $UserID != null)
   {
+    if(isset($_POST['paymentConf']))
+    {
       $Addr = $_POST['Address'];
       $Name = $_POST['CustomerName'];
       $Phone = $_POST['Phone'];
       $grandTotal = $_POST['grandTotal'];
       $totalQuantity = $_POST['totalQuantity'];
-      //$AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
+    }
+    if(isset($_POST['Confirm']))
+    {
+      var_dump($_POST);
+      $Addr = $_POST['CustAddr'];
+      $Name = $_POST['CustName'];
+      $Phone = $_POST['CustPhone'];
+      $quantity = $_POST['quantity'];
+      $total = $_POST['total'];
+      $AddtoOrder = $ord->insert_order($total, $quantity,$Name,$Phone,$Addr,$UserID);
+      $deltoCart = $ct->deleteCartByUserID($UserID);
+    }
   }
 
  ?>
@@ -26,7 +39,7 @@
     <div class="main">
         <div class="blockDiv">
            <?php     
-           if($totalQuantity == 0)
+           if($count == 0)
             {
             header('location:404.php');
             }
@@ -50,9 +63,11 @@
             <div class="form-group">
             <label style="font-size: 20px; float:left;">Tổng số sản phẩm:  &nbsp</label>
             <label style="font-weight:bold; color:#ff6b6b; font-size: 20px;"><?php echo ($totalQuantity); ?> </label>
+            <input type="hidden" name="quantity" value="<?php echo ($totalQuantity); ?>">
             <br>
             <label style="font-size: 20px; float:left;">Tổng số tiền:  &nbsp</label>
             <label style="font-weight:bold; color:#ff6b6b; font-size: 20px;"><?php echo number_format($grandTotal).' đ'; ?> </label>
+            <input type="hidden" name="total" value="<?php echo ($grandTotal); ?>">
             <br>
             <input id="btnCancel" type="button" class="btn btn-danger" value="Quay lại" style="float:right; margin-bottom:30px;">
             <input name="Confirm" id="btnConfirm" type="submit" class="btn btn-success" value="Đặt hàng" style="float:right; margin-bottom:30px; margin-right:20px">
