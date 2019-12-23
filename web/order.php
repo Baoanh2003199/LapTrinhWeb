@@ -2,6 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
+var_dump($UserID);
 ?>
 <!-- Main -->
 <div class="main">
@@ -23,7 +24,7 @@ $UserID = Session::Get('UserId');
         </thead>
         <tbody>
         <?php
-          $SHOW_ORDER = $ord->getOrderID('15');
+          $SHOW_ORDER = $ord->getOrderID($UserID);
           if ($SHOW_ORDER) 
           {
             $i=0;
@@ -36,7 +37,7 @@ $UserID = Session::Get('UserId');
               $Total = $result['Total'];
             ?>
           <tr>
-            <th scope="row">echo $i</th>
+            <th scope="row"><?php echo $i ?></th>
             <td><?php echo $orderID; ?></td>
             <td><?php echo $QuantityPro; ?></td>
             <td><?php echo $Status; ?></td>

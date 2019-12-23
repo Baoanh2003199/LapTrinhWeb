@@ -41,7 +41,7 @@
            <?php     
            if($count == 0)
             {
-            header('location:404.php');
+            header('location:index.php');
             }
             ?>
             <center>
