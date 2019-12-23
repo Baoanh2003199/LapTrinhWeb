@@ -28,7 +28,7 @@ class order
     $name =  mysqli_real_escape_string($this->db->link, $name);
     $phone = mysqli_real_escape_string($this->db->link, $phone);
     $address =  mysqli_real_escape_string($this->db->link, $address);
-    $userID =  mysqli_real_escape_string($this->db->link, $userID); 
+    $userID =  mysqli_real_escape_string($this->db->link, $userID);
 
     if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
       return false;
@@ -47,7 +47,7 @@ class order
   }
   public function show_order()
   {
-    $sql = "SELECT o.* FROM Orders o,";
+    $sql = "SELECT * FROM Orders o";
     $result = $this->db->select($sql);
     return $result;
   }
