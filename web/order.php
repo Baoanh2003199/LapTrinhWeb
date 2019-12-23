@@ -72,7 +72,7 @@ $UserID = Session::Get('UserId');
             }
             
             ?></td>
-            <td style="color: green;"><?php echo number_format($Total).' đ'; ?></td>
+            <td style="color: green;"><?php echo number_format($Total).' VNĐ'; ?></td>
             <td>
               <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php echo $orderID;?>">Xem chi tiết đơn hàng</a> </button>
             </td>
