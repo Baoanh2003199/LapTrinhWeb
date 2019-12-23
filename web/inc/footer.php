@@ -192,8 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
         console.log(check);
         if(check == 1){
           $("#loginModal").modal('show');
-        }else{
-          $("#paymentModal").modal('show');
         }
     });
      });

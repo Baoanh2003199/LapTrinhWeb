@@ -106,7 +106,7 @@ else
                         $Image = $result["Img"];
                         ?>
                         <div class="col-sm-3 itemProduct">
-                        <a href="#">
+                        <a href="ProductDetails.php?id=<?php echo $result['ProductID'];?>">
                             <img src="../uploads/<?php echo $Image;?>" class="img_produt" alt="">
                             <br>
                             <span class="description"><?php echo $ProName?></span><br>

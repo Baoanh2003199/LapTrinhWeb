@@ -39,6 +39,9 @@ function setReadyDocument(){
         //closeDisplay('#divRegister');
         $("#registerModal").modal('hide');
     });
+    $('#btnCancel').click(function (e) { 
+        window.location.href = 'index.php';
+    });
     $('.btnUpdateCart').click(function() {
          
          parent = $(this).parent();

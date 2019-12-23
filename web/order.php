@@ -2,21 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
-  var_dump($_POST);
-       $Addr = $_POST['Address'];
-      $Name = $_POST['Name'];
-      $Phone = $_POST['Phone'];
-      $grandTotal = $_POST['grandTotal'];
-      $totalQuantity = $_POST['totalQuantity'];
-      $AddtoOrder = $ord->insert_order($grandTotal, $totalQuantity,$Name,$Phone,$Addr,$UserID);
-      if($AddtoOrder){
-        var_dump("ok");
-        var_dump("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum libero earum doloribus. Omnis aut, architecto velit rerum soluta, ratione unde, consectetur vero recusandae ea asperiores, consequuntur corrupti aperiam ipsa fugiat.");
-      }else{
-        var_dump('not');
-      }
-}
 ?>
 <!-- Main -->
 <div class="main">
@@ -38,18 +23,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnPayConfirm'])){
         </thead>
         <tbody>
         <?php
-            $SHOW_ORDER = $ord->getOrderID($UserID);
-            if ($SHOW_ORDER) {
-              $i=0;
-            while ($result = $SHOW_ORDER->fetch_assoc()) {
+          $SHOW_ORDER = $ord->getOrderID('15');
+          if ($SHOW_ORDER) 
+          {
+            $i=0;
+            while($result = $SHOW_ORDER->fetch_assoc())
+            {
               $i++;
-        ?>
+              $orderID = $result['OrderID'];
+              $QuantityPro = $result['QuantityProducts'];
+              $Status = $result['Status'];
+              $Total = $result['Total'];
+            ?>
           <tr>
-            <th scope="row">1</th>
-            <td><?php echo $result['OrderID']; ?></td>
-            <td><?php echo $result['QuantityProducts']; ?></td>
-            <td><?php echo $result['Status']; ?></td>
-            <td><?php echo $result['Total']; ?></td>
+            <th scope="row">echo $i</th>
+            <td><?php echo $orderID; ?></td>
+            <td><?php echo $QuantityPro; ?></td>
+            <td><?php echo $Status; ?></td>
+            <td><?php echo $Total; ?></td>
             <td>
               <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php $result['OrderID'];?>">Xem chi tiết đơn hàng</a> </button>
             </td>
