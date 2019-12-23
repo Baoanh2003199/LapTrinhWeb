@@ -99,7 +99,7 @@ class order
   public function del_order($id)
   {
     $sql = "DELETE FROM Orders  WHERE OrderID='$id'";
-    $result = $this->db->delete();
+    $result = $this->db->delete($sql);
     if ($result) {
       $alert = "<span> delete Orders successen</span>";
       return $alert;
@@ -115,11 +115,14 @@ class order
 
     $OrderID = mysqli_real_escape_string($this->db->link, $OrderID);
     $status = mysqli_real_escape_string($this->db->link, $status);
-    if(empty($OderId) || empty($status)){
+    if(empty($OrderID) || empty($status)){
       return false;
     }else{
-      $status+=1;
-      $sql = "UPDATE orders set Status = '$status' where  OrderID ='$OrderID' ";
+      $status = intval($status);
+
+      $status = $status + 1;
+      var_dump($status);
+      $sql = "UPDATE Orders set Status = '$status' where  OrderID ='$OrderID' ";
       $result = $this->db->insert($sql);
 
       return $result;

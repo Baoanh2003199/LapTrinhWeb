@@ -187,3 +187,6 @@ form {
   font-size: 140%;
   margin-left: 2%;
 }
+.aDisable{
+  pointer-events: none;
+}
