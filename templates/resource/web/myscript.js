@@ -10,6 +10,10 @@ function setReadyDocument(){
    
     $('#closePayment').click(function (e) { 
         closeDisplay('#paymentDiv');
+
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
         
     });
     $('#btnAcount').hover(function () {

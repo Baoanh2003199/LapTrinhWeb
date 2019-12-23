@@ -35,7 +35,7 @@ $UserID = Session::Get('UserId');
               $Status = $result['Status'];
               $Total = $result['Total'];
             ?>
-          <tr>
+          <tr class="headerTD" onclick="window.location.href='orderDetails.php?id=<?php echo $orderID;?>'" title="Click để xem chi tiết đơn đặt hàng" >
             <th scope="row"><?php echo $i ?></th>
             <td><?php echo $orderID; ?></td>
             <td><?php echo $QuantityPro; ?></td>
@@ -54,7 +54,8 @@ $UserID = Session::Get('UserId');
                 echo 'color:green;';
                 break;
               }
-            ?>">
+            ?>"
+            >
             <?php 
             switch($Status){
               case '1':
@@ -67,14 +68,16 @@ $UserID = Session::Get('UserId');
                 echo 'Đang giao hàng';
                 break;
               case '4':
-                echo 'Đã giao hàng';
+                echo '
+                Đã giao hàng
+                ';
                 break;
             }
             
             ?></td>
             <td style="color: green;"><?php echo number_format($Total).' VNĐ'; ?></td>
             <td>
-              <button type="button" class="btn btn-primary"><a href="orderDetails.php?id=<?php echo $orderID;?>">Xem chi tiết đơn hàng</a> </button>
+              <button type="button" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '4') {echo 'style="display: none;"';}?>>Xác nhận đơn đặt hàng </button>
             </td>
           </tr>
           <?php

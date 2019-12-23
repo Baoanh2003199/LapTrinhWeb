@@ -2,7 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
 ?>
-<?php
 
 public class OrderDetails{
   private $db;
