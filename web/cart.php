@@ -97,7 +97,10 @@
                 <input id="txtTotalQuantity" type="hidden" class="form-control" name="totalQuantity" value="<?php echo $totalQuantity ?>">
                 <input id="txtShippingAddr" type="hidden" class="form-control" name="grandTotal" value="<?php echo $grandTotal ?>">
                 <input type="hidden" value="<?php echo $checkLogin; ?>" id='checkLogin'>
-                <input type="submit" class="btn btn-danger" id="btnPay" name="paymentConf" value="Thanh toán" />
+                <input type="submit" class="btn btn-danger" id="btnPay" name="paymentConf"
+                <?php if ($totalQuantity == 0) {
+                    echo 'disabled';
+                } ?> value="Thanh toán" />
                 </form>
                 </div>
             </div>
