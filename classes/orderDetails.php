@@ -16,7 +16,7 @@ public class OrderDetails{
   public function insertOrderDetails($cartID, $orderID){
   	$cartID = $this->fm->valation($cartID);
     $orderID = $this->fm->valation($orderID);
-  	
+
   	$cartID = mysql_real_escape_string($this->db->link, $cartID);
   	$orderID = mysql_real_escape_string($this->db->link, $orderID);
 
