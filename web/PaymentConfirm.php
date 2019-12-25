@@ -1,7 +1,7 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
-  $UserID = Session::Get('UserId');
+
   $sID = session_id();
   // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
   // {
@@ -21,24 +21,7 @@
       $totalQuantity = $_POST['totalQuantity'];
       
     }
-    if(isset($_POST['Confirm']))
-    {
-      var_dump($_POST);
-      $Addr = $_POST['CustAddr'];
-      $Name = $_POST['CustName'];
-      $Phone = $_POST['CustPhone'];
-      $quantity = $_POST['quantity'];
-      $total = $_POST['total'];
-      $AddtoOrder = $ord->insert_order($total, $quantity,$Name,$Phone,$Addr,$UserID);
-      $get_product_cart = $ct->get_product_cart($UserID);
-      if($get_product_cart)
-        {  
-          while($result = $get_product_cart->fetch_assoc())
-            {
-              $ct->updateStatusCart($result['CartID'],'2');
-            }
-        }
-    }
+   
   }
 
  ?>
@@ -55,7 +38,7 @@
             <center>
             <h2 style="font-weight:bold; color:#5aa4e8; margin-top:20px">Thông tin nhận hàng</h2>
             </center>
-            <form action="" method="POST" style="max-width:400px; margin:0 auto;">
+            <form action="order.php" method="POST" style="max-width:400px; margin:0 auto;">
             <div class="form-group">
             <label>Họ tên người nhận</label>
             <input type="text" class="form-control" name="CustName" id="CustNameID" placeholder="Họ tên người nhận hàng" value="<?php echo $Name;?>">

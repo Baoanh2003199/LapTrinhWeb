@@ -35,7 +35,6 @@ class Session
   }
    public static function destroy()
   {
-    var_dump('destroy');
     session_destroy();
   }
   public static function checkAdmin()
@@ -65,7 +64,7 @@ class Session
   }
         public static function checkLogin(){
     self::init();
-    if (self::get('Login') == true) {
+    if (self::get('Login') == 'true') {
       header("location:index.php");
     }
   }

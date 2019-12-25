@@ -23,6 +23,7 @@ $pro = new Product();
               <span class="description"><?php echo $result['ProductName']; ?></span><br>
               <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
               <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+              <span class="views">Đã bán:<?php echo $result['SellNumber']; ?></span><br>
             </a>
           </div>
           <?php 
@@ -59,6 +60,7 @@ $pro = new Product();
             <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
             
             <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+            <span class="views">Đã bán:<?php echo $result['SellNumber']; ?></span><br>
           </a>
         </div>
         <?php

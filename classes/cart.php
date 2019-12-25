@@ -51,8 +51,7 @@ class Cart
 
   public function get_product_cart($UserID)
   {
-    $query = "SELECT c.*, cus.Name, cus.Address, cus.Phone FROM Cart c, Customers cus where c.UserID = '$UserID' 
-    and cus.UserID = c.UserID and c.Status = '1'";
+    $query = "SELECT c.*, cus.Name, cus.Address, cus.Phone FROM Cart c, Customers cus where c.UserID = '$UserID' and cus.UserID = c.UserID and c.Status = '1'";
     $result = $this->db->select($query);
     return $result;
   }

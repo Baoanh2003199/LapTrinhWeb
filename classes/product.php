@@ -76,14 +76,14 @@ class Product
 
   public function show_newProduct()
   {
-    $sql = "SELECT * FROM Products order by ProductID desc LIMIT 6";
+    $sql = "SELECT * FROM Products order by ProductID DESC LIMIT 10";
     $result = $this->db->select($sql);
     return $result;
   }
 
   public function show_SellNumber()
   {
-    $sql = "SELECT * FROM Products order by SellNumber asc LIMIT 6";
+    $sql = "SELECT * FROM Products order by SellNumber DESC LIMIT 10";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -136,7 +136,6 @@ class Product
     $Status = mysqli_real_escape_string($this->db->link, $data['Status']);
     $Category = mysqli_real_escape_string($this->db->link, $data['CategoryID']);
     $Supplier = mysqli_real_escape_string($this->db->link, $data['SupplierID']);
-    var_dump($data);
     $file_Name = $file['Img']['name'];
     $file_size = $file['Img']['size'];
     $file_temp = $file['Img']['tmp_name'];
@@ -185,6 +184,17 @@ class Product
       $resultUpdate = $this->db->update($sqlUpdate);
       return $resultUpdate;
    }
+  }
+  public function updateSellNumber($id, $sellNumber){
+      $resultViews = $this->showproductByID($id);
+      if($resultViews){
+        $fetchViews = $resultViews->fetch_assoc();
+        $sellNumber = $fetchViews['SellNumber'] + $sellNumber;
+      }
+
+      $sqlUpdate = "UPDATE Products set SellNumber = '$sellNumber' where ProductID = '$id'";
+      $resultUpdate = $this->db->update($sqlUpdate);
+      return $resultUpdate;
   }
 }
 ?>
