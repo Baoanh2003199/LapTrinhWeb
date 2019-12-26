@@ -4,6 +4,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/customer.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/user.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 Session::checkUser();
+$captcha_num = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz';
+$captcha_num = substr(str_shuffle($captcha_num), 0, 6);
+$_SESSION['code'] = $captcha_num;
 ?>
 <?php
 $class = new login();
