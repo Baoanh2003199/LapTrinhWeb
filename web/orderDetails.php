@@ -18,8 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     <div class="cartLeft">
       <div class="cartLeft">
         <?php
-
-        $get_product_order = $ordDetail->showOrderDetail($UerID);
+        $totalQuantity = 0;
+        $subTotal = 0;
+        $get_product_order = $ordDetail->showOrderDetail($id);
         if ($get_product_order) {
           while ($result = $get_product_order->fetch_assoc()) {
             $productName = $result['ProductName'];
