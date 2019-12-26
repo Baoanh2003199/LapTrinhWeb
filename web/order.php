@@ -73,11 +73,10 @@ $UserID = Session::Get('UserId');
                 ';
                 break;
             }
-            
             ?></td>
             <td style="color: green;"><?php echo number_format($Total).' VNĐ'; ?></td>
             <td>
-              <button type="button" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '3') {echo 'style="display: none;"';}?>><a href=""></a>Xác nhận đơn đặt hàng </button>
+              <button type="button" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '4') {echo 'style="display: none;"';}?>><a href=""></a>Xác nhận đơn đặt hàng </button>
             </td>
           </tr>
           <?php
