@@ -2,8 +2,8 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/cart.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/orderDetails.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/orderDetails.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
 
 ob_start();
 $ct = new cart();
@@ -17,29 +17,24 @@ if (Session::checkUserLogin() != true) {
 
 $UserID = Session::get('UserId');
 $get_product_cart = $ct->get_product_cart($UserID);
-if(isset($_POST['Confirm']) && $_SERVER['REQUEST_METHOD'] == 'POST' &&  $get_product_cart != false)
-    {
-      $Addr = $_POST['CustAddr'];
-      $Name = $_POST['CustName'];
-      $Phone = $_POST['CustPhone'];
-      $quantity = $_POST['quantity'];
-      $total = $_POST['total'];
-      $AddtoOrder = $ord->insert_order($total, $quantity,$Name,$Phone,$Addr,$UserID);
-     
-      if($get_product_cart != false && $AddtoOrder != false)
-        {  
-          $orderDetails = new OrderDetail();
-          $products = new Product();
-          while($result = $get_product_cart->fetch_assoc())
-            {
-              $ct->updateStatusCart($result['CartID'],'2');
-              $products->updateSellNumber($result['ProductID'], $result['Quantity']);
-              $orderDetails->insertOrderDetails($result['CartID'],$AddtoOrder);
-            }
+if (isset($_POST['Confirm']) && $_SERVER['REQUEST_METHOD'] == 'POST' &&  $get_product_cart != false) {
+  $Addr = $_POST['CustAddr'];
+  $Name = $_POST['CustName'];
+  $Phone = $_POST['CustPhone'];
+  $quantity = $_POST['quantity'];
+  $total = $_POST['total'];
+  $AddtoOrder = $ord->insert_order($total, $quantity, $Name, $Phone, $Addr, $UserID);
 
-        }
-        
+  if ($get_product_cart != false && $AddtoOrder != false) {
+    $orderDetails = new OrderDetail();
+    $products = new Product();
+    while ($result = $get_product_cart->fetch_assoc()) {
+      $ct->updateStatusCart($result['CartID'], '2');
+      $products->updateSellNumber($result['ProductID'], $result['Quantity']);
+      $orderDetails->insertOrderDetails($result['CartID'], $AddtoOrder);
     }
+  }
+}
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (isset($_GET['delCartID']) && $_GET['delCartID'] != null) {
     $cartID = $_GET['delCartID'];
@@ -55,7 +50,7 @@ if ($cursor) {
     $count += 1;
   }
 }
- 
+
 
 ?>
 <!DOCTYPE html>
