@@ -1,10 +1,16 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])&& isset($_POST['confirmID'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm']) && isset($_POST['confirmID'])) {
   $orderid_conf = $_POST['confirmID'];
   $Confirmation = $ord->confirmationOrder($orderid_conf);
+}
+?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GE['txtSearch'] != null) {
+  $name = $_GET['txtSearch'];
+  $search = $ord->searchOrder($name);
 }
 ?>
 <!-- Main -->
@@ -26,70 +32,136 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])&& isset($_P
           </tr>
         </thead>
         <tbody>
-        <?php
-          $SHOW_ORDER = $ord->getOrderByUserID($UserID);
-          if ($SHOW_ORDER) 
-          {
-            $i=0;
-            while($result = $SHOW_ORDER->fetch_assoc())
-            {
+          <?php
+          if (isset($search) && $search) {
+            $i = 0;
+            while ($result = $search->fetch_assoc()) {
               $i++;
               $orderID = $result['OrderID'];
               $QuantityPro = $result['QuantityProducts'];
               $Status = $result['Status'];
               $Total = $result['Total'];
-            ?>
-          <tr class="headerTD" onclick="window.location.href='orderDetails.php?id=<?php echo $orderID;?>'" title="Click để xem chi tiết đơn đặt hàng" >
+          ?>
+          <tr class="headerTD" onclick="window.location.href='orderDetails.php?id=<?php echo $orderID; ?>'"
+            title="Click để xem chi tiết đơn đặt hàng">
             <th scope="row"><?php echo $i ?></th>
             <td><?php echo $orderID; ?></td>
             <td><?php echo $QuantityPro; ?></td>
             <td style="<?php
-            switch($Status){
-              case '1':
-                echo 'color:red;';
-                break;
-              case '2':
-                echo 'color:yellow;';
-                break;
-              case '3':
-                echo 'color:blue;';
-                break;
-              case '4':
-                echo 'color:green;';
-                break;
-              }
-            ?>"
-            >
-            <?php 
-            switch($Status){
-              case '1':
-                echo 'Đang chờ xử lí';
-                break;
-              case '2':
-                echo 'Đang xử lí';
-                break;
-              case '3':
-                echo 'Đang giao hàng';
-                break;
-              case '4':
-                echo '
+                            switch ($Status) {
+                              case '1':
+                                echo 'color:red;';
+                                break;
+                              case '2':
+                                echo 'color:yellow;';
+                                break;
+                              case '3':
+                                echo 'color:blue;';
+                                break;
+                              case '4':
+                                echo 'color:green;';
+                                break;
+                            }
+                            ?>">
+              <?php
+                  switch ($Status) {
+                    case '1':
+                      echo 'Đang chờ xử lí';
+                      break;
+                    case '2':
+                      echo 'Đang xử lí';
+                      break;
+                    case '3':
+                      echo 'Đang giao hàng';
+                      break;
+                    case '4':
+                      echo '
                 Đã giao hàng
                 ';
-                break;
-            }
-            ?></td>
-            <td style="color: green;"><?php echo number_format($Total).' VNĐ'; ?></td>
+                      break;
+                  }
+                  ?></td>
+            <td style="color: green;"><?php echo number_format($Total) . ' VNĐ'; ?></td>
             <td>
               <form action="" method="POST">
-              <input type="hidden" class="form-control" name="confirmID" value="<?php echo $orderID; ?>">
-              <button name="confirm" type="submit" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '3') {echo 'style="display: none;"';}?>>Xác nhận đơn đặt hàng </button>
+                <input type="hidden" class="form-control" name="confirmID" value="<?php echo $orderID; ?>">
+                <button name="confirm" type="submit" class="btn btn-success" title="Click để xác nhận đã nhận hàng"
+                  <?php if ($Status != '3') {
+                                                                                                                          echo 'style="display: none;"';
+                                                                                                                        } ?>>Xác nhận đơn đặt hàng </button>
               </form>
             </td>
           </tr>
           <?php
             }
+          } else {
+            ?>
+          <?php
+            $SHOW_ORDER = $ord->getOrderByUserID($UserID);
+            if ($SHOW_ORDER) {
+              $i = 0;
+              while ($result = $SHOW_ORDER->fetch_assoc()) {
+                $i++;
+                $orderID = $result['OrderID'];
+                $QuantityPro = $result['QuantityProducts'];
+                $Status = $result['Status'];
+                $Total = $result['Total'];
+            ?>
+          <tr class="headerTD" onclick="window.location.href='orderDetails.php?id=<?php echo $orderID; ?>'"
+            title="Click để xem chi tiết đơn đặt hàng">
+            <th scope="row"><?php echo $i ?></th>
+            <td><?php echo $orderID; ?></td>
+            <td><?php echo $QuantityPro; ?></td>
+            <td style="<?php
+                              switch ($Status) {
+                                case '1':
+                                  echo 'color:red;';
+                                  break;
+                                case '2':
+                                  echo 'color:yellow;';
+                                  break;
+                                case '3':
+                                  echo 'color:blue;';
+                                  break;
+                                case '4':
+                                  echo 'color:green;';
+                                  break;
+                              }
+                              ?>">
+              <?php
+                    switch ($Status) {
+                      case '1':
+                        echo 'Đang chờ xử lí';
+                        break;
+                      case '2':
+                        echo 'Đang xử lí';
+                        break;
+                      case '3':
+                        echo 'Đang giao hàng';
+                        break;
+                      case '4':
+                        echo '
+                Đã giao hàng
+                ';
+                        break;
+                    }
+                    ?></td>
+            <td style="color: green;"><?php echo number_format($Total) . ' VNĐ'; ?></td>
+            <td>
+              <form action="" method="POST">
+                <input type="hidden" class="form-control" name="confirmID" value="<?php echo $orderID; ?>">
+                <button name="confirm" type="submit" class="btn btn-success" title="Click để xác nhận đã nhận hàng"
+                  <?php if ($Status != '3') {
+                                                                                                                            echo 'style="display: none;"';
+                                                                                                                          } ?>>Xác nhận đơn đặt hàng </button>
+              </form>
+            </td>
+          </tr>
+          <?php
+              }
+            }
           }
-        ?>
+          ?>
         </tbody>
       </table>
     </div>
@@ -98,5 +170,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])&& isset($_P
 <!-- End Main -->
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
 ?>

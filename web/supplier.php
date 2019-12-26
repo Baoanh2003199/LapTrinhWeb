@@ -7,9 +7,15 @@ $pro = new product();
 $supp = new supplier();
 
 if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
-   $idSupp = $_GET['SupplierID'];
-   $getSupName = $supp->getSupplierID($idSupp);
-   $supName = $getSupName->fetch_assoc();
+  $idSupp = $_GET['SupplierID'];
+  $getSupName = $supp->getSupplierID($idSupp);
+  if ($getSupName)
+    $supName = $getSupName->fetch_assoc();
+}
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GE['txtSearch'] != null) {
+  $name = $_GET['txtSearch'];
+  $seachSupp = $pro->searchProductBySupID($name, $idSupp);
+  $searchNew = $pro->search_newProduct($name);
 }
 ?>
 
@@ -20,81 +26,117 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
       <h4>Nhà sản xuất</h4>
       <ul>
         <?php
-          $show_supp = $supp->show_supplier();
-          if ($show_supp) {
+        $show_supp = $supp->show_supplier();
+        if ($show_supp) {
           while ($result = $show_supp->fetch_assoc()) {
         ?>
         <a href="supplier.php?SupplierID=<?php echo $result['SupplierID']; ?>">
           <li><?php echo $result['SupplierName']; ?></li>
         </a>
         <?php
-            }
           }
+        }
         ?>
       </ul>
     </div>
     <div class="rightBlock">
       <div class="titleMain">
-        <?php 
-            if(isset($idSupp) && isset($supName)){
+        <?php
+        if (isset($idSupp) && isset($supName)) {
 
-         ?>
+        ?>
         <h4><?php echo $supName['SupplierName']; ?></h4>
-        <?php 
-          }
-         ?>
+        <?php
+        }
+        ?>
       </div>
       <div class="myRow">
         <?php
-      if(isset($idSupp)){
-         $showProSupp = $pro->showProductBySupID($idSupp);
-        if ($showProSupp) {
-        while ($result = $showProSupp->fetch_assoc()) {
-      ?>
-          <div class="col-sm-3 itemProduct">
-            <a href="#">
-              <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
-              <br>
-              <span class="description"><?php echo $result['ProductName']; ?></span><br>
-              <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
-              <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
-            </a>
-          </div>
-      <?php
-            }
-          }
-        }
-      ?>
-      </div>
-      
-    </div>
-  </div>
- <div class="blockDiv">
-  <div class="titleMain">
-    <h4>Sản phẩm mới</h4>
-  </div>
-  <div class="myRow">
-<?php
-            $SHOW_NEW = $pro->show_newProduct();
-            if ($SHOW_NEW) {
-            while ($result = $SHOW_NEW->fetch_assoc()) {
+        if (isset($seachSupp) && $seachSupp) {
+          while ($result = $seachSupp->fetch_assoc()) {
         ?>
         <div class="col-sm-3 itemProduct">
-          <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
-            <img  src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <a href="#">
+            <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
             <br>
             <span class="description"><?php echo $result['ProductName']; ?></span><br>
-            <span class="price">Giá: <?php echo number_format($result['Price']).' đ'; ?></span><br>
+            <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
             <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
           </a>
         </div>
         <?php
+          }
+        } else {
+          ?>
+        <?php
+          if (isset($idSupp)) {
+            $showProSupp = $pro->showProductBySupID($idSupp);
+            if ($showProSupp) {
+              while ($result = $showProSupp->fetch_assoc()) {
+          ?>
+        <div class="col-sm-3 itemProduct">
+          <a href="#">
+            <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+            <br>
+            <span class="description"><?php echo $result['ProductName']; ?></span><br>
+            <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
+            <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+          </a>
+        </div>
+        <?php
+              }
             }
           }
+        }
         ?>
-  </div>
+      </div>
 
-</div>
+    </div>
+  </div>
+  <div class="blockDiv">
+    <div class="titleMain">
+      <h4>Sản phẩm mới</h4>
+    </div>
+    <div class="myRow">
+      <?php
+      if (isset($searchNew) && $searchNew) {
+        while ($result = $searchNew->fetch_assoc()) {
+      ?>
+      <div class="col-sm-3 itemProduct">
+        <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+          <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <br>
+          <span class="description"><?php echo $result['ProductName']; ?></span><br>
+          <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
+          <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+        </a>
+      </div>
+      <?php
+        }
+      } else {
+        ?>
+      <?php
+        $SHOW_NEW = $pro->show_newProduct();
+        if ($SHOW_NEW) {
+          while ($result = $SHOW_NEW->fetch_assoc()) {
+        ?>
+      <div class="col-sm-3 itemProduct">
+        <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+          <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <br>
+          <span class="description"><?php echo $result['ProductName']; ?></span><br>
+          <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
+          <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+        </a>
+      </div>
+      <?php
+          }
+        }
+      }
+      ?>
+    </div>
+
+  </div>
 
 </div>
 </div>

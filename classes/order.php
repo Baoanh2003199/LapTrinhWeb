@@ -84,7 +84,6 @@ class order
     return $result;
   }
 
-
   public function update_order($Total, $QuantityProducts, $Note, $Status, $id)
   {
     $id = $this->fm->valation($id);

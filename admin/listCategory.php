@@ -48,55 +48,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
     while ($result = $searchCategorys->fetch_assoc()) {
       $i++;
   ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['CategoryName']; ?></td>
-      <td><?php echo $result['Description']; ?></td>
-      <td><?php
-        if($result['Status'] == 1){
-          echo 'Hoạt động';
-        }else{
-          echo 'Ngưng hoạt động';
-        }
-       ?></td>
-      <td>
-        <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')"
-          href="?delID=<?php echo $result['CategoryID']; ?>" class="btn btn-danger">Xóa</a>
-      </td>
-    </tr>
-  </tbody>
-  <?php
+      <tbody>
+        <tr>
+          <th scope="row"><?php echo $i; ?></th>
+          <td><?php echo $result['CategoryName']; ?></td>
+          <td><?php echo $result['Description']; ?></td>
+          <td><?php
+              if ($result['Status'] == 1) {
+                echo 'Hoạt động';
+              } else {
+                echo 'Ngưng hoạt động';
+              }
+              ?></td>
+          <td>
+            <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')" href="?delID=<?php echo $result['CategoryID']; ?>" class="btn btn-danger">Xóa</a>
+          </td>
+        </tr>
+      </tbody>
+    <?php
     }
   } else {
     ?>
-  <?php
+    <?php
     $showCategory = $cat->show_category();
     if ($showCategory) {
       $i = 0;
       while ($result = $showCategory->fetch_assoc()) {
         $i++;
     ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['CategoryName']; ?></td>
-      <td><?php echo $result['Description']; ?></td>
-      <td><?php
-        if($result['Status'] == 1){
-          echo 'Hoạt động';
-        }else{
-          echo 'Ngưng hoạt động';
-        }
-       ?></td>
-      <td>
-        <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')"
-          href="?delID=<?php echo $result['CategoryID']; ?>" class="btn btn-danger">Xóa</a>
-      </td>
-    </tr>
-  </tbody>
+        <tbody>
+          <tr>
+            <th scope="row"><?php echo $i; ?></th>
+            <td><?php echo $result['CategoryName']; ?></td>
+            <td><?php echo $result['Description']; ?></td>
+            <td><?php
+                if ($result['Status'] == 1) {
+                  echo 'Hoạt động';
+                } else {
+                  echo 'Ngưng hoạt động';
+                }
+                ?></td>
+            <td>
+              <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
+              <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')" href="?delID=<?php echo $result['CategoryID']; ?>" class="btn btn-danger">Xóa</a>
+            </td>
+          </tr>
+        </tbody>
   <?php
       }
     }

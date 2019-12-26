@@ -56,7 +56,7 @@ class Product
 
   public function show_product()
   {
-    $sql = "SELECT * from Products p, Suppliers s, Categories c 
+    $sql = "SELECT * from Products p, Suppliers s, Categories c
     WHERE p.CategoryID = c.CategoryID and s.SupplierID = p.SupplierID order by ProductID";
     $result = $this->db->select($sql);
     return $result;
@@ -82,9 +82,23 @@ class Product
     return $result;
   }
 
+  public function search_newProduct($name)
+  {
+    $sql = "SELECT * FROM Products where ProductName like '%$name%' order by ProductID DESC LIMIT 10";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
   public function show_SellNumber()
   {
     $sql = "SELECT * FROM Products order by SellNumber DESC LIMIT 10";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
+  public function search_SellNumber($name)
+  {
+    $sql = "SELECT * FROM Products where ProductName like '%$name%' order by SellNumber DESC LIMIT 10";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -107,16 +121,27 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
+  public function searchProductBySupID($name, $idSupp)
+  {
+    $sql = "SELECT  p.* from Products p WHERE ProductName like '%$name%' and p.SupplierID='$idSupp'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
   public function showProductByCateID($cateID)
   {
     $sql = "SELECT  p.* from Products p WHERE  p.CategoryID='$cateID'";
     $result = $this->db->select($sql);
     return $result;
   }
-
+  public function searchProductByCateID($name, $cateID)
+  {
+    $sql = "SELECT  p.* from Products p WHERE ProductName like '%$name%'  and p.CategoryID='$cateID'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
   public function search($name)
   {
-    $sql = "SELECT * FROM Products p, Suppliers s, Categories c 
+    $sql = "SELECT * FROM Products p, Suppliers s, Categories c
     WHERE p.CategoryID = c.CategoryID and s.SupplierID = p.SupplierID and ProductName like '%$name%'";
     $result = $this->db->select($sql);
     return $result;

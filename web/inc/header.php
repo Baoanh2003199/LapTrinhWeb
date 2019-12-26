@@ -102,11 +102,11 @@ if ($cursor) {
         </div>
       </div>
     </div>
-    <form class="form-inline"> 
-    <div class="searchBar form-group mb-2">
-      <input class="form-control" type="text" name="txtSearch">
-      <a href="#"> <i class="fas fa-search" id="iconSearch" style="color:white; margin-left:20px;"></i></a>
-    </div>
+    <form class="form-inline" method="GET" action="#">
+      <div class="searchBar form-group mb-2">
+        <input class="form-control" type="text" name="txtSearch">
+        <a href="#"> <i class="fas fa-search" id="iconSearch" style="color:white; margin-left:20px;"></i></a>
+      </div>
     </form>
     <div class="cart">
       <div class="btnHeader sCart">
