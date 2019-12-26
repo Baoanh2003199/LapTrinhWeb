@@ -19,16 +19,16 @@ if (isset($_GET['delID'])) {
 if (isset($delCat)) {
   echo "<script> alert('Xóa khách hàng thành công');</script>";
 }
-if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'] != null){
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'] != null) {
   $name = $_GET['name'];
   $searchCustomer = $cus->searchCustomer($name);
 }
 ?>
-<form class="searchForm" method="GET" action="listCustomer.php" >
+<form class="searchForm" method="GET" action="listCustomer.php">
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm" ></input>
+    <input type="submit" id="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -49,74 +49,70 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name']
   //  $search
   //}
 
-  if(isset($searchCustomer) && $searchCustomer){
+  if (isset($searchCustomer) && $searchCustomer) {
 
-   $i = 0;
+    $i = 0;
     while ($result = $searchCustomer->fetch_assoc()) {
       $i++;
   ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['Name']; ?></td>
-      <td><?php echo $result['UserName']; ?></td>
-      <td><?php echo $result['Address']; ?></td>
-      <td><?php echo $result['Phone']; ?></td>
-      <td><?php echo $result['DoB']; ?></td>
-      <td><?php
+      <tbody>
+        <tr>
+          <th scope="row"><?php echo $i; ?></th>
+          <td><?php echo $result['Name']; ?></td>
+          <td><?php echo $result['UserName']; ?></td>
+          <td><?php echo $result['Address']; ?></td>
+          <td><?php echo $result['Phone']; ?></td>
+          <td><?php echo $result['DoB']; ?></td>
+          <td><?php
               if ($result['Status'] == '1') {
                 echo "Hoạt động";
               } else {
                 echo "Ngưng hoạt động";
               }
               ?></td>
-      <td>
-        <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')"
-          href="?delID=<?php echo $result['CustomerID']; ?>&userID=<?php echo $result['UserID']; ?> "
-          class="btn btn-danger">Xóa</a>
-      </td>
-    </tr>
-  </tbody>
-  <?php
+          <td>
+            <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
+            <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')" href="?delID=<?php echo $result['CustomerID']; ?>&userID=<?php echo $result['UserID']; ?> " class="btn btn-danger">Xóa</a>
+          </td>
+        </tr>
+      </tbody>
+    <?php
     }
-  }  else{
-   ?> 
-  <?php 
- 
+  } else {
+    ?>
+    <?php
+
     $show_customer = $cus->show_Customers();
-    if($show_customer){
-    $i = 0;
-    while ($result = $show_customer->fetch_assoc()) {
-      $i++;
-  ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['Name']; ?></td>
-      <td><?php echo $result['UserName']; ?></td>
-      <td><?php echo $result['Address']; ?></td>
-      <td><?php echo $result['Phone']; ?></td>
-      <td><?php echo $result['DoB']; ?></td>
-      <td><?php
-              if ($result['Status'] == '1') {
-                echo "Hoạt động";
-              } else {
-                echo "Ngưng hoạt động";
-              }
-              ?></td>
-      <td>
-        <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')"
-          href="?delID=<?php echo $result['CustomerID']; ?>&userID=<?php echo $result['UserID']; ?> "
-          class="btn btn-danger">Xóa</a>
-      </td>
-    </tr>
-  </tbody>
+    if ($show_customer) {
+      $i = 0;
+      while ($result = $show_customer->fetch_assoc()) {
+        $i++;
+    ?>
+        <tbody>
+          <tr>
+            <th scope="row"><?php echo $i; ?></th>
+            <td><?php echo $result['Name']; ?></td>
+            <td><?php echo $result['UserName']; ?></td>
+            <td><?php echo $result['Address']; ?></td>
+            <td><?php echo $result['Phone']; ?></td>
+            <td><?php echo $result['DoB']; ?></td>
+            <td><?php
+                if ($result['Status'] == '1') {
+                  echo "Hoạt động";
+                } else {
+                  echo "Ngưng hoạt động";
+                }
+                ?></td>
+            <td>
+              <a href="updateCustomer.php?CustomerID=<?php echo $result['CustomerID']; ?>" class="btn btn-info">Cập nhật</a>
+              <a onclick="return confirm('Bạn có chắc muốn xoá khách hàng này ?')" href="?delID=<?php echo $result['CustomerID']; ?>&userID=<?php echo $result['UserID']; ?> " class="btn btn-danger">Xóa</a>
+            </td>
+          </tr>
+        </tbody>
   <?php
+      }
     }
   }
-}
   ?>
 </table>
 </div>

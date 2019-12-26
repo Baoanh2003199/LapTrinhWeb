@@ -115,7 +115,7 @@ class Product
 
   public function search($name)
   {
-    $sql = "SELECT * FROM Products p where p.Name like '%$name%'";
+    $sql = "SELECT * FROM Products where ProductName like '%$name%'";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -193,16 +193,17 @@ class Product
       return $resultUpdate;
     }
   }
-  public function updateSellNumber($id, $sellNumber){
-      $resultViews = $this->showproductByID($id);
-      if($resultViews){
-        $fetchViews = $resultViews->fetch_assoc();
-        $sellNumber = $fetchViews['SellNumber'] + $sellNumber;
-      }
+  public function updateSellNumber($id, $sellNumber)
+  {
+    $resultViews = $this->showproductByID($id);
+    if ($resultViews) {
+      $fetchViews = $resultViews->fetch_assoc();
+      $sellNumber = $fetchViews['SellNumber'] + $sellNumber;
+    }
 
-      $sqlUpdate = "UPDATE Products set SellNumber = '$sellNumber' where ProductID = '$id'";
-      $resultUpdate = $this->db->update($sqlUpdate);
-      return $resultUpdate;
+    $sqlUpdate = "UPDATE Products set SellNumber = '$sellNumber' where ProductID = '$id'";
+    $resultUpdate = $this->db->update($sqlUpdate);
+    return $resultUpdate;
   }
 }
 ?>
