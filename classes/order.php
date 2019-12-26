@@ -34,17 +34,11 @@ class order
     if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone) || empty($address) || empty($userID)) {
       return false;
     } else {
-      $countOder = $this->show_order();
-      $count = 1;
-      if ($countOder) {
-        $resultCount = $countOder->fetch_assoc();
-        $count = mysqli_num_rows($countOder) + 1;
-      }
-      $orderID = $this->generateCode('HD', $count);
-      $sql = "INSERT into Orders(OrderID, Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$orderID' ,'$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
+      $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $insert_order = $this->db->insert($sql);
       if ($insert_order) {
-        return $orderID;
+        $id =mysqli_insert_id($this->db->link);
+        return  $id;
       } else {
         header('location:404.php');
       }

@@ -32,3 +32,9 @@ function onlickDelete(Id, className){
   }
   return true;
 }
+function onlickDeleteOrder(Id){
+  if(confirm('Bạn có muốn xóa hóa đơn ')){
+      window.location.href = 'listOrder.php?delID='+Id+'';
+  }
+  return true;
+}
