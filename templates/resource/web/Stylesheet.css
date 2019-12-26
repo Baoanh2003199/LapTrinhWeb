@@ -556,3 +556,8 @@ ul li{
 .form-inline{
     display: inline !important;
 }
+.status{
+    width: 50% !important;
+    font-size: 120%;
+    margin-top: 7% !important;
+}

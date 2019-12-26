@@ -103,8 +103,7 @@ $Status = $res['Status'];
                             case '4':
                               echo 'Giao hàng thành công';
                               break;
-                          } ?>
-        </span><br><br>
+                          } ?></span><br><br>
         <div class="clearFloat"></div>
        <span class="subtotal grandtotal">Tổng tiền:</span>
         <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10 / 100);echo number_format($grandTotal) . ' đ' ?></span><br><br>
