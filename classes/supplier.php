@@ -43,6 +43,12 @@ class supplier
       }
     }
   }
+  public function searchSupplier($name)
+  {
+    $sql = "SELECT* FROM Suppliers WHERE SupplierName='%$name%'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
   public function show_supplier()
   {
     $sql = "SELECT * from Suppliers order by SupplierID";

@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/order.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
 ?>
 <?php
 $order = new order();
@@ -9,12 +9,12 @@ if (isset($_GET['delID'])) {
   $delOrder = $order->del_order($id);
 }
 if (isset($_GET['orderID']) && $_GET['orderID'] != null && isset($_GET['status']) && $_GET['status'] != null) {
-    $id = $_GET['orderID'];
-    $status = $_GET['status'];
-    $order->updateStatus($id,$status);
-    if ($order) {
-      echo "false";
-    }
+  $id = $_GET['orderID'];
+  $status = $_GET['status'];
+  $order->updateStatus($id, $status);
+  if ($order) {
+    echo "false";
+  }
 }
 ?>
 <div class="titleRight path">
@@ -53,42 +53,49 @@ if (isset($delOrder)) {
     $i = 0;
     while ($result = $show_order->fetch_assoc()) {
       $i++;
-      ?>
-      <tbody>
-        <tr>
-          <th scope="row"><?php echo $i; ?></th>  
-          <td><?php echo $result['Total']; ?></td>
-          <td><?php echo $result['Name']; ?></td>
-          <td width="15%" ><?php echo $result['Address']; ?></td>
-          <td><?php echo $result['Phone']; ?></td>
-          <td><?php echo $result['Total']; ?></td>
-          <td><?php 
-          if($result['Status'] == 1){
+  ?>
+  <tbody>
+    <tr>
+      <th scope="row"><?php echo $i; ?></th>
+      <td><?php echo $result['Total']; ?></td>
+      <td><?php echo $result['Name']; ?></td>
+      <td width="15%"><?php echo $result['Address']; ?></td>
+      <td><?php echo $result['Phone']; ?></td>
+      <td><?php echo $result['Total']; ?></td>
+      <td><?php
+              if ($result['Status'] == 1) {
 
-         ?>
-          <a href="listOrder.php?orderID=<?php echo $result['OrderID']; ?>&status=<?php echo $result['Status'];?>   ">Chờ xử lý</a>
-           <?php 
-            }if($result['Status'] == 2){
+              ?>
+        <a href="listOrder.php?orderID=<?php echo $result['OrderID']; ?>&status=<?php echo $result['Status']; ?>   ">Chờ
+          xử lý</a>
+        <?php
+              }
+              if ($result['Status'] == 2) {
 
             ?>
-               <a href="listOrder.php?orderID=<?php echo $result['OrderID']; ?>&status=<?php echo $result['Status'];?>">Đang xử lý</a>
-            <?php 
-            }if($result['Status'] == 3) {
-              echo "Đang giao hàng";
+        <a href="listOrder.php?orderID=<?php echo $result['OrderID']; ?>&status=<?php echo $result['Status']; ?>">Đang
+          xử lý</a>
+        <?php
+              }
+              if ($result['Status'] == 3) {
+                echo "Đang giao hàng";
             ?>
-            <?php 
-              }if($result['Status'] == 4){
+        <?php
+              }
+              if ($result['Status'] == 4) {
                 echo "Đã nhận hàng";
               }
-             ?>
-         </td>
-          <td>
-            <a href="updateOrder.php?OrderID=<?php echo $result['OrderID']; ?>" class="btn btn-info">Cập nhật</a>
-            <a <?php if($result['Status'] == 4){?> onclick="return confirm('Bạn có chắc muốn xoá đơn đặt hàng này ?')<?php echo'return false'; ?> "
-            <?php } ?> href="<?php if($result['Status'] == 4){?>?delID=<?php echo $result["OrderID"]; ?><?php }else echo''; ?>"   disabled ="true" class="btn btn-danger">Xóa</a>
-          </td>
-        </tr>
-      </tbody>
+            ?>
+      </td>
+      <td>
+        <a href="updateOrder.php?OrderID=<?php echo $result['OrderID']; ?>" class="btn btn-info">Cập nhật</a>
+        <a <?php if ($result['Status'] == 4) { ?>
+          onclick="return confirm('Bạn có chắc muốn xoá đơn đặt hàng này ?')<?php echo 'return false'; ?> " <?php } ?>
+          href="<?php if ($result['Status'] == 4) { ?>?delID=<?php echo $result["OrderID"]; ?><?php } else echo ''; ?>"
+          disabled="true" class="btn btn-danger">Xóa</a>
+      </td>
+    </tr>
+  </tbody>
   <?php
     }
   }
@@ -97,5 +104,5 @@ if (isset($delOrder)) {
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/footer.php';
 ?>

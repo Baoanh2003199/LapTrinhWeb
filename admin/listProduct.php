@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
 ?>
 <?php
 $pro = new product();
@@ -20,10 +20,10 @@ if (isset($delPro)) {
   echo "<script> alert('Xóa sản phẩm thành công');</script>";
 }
 ?>
-<form class="searchForm">
+<form class="searchForm" method="GET">
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
-    <input type="text" class="form-control search" id="" placeholder="tìm kiếm theo tên" />
+    <input type="text" class="form-control search" name="name" id="" placeholder="tìm kiếm theo tên" />
     <a href=""><i class="fas fa-search"></i></a>
   </div>
 </form>
@@ -31,9 +31,9 @@ if (isset($delPro)) {
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col" width="15%" >Tên</th>
+      <th scope="col" width="15%">Tên</th>
       <th scope="col">Giá</th>
-      <th scope="col" width="10%" >Nguồn gốc</th>
+      <th scope="col" width="10%">Nguồn gốc</th>
       <th scope="col">hình ảnh</th>
       <th scope="col" width="10%">Phân loại</th>
       <th scope="col" width="10%">Nhà sản xuất</th>
@@ -43,36 +43,37 @@ if (isset($delPro)) {
   </thead>
   <tbody>
     <?php
-        $show_pro=$pro->show_product();
-        if($show_pro){
-          $i=0;
-          while($resut=$show_pro->fetch_assoc()){
-            $i++;
-            $description =  $fm->textShorten($resut['Description']);
-     ?>
+    $show_pro = $pro->show_product();
+    if ($show_pro) {
+      $i = 0;
+      while ($resut = $show_pro->fetch_assoc()) {
+        $i++;
+        $description =  $fm->textShorten($resut['Description']);
+    ?>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $resut['ProductName']; ?></td>
       <td><?php echo $resut['Price']; ?></td>
       <td><?php echo $resut['Origin']; ?></td>
-      <td ><img  width="100px" src="../uploads/<?php echo $resut['Img']; ?> "/></td>
+      <td><img width="100px" src="../uploads/<?php echo $resut['Img']; ?> " /></td>
       <td><?php echo $resut['CategoryID']; ?></td>
       <td><?php echo $resut['SupplierID']; ?></td>
-      <td width="15%" ><?php echo $description; ?></td>
+      <td width="15%"><?php echo $description; ?></td>
       <td>
         <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
-        <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')" href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
+        <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')"
+          href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
       </td>
     </tr>
     </tr>
     <?php
-        }
       }
-     ?>
+    }
+    ?>
   </tbody>
 </table>
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/footer.php';
 ?>

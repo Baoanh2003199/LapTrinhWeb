@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/user.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/user.php';
 ?>
 <?php
 class customer
@@ -27,12 +27,12 @@ class customer
     $Address = mysqli_real_escape_string($this->db->link, $Address);
     $Phone = mysqli_real_escape_string($this->db->link, $Phone);
     $DoB = mysqli_real_escape_string($this->db->link, $DoB);
-     $userID = mysqli_real_escape_string($this->db->link, $userID);
+    $userID = mysqli_real_escape_string($this->db->link, $userID);
     if (empty($Name) || empty($Address) || empty($Phone)  || empty($DoB) || empty($userID)) {
       $alert = "catgory must be not empty";
       return $alert;
     } else {
-       $sql = "INSERT into Customers(Name,Address,Phone,DoB,Status, UserID) 
+      $sql = "INSERT into Customers(Name,Address,Phone,DoB,Status, UserID)
        SELECT * From (select '$Name','$Address','$Phone','$DoB','1', '$userID') AS tmp
       WHERE not exists (select * from Customers where UserId = '$userID')";
       $result = $this->db->insert($sql);
@@ -46,6 +46,12 @@ class customer
       }
     }
   }
+  public function searchCustomer($name)
+  {
+    $sql = "SELECT* FROM Customers WHERE Name like '%$name%";
+    $result = $this->db->select($sql);
+    return $result;
+  }
   public function show_Customers()
   {
     $sql = "SELECT c.*, u.UserName, u.UserID from Customers c, User u where u.UserID = c.UserID order by CustomerID";
@@ -55,7 +61,7 @@ class customer
 
   public function getCusID($id)
   {
-    $sql = "SELECT * from Customers c, User u where  CustomerID='$id' 
+    $sql = "SELECT * from Customers c, User u where  CustomerID='$id'
     and c.UserID = u.UserID";
     $result = $this->db->select($sql);
     return $result;
@@ -101,8 +107,8 @@ class customer
     $sql = "DELETE FROM Customers  WHERE CustomerID='$id'";
     $user = new User();
     $deleteUser = $user->deleteUser($userID);
-    if($user){
-         $result = $this->db->delete($sql);
+    if ($user) {
+      $result = $this->db->delete($sql);
       if ($result) {
         $alert = "<span> delete Customers successen</span>";
         return $alert;
@@ -110,10 +116,9 @@ class customer
         $alert = "<span> delete Customers no successen</span>";
         return $alert;
       }
-    }else{
+    } else {
       return false;
     }
   }
-
 }
 ?>

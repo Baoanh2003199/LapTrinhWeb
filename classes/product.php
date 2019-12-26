@@ -33,14 +33,14 @@ class Product
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/uploads/'.$unique_img;
+    $upload_file = $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/uploads/' . $unique_img;
     if (empty($ProductName) || empty($Price) || empty($Origin) || empty($file_Name) || empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;
     } else {
-       
+
       move_uploaded_file($file_temp, $upload_file);
-       
+
       $sql = "INSERT into Products(ProductName, Price,Views, SellNumber, Origin, Img, Description, CategoryID, SupplierID, Status) values('$ProductName','$Price','0','0','$Origin','$unique_img','$Description','$Category','$Supplier','$Status')";
 
       $result = $this->db->insert($sql);
@@ -106,14 +106,21 @@ class Product
     $result = $this->db->select($sql);
     return $result;
   }
-    public function showProductByCateID($cateID)
+  public function showProductByCateID($cateID)
   {
     $sql = "SELECT  p.* from Products p WHERE  p.CategoryID='$cateID'";
     $result = $this->db->select($sql);
     return $result;
   }
 
-  public function showNewProductByCateID($cateID,$ProductID)
+  public function search($name)
+  {
+    $sql = "SELECT * FROM Products p where p.Name like '%$name%'";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
+  public function showNewProductByCateID($cateID, $ProductID)
   {
     $sql = "SELECT  p.* from Products p WHERE  p.CategoryID='$cateID' and p.ProductID <> '$ProductID' Order by ProductID DESC LIMIT 4";
     $result = $this->db->select($sql);
@@ -144,7 +151,7 @@ class Product
     $div = explode('.', $file_Name);
     $file_ext = strtolower(end($div));
     $unique_img = substr(md5(time()), 0, 10) . '.' . $file_ext;
-    $upload_file = $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/uploads/'. $unique_img;
+    $upload_file = $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/uploads/' . $unique_img;
     if (empty($ProductName) || empty($Price) ||  empty($Origin) ||  empty($Description) || empty($Status)) {
       $alert = "Products must be not empty";
       return $alert;
@@ -175,16 +182,17 @@ class Product
       return $alert;
     }
   }
-  public function updateViews($id){
+  public function updateViews($id)
+  {
     $resultViews = $this->showproductByID($id);
-    if($resultViews){
+    if ($resultViews) {
       $fetchViews = $resultViews->fetch_assoc();
-      $views = $fetchViews['Views'] +1;
+      $views = $fetchViews['Views'] + 1;
 
       $sqlUpdate = "UPDATE Products set Views = '$views' where ProductID = '$id'";
       $resultUpdate = $this->db->update($sqlUpdate);
       return $resultUpdate;
-   }
+    }
   }
 }
 ?>

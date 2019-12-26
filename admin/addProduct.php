@@ -1,13 +1,13 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/category.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/supplier.php';
 ?>
 <?php
 $pro = new Product();
-if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
-  $insert_pro = $pro->insert_product($_POST,$_FILES);
+if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_FILES["Img"])) {
+  $insert_pro = $pro->insert_product($_POST, $_FILES);
 }
 
 ?>
@@ -21,24 +21,25 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
   }
   ?>
 </div>
-<form  action="addProduct.php" method="post" enctype="multipart/form-data">
+<form action="addProduct.php" method="post" enctype="multipart/form-data">
   <div class="titleForm">Thêm sản phẩm</div>
   <div class="form-group">
     <div class="itemForm">Tên sản phẩm</div>
-    <input type="text" class="form-control" name="ProductName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm" />
+    <input type="text" class="form-control" name="ProductName" id="exampleInputEmail1" aria-describedby="emailHelp"
+      placeholder="Nhập tên sản phẩm" />
   </div>
   <div class="form-group">
     <div class="itemForm">Giá</div>
-    <input type="text" name="Price" class="form-control"  placeholder="Nhập giá" />
+    <input type="text" name="Price" class="form-control" placeholder="Nhập giá" />
   </div>
   <div class="form-group">
     <div class="itemForm">Nguồn gốc</div>
-    <input type="text" class="form-control" name="Origin"  placeholder="Nhập nguồn gốc"/>
+    <input type="text" class="form-control" name="Origin" placeholder="Nhập nguồn gốc" />
   </div>
   <div class="form-group">
     <div class="itemForm">Hình ảnh</div>
-   
-    <img width="200"  src="" alt="" id="img" >
+
+    <img width="200" src="" alt="" id="img">
     <br>
     <input type="file" name="Img" id="uploadImg" />
   </div>
@@ -50,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
       $cat = new category();
       $cat_list = $cat->show_category();
       if ($cat_list) {
-        while ($result = $cat_list->fetch_assoc()) {         
-          ?>
-          <option  value="<?php echo $result['CategoryID']; ?>"> <?php echo $result['CategoryName'];?>
-           </option>
+        while ($result = $cat_list->fetch_assoc()) {
+      ?>
+      <option value="<?php echo $result['CategoryID']; ?>"> <?php echo $result['CategoryName']; ?>
+      </option>
       <?php
         }
       }
@@ -69,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
       $supp_list = $supp->show_supplier();
       if ($supp_list) {
         while ($result = $supp_list->fetch_assoc()) {
-          ?>
-          <option value="<?php echo $result['SupplierID']; ?>"><?php echo $result['SupplierName']; ?></option>
+      ?>
+      <option value="<?php echo $result['SupplierID']; ?>"><?php echo $result['SupplierName']; ?></option>
       <?php
         }
       }
@@ -85,9 +86,9 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
   <div class="form-group">
     <div class="itemForm">Trạng thái</div>
     <br />
-    <select name="Status" id="" class="form-control">    
-          <option value="1">Hoạt động</option>
-           <option value="2">Ngưng hoạt động</option>
+    <select name="Status" id="" class="form-control">
+      <option value="1">Hoạt động</option>
+      <option value="2">Ngưng hoạt động</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Lưu</button>
@@ -96,5 +97,5 @@ if ($_SERVER["REQUEST_METHOD"]=='POST' && isset($_FILES["Img"])) {
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/footer.php';
 ?>

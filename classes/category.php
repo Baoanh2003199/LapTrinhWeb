@@ -40,14 +40,23 @@ class category
       }
     }
   }
+
+  public function searchCategory($name)
+  {
+    $sql = "SELECT *FROM Category where CategoryName like '%$name%' ";
+    $result = $this->db->select($sql);
+    return $result;
+  }
+
   public function show_category()
   {
     $sql = "SELECT * from Categories order by CategoryID";
     $result = $this->db->select($sql);
     return $result;
   }
-  public function show_cat_pro(){
-    $sql="SELECT * FROM Categories s,Products p WHERE s.CategoryID=p.CategoryID";
+  public function show_cat_pro()
+  {
+    $sql = "SELECT * FROM Categories s,Products p WHERE s.CategoryID=p.CategoryID";
   }
   public function getCatID($id)
   {
