@@ -76,6 +76,14 @@ class order
     return $result;
   }
 
+  public function confirmationOrder($OrderID)
+  {
+    $sql = "UPDATE Orders SET Status = '4' Where OrderID='$OrderID'";
+    $result = $this->db->update($sql);
+    return $result;
+  }
+
+
   public function update_order($Total, $QuantityProducts, $Note, $Status, $id)
   {
     $id = $this->fm->valation($id);

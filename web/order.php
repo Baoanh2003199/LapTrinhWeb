@@ -2,6 +2,10 @@
 include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
 $UserID = Session::Get('UserId');
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])&& isset($_POST['confirmID'])) {
+  $orderid_conf = $_POST['confirmID'];
+  $Confirmation = $ord->confirmationOrder($orderid_conf);
+}
 ?>
 <!-- Main -->
 <div class="main">
@@ -76,7 +80,10 @@ $UserID = Session::Get('UserId');
             ?></td>
             <td style="color: green;"><?php echo number_format($Total).' VNĐ'; ?></td>
             <td>
-              <button type="button" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '4') {echo 'style="display: none;"';}?>><a href=""></a>Xác nhận đơn đặt hàng </button>
+              <form action="" method="POST">
+              <input type="hidden" class="form-control" name="confirmID" value="<?php echo $orderID; ?>">
+              <button name="confirm" type="submit" class="btn btn-success" title="Click để xác nhận đã nhận hàng"<?php if($Status != '3') {echo 'style="display: none;"';}?>>Xác nhận đơn đặt hàng </button>
+              </form>
             </td>
           </tr>
           <?php
