@@ -22,8 +22,6 @@ class login
     //
     $User = mysqli_real_escape_string($this->db->link, $User);
     $Pass = mysqli_real_escape_string($this->db->link, $Pass);
-    var_dump($User);
-    var_dump($Pass);
     if (empty($User) || empty($Pass)) {
       $alert = "user and pass must be not empty";
       return $alert;
@@ -33,7 +31,6 @@ class login
       
       if ($result) {
         $value = $result->fetch_assoc();
-        var_dump($value);
         Session::set("userLogin", 'true');
         Session::set("UserId", $value['UserID']);
         Session::set("User", $value['UserName']);

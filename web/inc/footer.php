@@ -185,7 +185,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnLogin'])) {
  <script src="../templates/resource/web/myscript.js"></script>
 <script>
    $(document).ready(function() {
-     console.log('ok');
      setReadyDocument();
      $('#btnPay').click(function(event) {
         check  =$('#checkLogin').val();

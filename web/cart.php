@@ -30,6 +30,7 @@
             </div>
             <div class="cartLeft">
             <?php 
+
             $get_product_cart = $ct->get_product_cart($UserID);
             if($get_product_cart)
             {  

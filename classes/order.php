@@ -33,11 +33,18 @@ class order
     if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
       return false;
     } else {
-      $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
+        $countOder = $this->show_order();
+        $count = 1;
+        if($countOder){
+          $resultCount = $countOder->fetch_assoc();
+            $count = mysqli_num_rows($countOder) + 1;
+        }
+        $orderID = $this->generateCode('HD', $count);
+      $sql = "INSERT into Orders(OrderID, Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$orderID' ,'$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $insert_order = $this->db->insert($sql);
         if($insert_order)
         {
-          header('location:order.php');
+          return $orderID;
         }
         else
         {
@@ -100,7 +107,9 @@ class order
   {
     $sql = "DELETE FROM Orders  WHERE OrderID='$id'";
     $result = $this->db->delete($sql);
+    $orderDetails = new OrderDetail();
     if ($result) {
+      $orderDetails->deleteOrderDetail($id);
       $alert = "<span> delete Orders successen</span>";
       return $alert;
     } else {
@@ -121,7 +130,6 @@ class order
       $status = intval($status);
 
       $status = $status + 1;
-      var_dump($status);
       $sql = "UPDATE Orders set Status = '$status' where  OrderID ='$OrderID' ";
       $result = $this->db->insert($sql);
 
@@ -144,7 +152,7 @@ class order
         $j--;
     }
     $result .= $num;
-    echo "$result";
+
     return $result;
 }
 }
