@@ -2,8 +2,9 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
 ?>
-<?php 
-class OrderDetail{
+<?php
+class OrderDetail
+{
   private $db;
   private $fm;
 
@@ -12,16 +13,17 @@ class OrderDetail{
     $this->db = new Database();
     $this->fm = new Format();
   }
-  public function insertOrderDetails($cartID, $orderID){
+  public function insertOrderDetails($cartID, $orderID)
+  {
     $cartID = $this->fm->valation($cartID);
     $orderID = $this->fm->valation($orderID);
 
     $cartID = mysqli_real_escape_string($this->db->link, $cartID);
     $orderID = mysqli_real_escape_string($this->db->link, $orderID);
 
-    if(empty($cartID) || empty($orderID)){
+    if (empty($cartID) || empty($orderID)) {
       return false;
-    }else{
+    } else {
       $sql = "INSERT into OrderDetails(CartID, OrderID, Status)
       values('$cartID', '$orderID', '1')";
       $result = $this->db->insert($sql);
@@ -29,16 +31,18 @@ class OrderDetail{
       return $result;
     }
   }
-  public function showOrderDetail($orderId){
-    $sql = "SELECT p.ProductName, p.Price, c.Quantity, od.OrderId from OrderDetails od, Products p, Cart c where od.OrderID = '$orderId' and p.ProductID = c.ProductID and c.CartID = od.CartID";
+  public function showOrderDetail($orderId)
+  {
+    $sql = "SELECT * FROM OrderDetails od, Products p, Cart c,Orders o WHERE od.OrderID = '$orderId' AND p.ProductID = c.ProductID AND c.CartID = od.CartID AND o.OrderID=od.OrderID";
     $result = $this->db->select($sql);
     return $result;
   }
-  public function deleteOrderDetail($orderID){
-     $sql = "DELETE FROM OrderDetails WHERE OrderID = '$orderID'";
+  public function deleteOrderDetail($orderID)
+  {
+    $sql = "DELETE FROM OrderDetails WHERE OrderID = '$orderID'";
     $result = $this->db->delete($sql);
     return $result;
   }
 }
 
- ?>
+?>
