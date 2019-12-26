@@ -17,7 +17,7 @@ $Status = $res['Status'];
 <div class="main">
   <div class="blockDiv">
     <div class="titleMain">
-      <h4>Chi tiết đơn hàng: <?php echo $OrderId?></h4>
+      <h4>Chi Tiết Đơn Đặt Hàng: <?php echo $OrderId?></h4>
     </div>
     <div class="cartLeft">
       <div class="cartLeft">
@@ -57,13 +57,8 @@ $Status = $res['Status'];
                     </div>
                     <div class="col-5">
                       <div class="form-group">
-                        <input type="number" class="form-control" class="txtNum" name="quantity" value="<?php echo $Quantity ?>" min="1">
-                        <input type="hidden" class="form-control" class="cartID" name="cartID" value="<?php echo $result['CartID']; ?>" min="1">
-                        <input type="button" class="btn btn-light btnUpdateCart" value="Cập nhật">
+                        <label><?php echo $Quantity ?></label>
                       </div>
-                    </div>
-                    <div class="col-3">
-                      <input type="button" class="btn btn-light" onclick="onclickDeleteCart(<?php echo $result['CartID']; ?> )" value="Xóa">
                     </div>
                   </div>
                 </form>
