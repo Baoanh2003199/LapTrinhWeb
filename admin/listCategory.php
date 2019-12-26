@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
       <th scope="col" width="20%">Mô tả</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
-    </tr>
   </thead>
   <?php
 
