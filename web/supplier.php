@@ -100,4 +100,3 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/web/inc/footer.php';
-?>

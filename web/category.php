@@ -93,6 +93,51 @@ if(isset($idCate)){
           }
         ?>
   </div>
+<<<<<<< HEAD
+=======
+  <div class="blockDiv">
+    <div class="titleMain">
+      <h4>Sản phẩm mới</h4>
+    </div>
+    <div class="myRow">
+      <?php
+      if (isset($searchNew) && $searchNew) {
+        while ($result = $searchNew->fetch_assoc()) {
+      ?>
+      <div class="col-sm-3 itemProduct">
+        <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+          <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <br>
+          <span class="description"><?php echo $result['ProductName']; ?></span><br>
+          <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
+          <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+        </a>
+      </div>
+      <?php
+        }
+      } else {
+        ?>
+      <?php
+        $SHOW_NEW = $pro->show_newProduct();
+        if ($SHOW_NEW) {
+          while ($result = $SHOW_NEW->fetch_assoc()) {
+        ?>
+      <div class="col-sm-3 itemProduct">
+        <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
+          <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
+          <br>
+          <span class="description"><?php echo $result['ProductName']; ?></span><br>
+          <span class="price">Giá: <?php echo number_format($result['Price']) . ' đ'; ?></span><br>
+          <span class="views">Lượt xem:<?php echo $result['Views']; ?></span><br>
+        </a>
+      </div>
+      <?php
+          }
+        }
+      }
+      ?>
+    </div>
+>>>>>>> e0b50b81ed0fc5b4ed89541c62c6b64fa7634c5a
 
 </div>
 <!-- End Main -->
