@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/order.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/orderDetails.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
 
-ob_start();
+
 $ct = new cart();
 $ord = new order();
 $checkLogin = '1';
@@ -51,8 +51,8 @@ if ($cursor) {
   }
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

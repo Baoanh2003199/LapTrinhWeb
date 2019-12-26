@@ -12,7 +12,7 @@ if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
   $id = $_GET['ProductID'];
 }
 $product = new Product();
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES) &&$_FILES['Img']['name'] != "") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES) &&$_FILES['Img']['name'] != ""  ) {
 
   $updateProd = $product->update_product($_POST,$_FILES,$id);
 }
