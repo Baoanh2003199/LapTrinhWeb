@@ -25,7 +25,7 @@ if (isset($delCat)) {
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" id="" placeholder="tìm kiếm theo tên" />
-    <a href=""><i class="fas fa-search"></i></a>
+    <input type="submit" id="icon_search" value="tìm kiếm" ></input>
   </div>
 </form>
 <table class="table">

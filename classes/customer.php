@@ -48,7 +48,7 @@ class customer
   }
   public function searchCustomer($name)
   {
-    $sql = "SELECT* FROM Customers WHERE Name like '%$name%";
+    $sql = "SELECT c.*, u.UserName, u.UserID FROM Customers c, User u WHERE u.UserID = c.UserID and Name like '%$name%'";
     $result = $this->db->select($sql);
     return $result;
   }
