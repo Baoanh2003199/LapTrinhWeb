@@ -209,7 +209,7 @@ ul li{
      overflow: auto;
  }
  .myRow{
-    display: flex;
+    display: block;
  }
  .itemProduct{
     min-height: 45%;
@@ -235,7 +235,7 @@ ul li{
  }
  .img_produt{
      width: 80%;
-     height: 50%;
+     height: 190px;
      margin-left: 0%;
      margin-top: 2%;
  }
