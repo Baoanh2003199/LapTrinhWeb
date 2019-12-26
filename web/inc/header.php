@@ -63,7 +63,7 @@ if ($cursor) {
 
 <head>
   <meta charset="UTF-8">
-  <link href="../templates/images/logo.jpg" rel="icon" type="image/x-icon">
+  <link href="../templates/images/icon.png" rel="icon" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../templates/vendor/css/bootstrap.min.css" />
@@ -107,13 +107,12 @@ if ($cursor) {
         </div>
       </div>
     </div>
-    <div class="searchBar">
-      <input type="text" name="txtSearch" class="form-group">
-      <div class="btnSearch">
-        <a href="#"> <i class="fas fa-search" id="iconSearch"></i></a>
-
-      </div>
+    <form class="form-inline"> 
+    <div class="searchBar form-group mb-2">
+      <input class="form-control" type="text" name="txtSearch">
+      <a href="#"> <i class="fas fa-search" id="iconSearch" style="color:white; margin-left:20px;"></i></a>
     </div>
+    </form>
     <div class="cart">
       <div class="btnHeader sCart">
         <a href="cart.php">
