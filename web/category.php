@@ -116,13 +116,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GE['tx
       </div>
       <?php
         }
-      }
-      ?>
+      } else {
+        ?>
       <?php
-      $SHOW_NEW = $pro->show_newProduct();
-      if ($SHOW_NEW) {
-        while ($result = $SHOW_NEW->fetch_assoc()) {
-      ?>
+        $SHOW_NEW = $pro->show_newProduct();
+        if ($SHOW_NEW) {
+          while ($result = $SHOW_NEW->fetch_assoc()) {
+        ?>
       <div class="col-sm-3 itemProduct">
         <a href="ProductDetails.php?id=<?php echo $result['ProductID']; ?>">
           <img src="../uploads/<?php echo $result['Img']; ?>" class="img_produt" alt="">
@@ -133,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GE['tx
         </a>
       </div>
       <?php
+          }
         }
       }
       ?>
