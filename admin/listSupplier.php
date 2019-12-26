@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" id="" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm"></input>
+    <input type="submit" class="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tên</th>
-      <th scope="col">Địa chỉ</th>
+      <th scope="col" width="25%" >Địa chỉ</th>
       <th scope="col">SDT</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Thao tác</th>
@@ -54,7 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
       <td><?php echo $result['SupplierName'] ?></td>
       <td><?php echo $result['Address'] ?></td>
       <td><?php echo $result['Phone'] ?></td>
-      <td><?php echo $result['Status'] ?></td>
+        <td><?php
+              if ($result['Status'] == '1') {
+                echo "Hoạt động";
+              } else {
+                echo "Ngưng hoạt động";
+              }
+              ?></td>
       <td>
         <a href="updateSupplier.php?SupplierID=<?php echo $result['SupplierID']; ?>" class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá Nhà sản xuất này ?')"
@@ -80,7 +86,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
       <td><?php echo $result['SupplierName'] ?></td>
       <td><?php echo $result['Address'] ?></td>
       <td><?php echo $result['Phone'] ?></td>
-      <td><?php echo $result['Status'] ?></td>
+        <td><?php
+              if ($result['Status'] == '1') {
+                echo "Hoạt động";
+              } else {
+                echo "Ngưng hoạt động";
+              }
+              ?></td>
       <td>
         <a href="updateSupplier.php?SupplierID=<?php echo $result['SupplierID']; ?>" class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá Nhà sản xuất này ?')"

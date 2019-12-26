@@ -56,7 +56,8 @@ class Product
 
   public function show_product()
   {
-    $sql = "SELECT * from Products order by ProductID";
+    $sql = "SELECT * from Products p, Suppliers s, Categories c 
+    WHERE p.CategoryID = c.CategoryID and s.SupplierID = p.SupplierID order by ProductID";
     $result = $this->db->select($sql);
     return $result;
   }
@@ -115,7 +116,8 @@ class Product
 
   public function search($name)
   {
-    $sql = "SELECT * FROM Products where ProductName like '%$name%'";
+    $sql = "SELECT * FROM Products p, Suppliers s, Categories c 
+    WHERE p.CategoryID = c.CategoryID and s.SupplierID = p.SupplierID and ProductName like '%$name%'";
     $result = $this->db->select($sql);
     return $result;
   }

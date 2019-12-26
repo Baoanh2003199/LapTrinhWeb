@@ -190,3 +190,15 @@ form {
 .aDisable{
   pointer-events: none;
 }
+.icon_search{
+  margin-left: 2%;
+  margin-top: 0.2%;
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 5px 10px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+}
+.icon_search:hover {
+  background-color: RoyalBlue;
+}

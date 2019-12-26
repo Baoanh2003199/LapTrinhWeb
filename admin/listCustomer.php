@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm"></input>
+    <input type="submit" class="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">

@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" id="" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm"></input>
+
+    <input type="submit" class="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -36,12 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
     <tr>
       <th scope="col">#</th>
       <th scope="col" width="15%">Tên</th>
-      <th scope="col">Giá</th>
+      <th scope="col" width="10%" >Giá</th>
       <th scope="col" width="10%">Nguồn gốc</th>
       <th scope="col">hình ảnh</th>
       <th scope="col" width="10%">Phân loại</th>
-      <th scope="col" width="10%">Nhà sản xuất</th>
-      <th scope="col">Trạng thái</th>
+      <th scope="col" width="15%">Nhà sản xuất</th>
       <th scope="col">Thao tác</th>
     </tr>
   </thead>
@@ -58,9 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
       <td><?php echo $resut['Price']; ?></td>
       <td><?php echo $resut['Origin']; ?></td>
       <td><img width="100px" src="../uploads/<?php echo $resut['Img']; ?> " /></td>
-      <td><?php echo $resut['CategoryID']; ?></td>
-      <td><?php echo $resut['SupplierID']; ?></td>
-      <td width="15%"><?php echo $description; ?></td>
+      <td><?php echo $resut['CategoryName']; ?></td>
+      <td><?php echo $resut['SupplierName']; ?></td>
       <td>
         <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')"
@@ -88,9 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
       <td><?php echo $resut['Price']; ?></td>
       <td><?php echo $resut['Origin']; ?></td>
       <td><img width="100px" src="../uploads/<?php echo $resut['Img']; ?> " /></td>
-      <td><?php echo $resut['CategoryID']; ?></td>
-      <td><?php echo $resut['SupplierID']; ?></td>
-      <td width="15%"><?php echo $description; ?></td>
+      <td><?php echo $resut['CategoryName']; ?></td>
+      <td><?php echo $resut['SupplierName']; ?></td>
       <td>
         <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')"

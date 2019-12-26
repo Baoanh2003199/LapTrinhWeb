@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" id="" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm"></input>
+    <input type="submit" class="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tên khách hàng</th>
-      <th scope="col">Địa chỉ</th>
+      <th scope="col" width="15%" >Địa chỉ</th>
       <th scope="col">SDT</th>
       <th scope="col">Số lượng</th>
       <th scope="col">Tổng tiền</th>
@@ -60,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <tbody>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['Total']; ?></td>
       <td><?php echo $result['Name']; ?></td>
-      <td width="15%"><?php echo $result['Address']; ?></td>
+      <td><?php echo $result['Address']; ?></td>
       <td><?php echo $result['Phone']; ?></td>
+      <td><?php echo $result['QuantityProducts']; ?></td>
       <td><?php echo $result['Total']; ?></td>
       <td><?php
               if ($result['Status'] == 1) {
@@ -113,10 +113,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
   <tbody>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $result['Total']; ?></td>
       <td><?php echo $result['Name']; ?></td>
-      <td width="15%"><?php echo $result['Address']; ?></td>
-      <td><?php echo $result['Phone']; ?></td>
+      <td><?php echo $result['Address']; ?></td>
+      <td ><?php echo $result['Phone']; ?></td>
+      <td><?php echo $result['QuantityProducts']; ?></td>
       <td><?php echo $result['Total']; ?></td>
       <td><?php
                 if ($result['Status'] == 1) {
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
               ?>
       </td>
       <td>
-        <a href="updateOrder.php?OrderID=<?php echo $result['OrderID']; ?>" class="btn btn-info">Cập nhật</a>
+        <a href="updateOrder.php?OrderID=<?php echo $result['OrderID']; ?>" class="btn btn-info">Chi tiết</a>
         <a <?php if ($result['Status'] == 4) { ?>
           onclick="return confirm('Bạn có chắc muốn xoá đơn đặt hàng này ?')<?php echo 'return false'; ?> " <?php } ?>
           href="<?php if ($result['Status'] == 4) { ?>?delID=<?php echo $result["OrderID"]; ?><?php } else echo ''; ?>"

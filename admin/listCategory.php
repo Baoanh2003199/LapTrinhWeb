@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" id="" placeholder="tìm kiếm theo tên" name="name" />
-    <input type="submit" id="icon_search" value="tìm kiếm"></input>
+    <input type="submit" class="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
       <th scope="col">#</th>
       <th scope="col">Tên loại</th>
       <th scope="col" width="20%">Mô tả</th>
-      <th scope="col">Trạng thái</th>
+      <th scope="col" width="20%">Trạng thái</th>
       <th scope="col">Thao tác</th>
   </thead>
   <?php
@@ -53,7 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $result['CategoryName']; ?></td>
       <td><?php echo $result['Description']; ?></td>
-      <td><?php echo $result['Status']; ?></td>
+      <td><?php
+        if($result['Status'] == 1){
+          echo 'Hoạt động';
+        }else{
+          echo 'Ngưng hoạt động';
+        }
+       ?></td>
       <td>
         <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')"
@@ -77,7 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name']) && $_GET['name']
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $result['CategoryName']; ?></td>
       <td><?php echo $result['Description']; ?></td>
-      <td><?php echo $result['Status']; ?></td>
+      <td><?php
+        if($result['Status'] == 1){
+          echo 'Hoạt động';
+        }else{
+          echo 'Ngưng hoạt động';
+        }
+       ?></td>
       <td>
         <a href="updateCategory.php?CategoryID=<?php echo $result['CategoryID']; ?>" class="btn btn-info">Cập nhật</a>
         <a onclick="return confirm('Bạn có chắc muốn xoá loại sản phẩm này ?')"
