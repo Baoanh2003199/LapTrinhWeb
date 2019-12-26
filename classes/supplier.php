@@ -45,7 +45,7 @@ class supplier
   }
   public function searchSupplier($name)
   {
-    $sql = "SELECT* FROM Suppliers WHERE SupplierName='%$name%'";
+    $sql = "SELECT* FROM Suppliers WHERE SupplierName LIKE'%$name%'";
     $result = $this->db->select($sql);
     return $result;
   }
