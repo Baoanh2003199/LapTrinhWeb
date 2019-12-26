@@ -37,7 +37,7 @@ class order
       $sql = "INSERT into Orders( Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $insert_order = $this->db->insert($sql);
       if ($insert_order) {
-        $id =mysqli_insert_id($this->db->link);
+        $id = mysqli_insert_id($this->db->link);
         return  $id;
       } else {
         header('location:404.php');
@@ -46,7 +46,7 @@ class order
   }
   public function searchOrder($name)
   {
-    $sql = "SELECT * FROM Orders WHERE Total LIKE '%$name%'";
+    $sql = "SELECT * FROM Orders WHERE OrderID LIKE '%$name%'";
     $result = $this->db->select($sql);
     return $result;
   }

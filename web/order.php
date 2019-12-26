@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm']) && isset($_
 }
 ?>
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GE['txtSearch'] != null) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GET['txtSearch'] != null) {
   $name = $_GET['txtSearch'];
   $search = $ord->searchOrder($name);
 }
