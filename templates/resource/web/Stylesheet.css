@@ -553,3 +553,6 @@ ul li{
 .headerTD {
     cursor: pointer;
 }
+.form-inline{
+    display: inline !important;
+}

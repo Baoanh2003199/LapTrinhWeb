@@ -63,7 +63,7 @@ if ($cursor) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../templates/vendor/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../templates/vendor/fontawesome-free-5.11.2-web/css/all.css" />
-  <link rel="stylesheet" href="../templates/resource/web/Stylesheet.css?">
+  <link rel="stylesheet" href="../templates/resource/web/Stylesheet.css">
   <title>Shop online</title>
 </head>
 
