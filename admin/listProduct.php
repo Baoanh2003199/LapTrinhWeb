@@ -19,12 +19,16 @@ if (isset($_GET['delID'])) {
 if (isset($delPro)) {
   echo "<script> alert('Xóa sản phẩm thành công');</script>";
 }
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'] != null) {
+  $name = $_GET['name'];
+  $searchOrder = $pro->search($name);
+}
 ?>
-<form class="searchForm" method="GET">
+<form class="searchForm" method="GET" action="listProduct.php">
   <div class="form-group">
     <div class="itemSearch">Tìm kiếm</div>
     <input type="text" class="form-control search" name="name" id="" placeholder="tìm kiếm theo tên" />
-    <input type="submit" id="icon_search" value="tìm kiếm" ></input>
+    <input type="submit" id="icon_search" value="tìm kiếm"></input>
   </div>
 </form>
 <table class="table">
@@ -41,15 +45,13 @@ if (isset($delPro)) {
       <th scope="col">Thao tác</th>
     </tr>
   </thead>
+  <?php
+  if (isset($searchOrder) && $searchOrder) {
+    $i = 0;
+    while ($resut = $searchOrder->fetch_assoc()) {
+      $i++;
+  ?>
   <tbody>
-    <?php
-    $show_pro = $pro->show_product();
-    if ($show_pro) {
-      $i = 0;
-      while ($resut = $show_pro->fetch_assoc()) {
-        $i++;
-        $description =  $fm->textShorten($resut['Description']);
-    ?>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
       <td><?php echo $resut['ProductName']; ?></td>
@@ -66,11 +68,42 @@ if (isset($delPro)) {
       </td>
     </tr>
     </tr>
-    <?php
+  </tbody>
+  <?php
+    }
+  } else {
+    ?>
+  <?php
+    $show_pro = $pro->show_product();
+    if ($show_pro) {
+      $i = 0;
+      while ($resut = $show_pro->fetch_assoc()) {
+        $i++;
+        $description =  $fm->textShorten($resut['Description']);
+    ?>
+  <tbody>
+    <tr>
+      <th scope="row"><?php echo $i; ?></th>
+      <td><?php echo $resut['ProductName']; ?></td>
+      <td><?php echo $resut['Price']; ?></td>
+      <td><?php echo $resut['Origin']; ?></td>
+      <td><img width="100px" src="../uploads/<?php echo $resut['Img']; ?> " /></td>
+      <td><?php echo $resut['CategoryID']; ?></td>
+      <td><?php echo $resut['SupplierID']; ?></td>
+      <td width="15%"><?php echo $description; ?></td>
+      <td>
+        <a href="updateProduct.php?ProductID=<?php echo $resut['ProductID']; ?> " class="btn btn-info">Cập nhật</a>
+        <a onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này ?')"
+          href="listProduct.php?delID=<?php echo $resut['ProductID']; ?> " class="btn btn-danger">Xóa</a>
+      </td>
+    </tr>
+    </tr>
+  </tbody>
+  <?php
       }
     }
-    ?>
-  </tbody>
+  }
+  ?>
 </table>
 </div>
 </div>

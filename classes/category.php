@@ -43,7 +43,7 @@ class category
 
   public function searchCategory($name)
   {
-    $sql = "SELECT *FROM Category where CategoryName like '%$name%' ";
+    $sql = "SELECT *FROM Category WHERE CategoryName LIKE '%$name%' ";
     $result = $this->db->select($sql);
     return $result;
   }

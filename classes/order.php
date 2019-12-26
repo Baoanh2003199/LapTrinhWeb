@@ -14,7 +14,7 @@ class order
     $this->fm = new Format();
   }
 
-  public function insert_order($Total, $QuantityProducts,$name, $phone, $address, $userID)
+  public function insert_order($Total, $QuantityProducts, $name, $phone, $address, $userID)
   {
     $Total = $this->fm->valation($Total);
     $QuantityProducts = $this->fm->valation($QuantityProducts);
@@ -30,27 +30,30 @@ class order
     $address =  mysqli_real_escape_string($this->db->link, $address);
     $userID =  mysqli_real_escape_string($this->db->link, $userID);
 
-    if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone)|| empty($address) || empty($userID)) {
+    if (empty($Total) || empty($QuantityProducts) || empty($name) || empty($phone) || empty($address) || empty($userID)) {
       return false;
     } else {
-        $countOder = $this->show_order();
-        $count = 1;
-        if($countOder){
-          $resultCount = $countOder->fetch_assoc();
-            $count = mysqli_num_rows($countOder) + 1;
-        }
-        $orderID = $this->generateCode('HD', $count);
+      $countOder = $this->show_order();
+      $count = 1;
+      if ($countOder) {
+        $resultCount = $countOder->fetch_assoc();
+        $count = mysqli_num_rows($countOder) + 1;
+      }
+      $orderID = $this->generateCode('HD', $count);
       $sql = "INSERT into Orders(OrderID, Total,QuantityProducts,Name, Phone, Address, UserID, Status) values('$orderID' ,'$Total','$QuantityProducts','$name','$phone','$address','$userID', '1')";
       $insert_order = $this->db->insert($sql);
-        if($insert_order)
-        {
-          return $orderID;
-        }
-        else
-        {
-          header('location:404.php');
-        }
+      if ($insert_order) {
+        return $orderID;
+      } else {
+        header('location:404.php');
+      }
     }
+  }
+  public function searchOrder($name)
+  {
+    $sql = "SELECT * FROM Orders WHERE Total LIKE '%$name%'";
+    $result = $this->db->select($sql);
+    return $result;
   }
   public function show_order()
   {
@@ -117,16 +120,17 @@ class order
       return $alert;
     }
   }
-  public function updateStatus($OrderID, $status){
+  public function updateStatus($OrderID, $status)
+  {
     $OrderID = $this->fm->valation($OrderID);
     $status = $this->fm->valation($status);
 
 
     $OrderID = mysqli_real_escape_string($this->db->link, $OrderID);
     $status = mysqli_real_escape_string($this->db->link, $status);
-    if(empty($OrderID) || empty($status)){
+    if (empty($OrderID) || empty($status)) {
       return false;
-    }else{
+    } else {
       $status = intval($status);
 
       $status = $status + 1;
@@ -136,24 +140,23 @@ class order
       return $result;
     }
   }
-  function generateCode($origin, $num){
+  function generateCode($origin, $num)
+  {
     $result = $origin;
     $i = 1;
     $n = $num;
-    while((int)$n / 10 != 0)
-    {
-        $i++;
-        $n  = (int)$n/10;
+    while ((int) $n / 10 != 0) {
+      $i++;
+      $n  = (int) $n / 10;
     }
     $j = 5 - $i;
-    while ($j != 0)
-    {
-        $result .= '0';
-        $j--;
+    while ($j != 0) {
+      $result .= '0';
+      $j--;
     }
     $result .= $num;
 
     return $result;
-}
+  }
 }
 ?>
