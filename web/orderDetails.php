@@ -19,7 +19,6 @@ $Status = $res['Status'];
     <div class="titleMain">
       <h4>Chi Tiết Đơn Đặt Hàng: <?php echo $OrderId ?></h4>
     </div>
-    <div class="cartLeft">
       <div class="cartLeft">
         <?php
         $totalQuantity = 0;
@@ -58,7 +57,7 @@ $Status = $res['Status'];
                 </div>
                 <div class="col-5">
                   <div class="form-group">
-                    <label><?php echo $Quantity ?></label>
+                    Số lượng: <label><?php echo $Quantity ?></label>
                   </div>
                 </div>
               </div>
@@ -72,12 +71,11 @@ $Status = $res['Status'];
           }
         }
         ?>
-      </div>
     </div>
     <div class="cartRight">
       <div class="itemRight">
         <span class="subtotal grandtotal">Tình trạng:</span>
-        <span style="<?php
+        <span  class="subPrice status" style="<?php
                       switch ($Status) {
                         case '1':
                           echo 'color:red;';
@@ -107,9 +105,9 @@ $Status = $res['Status'];
                               break;
                           } ?>
         </span><br><br>
-        <span class="subtotal grandtotal">Tổng tiền:</span>
-        <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10 / 100);
-                                          echo number_format($grandTotal) . ' đ' ?></span><br><br>
+        <div class="clearFloat"></div>
+       <span class="subtotal grandtotal">Tổng tiền:</span>
+        <span class="subPrice grandPrice"><?php $grandTotal = $subTotal + ($subTotal * 10 / 100);echo number_format($grandTotal) . ' đ' ?></span><br><br>
       </div>
     </div>
 
