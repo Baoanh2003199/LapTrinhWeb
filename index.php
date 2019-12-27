@@ -112,12 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GET['t
   </div>
 
   <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#newSlide" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#newSlide" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
+
 
 </div>
 

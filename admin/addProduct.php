@@ -97,5 +97,5 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_FILES["Img"])) {
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/footer.php';
+include_once 'inc/footer.php';
 ?>
