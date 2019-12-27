@@ -75,9 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GET['t
                       echo 'Đang giao hàng';
                       break;
                     case '4':
-                      echo '
-                Đã giao hàng
-                ';
+                      echo 'Đã nhận hàng';
                       break;
                   }
                   ?></td>
@@ -86,9 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GET['t
               <form action="" method="POST">
                 <input type="hidden" class="form-control" name="confirmID" value="<?php echo $orderID; ?>">
                 <button name="confirm" type="submit" class="btn btn-success" title="Click để xác nhận đã nhận hàng"
-                  <?php if ($Status != '3') {
-                                                                                                                          echo 'style="display: none;"';
-                                                                                                                        } ?>>Xác nhận đơn đặt hàng </button>
+                  <?php if ($Status != '3') {echo 'style="display: none;"';} ?>>Xác nhận đã nhận hàng </button>
               </form>
             </td>
           </tr>
@@ -141,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['txtSearch']) && $_GET['t
                         break;
                       case '4':
                         echo '
-                Đã giao hàng
+                Đã nhận hàng
                 ';
                         break;
                     }

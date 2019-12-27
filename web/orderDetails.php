@@ -101,7 +101,7 @@ $Status = $res['Status'];
                               echo 'Đang vận chuyển';
                               break;
                             case '4':
-                              echo 'Giao hàng thành công';
+                              echo 'Đã nhận hàng';
                               break;
                           } ?></span><br><br>
         <div class="clearFloat"></div>

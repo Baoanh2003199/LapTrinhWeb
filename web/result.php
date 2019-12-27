@@ -1,0 +1,23 @@
+<?php
+  include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/lib/session.php';
+  $UserID = Session::get('UserId');
+  $sID = session_id();
+ ?>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="blockDiv">
+        <center>
+        <h1 style="font-size:32px; font-weight:bold; color:#5aa4e8; margin-top:50px"> TRẢ KẾT QUẢ TÌM KIẾM VÀO ĐÂY </h1>
+        </center>
+         
+        </div>
+    </div>
+<!-- End Main -->
+
+
+
+<?php
+  include_once $_SERVER['DOCUMENT_ROOT']. '/LapTrinhWeb/web/inc/footer.php';
+?>
