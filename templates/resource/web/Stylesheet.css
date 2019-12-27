@@ -199,7 +199,7 @@ ul li{
    background-image: url('/img/arrow/seta_ult.png');
  }
  .col-sm-3{
-     width: 25% !important;
+     width: 21% !important;
  }
  .blockDiv{
      margin-top: 2%;
@@ -560,4 +560,20 @@ ul li{
     width: 50% !important;
     font-size: 120%;
     margin-top: 7% !important;
+}
+.icon_search{
+  margin-left: 2%;
+  margin-top: 0.2%;
+  background-color: transparent; 
+  border: none; 
+  color: white; 
+  padding: 5px 10px; 
+  font-size: 110%; 
+  font-weight: 400;
+}
+.icon_search:hover {
+  background-color: RoyalBlue;
+}
+.headingSearch{
+    font-size:32px; font-weight:bold; color:#5aa4e8; margin-top:50px
 }

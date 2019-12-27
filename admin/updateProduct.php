@@ -1,8 +1,8 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/product.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/supplier.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/category.php';
+include_once 'inc/header.php';
+include_once '../classes/product.php';
+include_once '../classes/supplier.php';
+include_once '../classes/category.php';
 ?>
 
 <?php
@@ -12,9 +12,12 @@ if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
   $id = $_GET['ProductID'];
 }
 $product = new Product();
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES) &&$_FILES['Img']['name'] != ""  ) {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+  if(isset($_FILES) &&$_FILES['Img']['name'] != ""  ){
   $updateProd = $product->update_product($_POST,$_FILES,$id);
+  }else{
+     $updateProd = $product->updateProductNoneImg($_POST,$id);
+  }
 }
 ?>
 <div class="titleRight path">
@@ -125,5 +128,5 @@ if (isset($get_Name)) {
 </div>
 </div>
 <?php 
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/admin/inc/footer.php';
+include_once 'inc/footer.php';
  ?>

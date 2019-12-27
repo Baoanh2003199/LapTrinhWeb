@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
+include_once '../lib/session.php';
 Session::checkAdmin();
 ob_start();
 ?>
@@ -12,9 +12,9 @@ ob_start();
   <link href="../templates/images/icon.png" rel="icon" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../templates/vendor/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../templates//resource/admin/styleAdmin.css?" />
-  <link rel="stylesheet" href="../templates/vendor/fontawesome-free-5.11.2-web/css/all.css" />
+ <script src="https://kit.fontawesome.com/5845faa3cb.js" crossorigin="anonymous"></script>
   <title>Admin Page</title>
 </head>
 
@@ -69,6 +69,7 @@ ob_start();
         </ul>
       </div>
     </div>
+    <div class="iconMenu"><i class="fas fa-caret-down"></i></div>
     <div class="right">
       <div class="titleRight panel">
         <div class="titlePage">Admin <?php echo Session::get('adminName'); ?></div>

@@ -57,7 +57,7 @@ body {
   font-size: 120%;
   font-weight: 500;
 }
-input[type="text"] {
+input[type="text"], input[type=password] {
   float: left;
   margin-left: 5%;
   width: 50%;

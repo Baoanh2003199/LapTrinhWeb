@@ -1,6 +1,7 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
+$fileName = dirname(__FILE__);
+include_once $fileName.'/../lib/database.php';
+include_once $fileName.'/../helper/format.php';
 ?>
 
 <?php
@@ -184,6 +185,32 @@ class Product
     } else {
       move_uploaded_file($file_temp, $upload_file);
       $sql = "UPDATE Products set ProductName='$ProductName', Price='$Price', Origin='$Origin', Img='$unique_img', CategoryID='$Category', SupplierID='$Supplier', Description='$Description', Status='$Status' where ProductID='$id' ";
+      $result = $this->db->update($sql);
+
+      if ($result) {
+        $alert = "<span> update Products successen</span>";
+        return $alert;
+      } else {
+        $alert = "<span> update Products no successen</span>";
+        return $alert;
+      }
+    }
+  }
+  public function updateProductNoneImg($data, $id)
+  {
+    $ProductName = mysqli_real_escape_string($this->db->link, $data['ProductName']);
+    $Price = mysqli_real_escape_string($this->db->link, $data['Price']);
+    $Origin = mysqli_real_escape_string($this->db->link, $data['Origin']);
+    $Description = mysqli_real_escape_string($this->db->link, $data['Description']);
+    $Status = mysqli_real_escape_string($this->db->link, $data['Status']);
+    $Category = mysqli_real_escape_string($this->db->link, $data['CategoryID']);
+    $Supplier = mysqli_real_escape_string($this->db->link, $data['SupplierID']);
+
+    if (empty($ProductName) || empty($Price) ||  empty($Origin) ||  empty($Description) || empty($Status)) {
+      $alert = "Products must be not empty";
+      return $alert;
+    } else {
+      $sql = "UPDATE Products set ProductName='$ProductName', Price='$Price', Origin='$Origin', CategoryID='$Category', SupplierID='$Supplier', Description='$Description', Status='$Status' where ProductID='$id' ";
       $result = $this->db->update($sql);
 
       if ($result) {

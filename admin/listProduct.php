@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/product.php';
+include_once 'inc/header.php';
+include_once '../classes/product.php';
 ?>
 <?php
 $pro = new product();
@@ -106,5 +106,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['name'])  && $_GET['name'
 </div>
 </div>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/admin/inc/footer.php';
+include_once 'inc/footer.php';
 ?>

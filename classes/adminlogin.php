@@ -1,7 +1,8 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/session.php';
+$fileName = dirname(__FILE__);
+include_once $fileName.'/../lib/database.php';
+include_once $fileName.'/../helper/format.php';
+include_once $fileName . '/../lib/session.php';
 Session::checklogin();
 
 ?>
@@ -33,7 +34,7 @@ class adminlogin
       $result = $this->db->select($sql);
       if ($result != false) {
         $value = $result->fetch_assoc();
-        Session::set("adminlogin", true);
+        Session::set("adminlogin", 'true');
         Session::set("AdminId", $value['UserID']);
         Session::set("AdminUser", $value['UserName']);
         header("Location:index.php");

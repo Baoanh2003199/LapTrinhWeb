@@ -27,21 +27,28 @@ class Session
       return false;
     }
   }
-
-  public static function destroyAdmin()
-  {
-    session_destroy();
-    header('location:login.php');
-  }
    public static function destroy()
   {
     session_destroy();
   }
+  public static function destroyAdmin()
+  {
+    Session::set("adminlogin", '');
+    Session::set("AdminId", '');
+    Session::set("AdminUser", '');
+    header('location:login.php');
+  }
+ public static function destroyUser()
+  {
+    Session::set("userLogin", '');
+    Session::set("UserId", '');
+    Session::set("User", '');
+    header('location:#');
+  }
   public static function checkAdmin()
   {
     self::init();
-    if (self::get("adminlogin") == false) {
-      self::destroy();
+    if (self::get("adminlogin") != 'true') {
       header("location:login.php");
     }
   }

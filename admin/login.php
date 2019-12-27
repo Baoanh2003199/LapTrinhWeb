@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/LapTrinhWeb/classes/adminlogin.php';
+include_once '../classes/adminlogin.php';
 ?>
 <?php
 $class = new adminlogin();
@@ -18,9 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   <link href="../templates/images/icon.png" rel="icon" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../templates/vendor/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../templates//resource/login/styleLogin.css" />
-  <link rel="stylesheet" href="../templates/vendor/fontawesome-free-5.11.2-web/css/all.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../templates//resource/login/styleLogin.css?" />
+ <script src="https://kit.fontawesome.com/5845faa3cb.js" crossorigin="anonymous"></script>
+
   <title>Login Admin</title>
 </head>
 
@@ -38,14 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <div class="rowForm">
           <div class="lbName">Tên đăng nhập</div>
           <input type="text" placeholder="Tài khoản" name="adminUser" />
-          <i class="fas fa-check"></i>
           <div class="clearFloat"></div>
         </div>
 
         <div class="rowForm">
           <div class="lbName">Mật khẩu</div>
-          <input type="text" placeholder="Mật khẩu" name="adminPass" />
-          <i class="fas fa-times"></i>
+          <input type="password" placeholder="Mật khẩu" name="adminPass" />
           <div class="clearFloat"></div>
         </div>
         <center>
@@ -58,8 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       </div>
     </div>
   </div>
-  <script src="../templates//vendor/jquery/jquery-3.4.1.min.js"></script>
-  <script src="../templates/vendor/js/bootstrap.min.js"></script>
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script></body>
 
 </html>

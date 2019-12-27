@@ -1,5 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/config/config.php';
+$fileName = dirname(__FILE__);
+include_once  $fileName. '/../config/config.php';
 ?>
 <?php
 class Database

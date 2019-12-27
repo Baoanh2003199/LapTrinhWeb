@@ -1,7 +1,8 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/lib/database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/helper/format.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/LapTrinhWeb/classes/orderDetails.php';
+$fileName = dirname(__FILE__);
+include_once $fileName.'/../lib/database.php';
+include_once $fileName.'/../helper/format.php';
+include_once $fileName . '/../classes/orderDetails.php';
 ?>
 <?php
 class order
