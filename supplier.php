@@ -99,4 +99,4 @@ if (isset($_GET['SupplierID']) || $_GET['SupplierID'] == null) {
 <!-- End Main -->
 
 <?php
-include_once 'web/inc/footer.php';
+include_once 'inc/footer.php';

@@ -259,5 +259,38 @@ class Product
     $resultUpdate = $this->db->update($sqlUpdate);
     return $resultUpdate;
   }
+  public function searchUltimate($data){
+      $query = "SELECT * FROM Products";
+
+      $filtered_get = array_filter($data); 
+
+      if (count($filtered_get)) { 
+          $query .= " WHERE";
+
+          $keynames = array_keys($filtered_get); 
+          $i = 0;
+          foreach($filtered_get as $key => $value)
+          {
+            if( $key == 'ProductName'){
+              $query .= " ProductName like '%$value%'";
+            }else if ($key == 'PriceMin') {
+              $query .= " Price > '$value'";
+            }else if($key == 'PriceMax'){
+              $query .= " Price < '$value'";
+            }else if($key != 'btnSearch'){
+               $query .= " $key = '$value'";
+            }
+
+             if (count($filtered_get) > 1 &&  $i < count($filtered_get) - 2) { 
+                $query .= " AND";
+             }
+             $i++;
+          }
+        $query .= ";";
+          $result = $this->db->select($query);
+          return $result;
+        }
+        return false;
+  }
 }
 ?>

@@ -27,7 +27,7 @@ class adminlogin
     $adminPass = mysqli_real_escape_string($this->db->link, $adminPass);
 
     if (empty($adminUser) || empty($adminPass)) {
-      $alert = "user and pass must not be empty";
+      $alert = "<span class='messageLogin' >Vui lòng điền tài khoản và mật khẩu</span> ";
       return $alert;
     } else {
       $sql = "SELECT * FROM User u,Roles r WHERE u.RoleId=r.RoleId AND u.UserName='$adminUser' AND u.Password='$adminPass' AND r.Rolecode='admin'";
@@ -39,7 +39,7 @@ class adminlogin
         Session::set("AdminUser", $value['UserName']);
         header("Location:index.php");
       } else {
-        $alert = "user and pass not match";
+       $alert = "<span class='messageLogin' >Tài khoản hoặc mật khẩu không chính xác</span> ";
         return $alert;
       }
     }

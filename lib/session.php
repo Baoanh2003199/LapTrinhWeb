@@ -50,6 +50,7 @@ class Session
     self::init();
     if (self::get("adminlogin") != 'true') {
       header("location:login.php");
+      
     }
   }
   public static function checkUser(){

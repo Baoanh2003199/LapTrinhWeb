@@ -577,3 +577,20 @@ ul li{
 .headingSearch{
     font-size:32px; font-weight:bold; color:#5aa4e8; margin-top:50px
 }
+.divSearchLeft{
+  width: 25%;
+  background: rgba(255,255,255);
+}
+.divSearchRight{
+  width: 70%;
+}
+.col-sm-4{
+  width: 27%;
+}
+.optionSearch{
+  width: 60%;
+  margin-top: 0.2%
+}
+.priceSearch{
+  width: 35%;
+}

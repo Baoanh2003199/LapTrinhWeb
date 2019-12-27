@@ -31,11 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       <div class="titleLogin">Đăng nhập</div>
       <div class="formlg">
         <form action="login.php" method="POST">
-        <?php
-        if (isset($login_check)) {
-          echo $login_check;
-        }
-        ?>
         <div class="rowForm">
           <div class="lbName">Tên đăng nhập</div>
           <input type="text" placeholder="Tài khoản" name="adminUser" />
@@ -52,6 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
           <input type="submit" class="btn btn-primary" value="Đăng nhập" />
           <input type="submit" class="btn btn-danger" value="Trở về" />
         </div>
+        <?php
+        if (isset($login_check)) {
+          echo $login_check;
+        }
+        ?>
         </center>
         </form>
       </div>

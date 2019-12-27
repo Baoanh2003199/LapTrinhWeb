@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_FILES["Img"])) {
 <div class="titleRight path">
   <a href="index.php">home</a> >
   <a href="addProduct.php">Thêm sản phẩm</a>>
-  <?php
+<?php
   if (isset($insert_pro)) {
     echo $insert_pro;
   }
-  ?>
+?>
 </div>
 <form action="addProduct.php" method="post" enctype="multipart/form-data">
   <div class="titleForm">Thêm sản phẩm</div>

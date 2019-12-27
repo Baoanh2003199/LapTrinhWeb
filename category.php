@@ -13,7 +13,6 @@ $cat = new category();
     $catName = $getCatName->fetch_assoc();
 }
 ?>
-
 <!-- Main -->
 <div class="main">
   <div class="blockDiv">

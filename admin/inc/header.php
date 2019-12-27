@@ -3,7 +3,6 @@ include_once '../lib/session.php';
 Session::checkAdmin();
 ob_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

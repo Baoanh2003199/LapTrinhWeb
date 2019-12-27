@@ -5,6 +5,8 @@ include_once 'classes/cart.php';
 include_once 'classes/order.php';
 include_once 'classes/orderDetails.php';
 include_once 'classes/product.php';
+include_once 'classes/category.php';
+include_once 'classes/supplier.php';
 
 
 $ct = new cart();

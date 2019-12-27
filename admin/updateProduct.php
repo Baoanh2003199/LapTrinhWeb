@@ -4,7 +4,6 @@ include_once '../classes/product.php';
 include_once '../classes/supplier.php';
 include_once '../classes/category.php';
 ?>
-
 <?php
 if (!isset($_GET['ProductID']) || $_GET['ProductID'] == null) {
   // echo "<script>window.location='updateProduct.php'</script>";
